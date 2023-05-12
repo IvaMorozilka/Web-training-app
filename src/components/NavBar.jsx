@@ -1,13 +1,14 @@
 import React from 'react';
 import {Nav, Navbar} from "react-bootstrap/cjs";
 import Container from "react-bootstrap/cjs/Container";
-import {LANDING_ROUTE} from "../utils/consts";
+import {AUTH_ROUTE, LANDING_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
 import Button from "react-bootstrap/cjs/Button";
 import logo from "../assets/logo.svg";
+import "../styles/custom.css"
 
 const NavBar = () => {
     return (
-        <Navbar bg="light" variant="light" style={{zIndex: 1}} className="mx-1">
+        <Navbar style={{zIndex: 1}} className="mx-1 mt-3">
             <Container className="justify-content-between align-items-center">
                 <Navbar.Brand href={LANDING_ROUTE}>
                     <img
@@ -19,8 +20,8 @@ const NavBar = () => {
                 <Nav className="gap-3">
                     <Nav.Link href="#home">Контакты</Nav.Link>
                     <Nav.Link href="#features">О нас</Nav.Link>
-                    <Nav.Link href="#pricing">Войти</Nav.Link>
-                    <Button>Еще нет аккаунта?</Button>
+                    <Nav.Link href={AUTH_ROUTE}>Войти</Nav.Link>
+                    <Button href={REGISTRATION_ROUTE}> Еще нет аккаунта?</Button>
                 </Nav>
             </Container>
         </Navbar>

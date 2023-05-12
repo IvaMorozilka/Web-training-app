@@ -1,0 +1,29 @@
+/*Const*/
+:root {
+    --one-purple: #8859EC;
+    --two-purple: #7642ef;
+    --three-purple: #5131af;
+}
+/*---*/
+/*Primary button*/
+.btn-primary {
+    border: 1px solid var(--one-purple);
+    background-color: var(--one-purple);
+}
+.btn-primary:hover {
+    border: 1px solid var(--two-purple);
+    background-color: var(--two-purple);
+}
+.btn-primary:active:focus {
+    border: 1px solid var(--three-purple);
+    background-color: var(--three-purple);
+}
+/*----------------*/
+/*Nav link*/
+.nav-link {
+    color: #ffffff;
+}
+.nav-link:hover {
+    color: #bbacec
+}
+/*----------------*/
