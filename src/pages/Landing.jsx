@@ -10,7 +10,7 @@ import Image from "react-bootstrap/cjs/Image";
 
 const Landing = () => {
     return (
-        <div className="landing">
+        <Container fluid className="landing px-0 overflow-auto">
             <Container fluid className="d-flex flex-column justify-content-between h-100 px-0">
                 <Row>
                     <img
@@ -31,11 +31,11 @@ const Landing = () => {
                         />
                     </Col>
                 </Row>
-                <Row>
-                    <Image src={down} className="img-fluid w-100"/>
+                <Row className="none">
+                    <Image src={down} className="img-fluid"/>
                 </Row>
             </Container>
-        </div>
+        </Container>
     );
 };
 
