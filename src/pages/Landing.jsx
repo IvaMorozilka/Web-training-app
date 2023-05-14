@@ -1,5 +1,4 @@
 import React from 'react';
-import "../styles/landing.css"
 import Container from "react-bootstrap/cjs/Container";
 import up from "../assets/hero-bg-up.svg";
 import down from "../assets/hero-bg-down.svg";
@@ -19,14 +18,14 @@ const Landing = () => {
                         alt="up background"
                     />
                 </Row>
-                <Row className="landing-content">
+                <Row className="landing-content flex-wrap">
                     <Col className="landing-text my-auto">От новичка до профи: освой <span className="crypto-trading-text">крипто трейдинг</span> с нашей
                         платформой!
                     </Col>
                     <Col className="text-center">
                         <img
                             src={bitcoin}
-                            className="img-fluid"
+                            width="350px"
                             alt="bitcoin logo"
                         />
                     </Col>

@@ -4,7 +4,7 @@ import Container from "react-bootstrap/cjs/Container";
 import {AUTH_ROUTE, LANDING_ROUTE, REGISTRATION_ROUTE} from "../utils/consts";
 import Button from "react-bootstrap/cjs/Button";
 import logo from "../assets/logo.svg";
-import "../styles/custom.css"
+import "../styles/custom-bootstrap.css"
 
 const NavBar = () => {
     return (

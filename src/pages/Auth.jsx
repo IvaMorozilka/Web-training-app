@@ -2,16 +2,11 @@ import React from 'react';
 import Container from "react-bootstrap/cjs/Container";
 import Row from "react-bootstrap/cjs/Row";
 import up from "../assets/hero-bg-up.svg";
-import Col from "react-bootstrap/cjs/Col";
-import bitcoin from "../assets/bitcoin.svg";
 import Image from "react-bootstrap/cjs/Image";
 import down from "../assets/hero-bg-down.svg";
-import "../styles/auth.css"
 import {Form} from "react-bootstrap";
 import {REGISTRATION_ROUTE} from "../utils/consts";
 import Button from "react-bootstrap/cjs/Button";
-import {Nav} from "react-bootstrap/cjs";
-import FloatingLabel from "react-bootstrap/cjs/FloatingLabel";
 
 const Auth = () => {
     return (

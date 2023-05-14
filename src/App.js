@@ -1,6 +1,8 @@
 import {BrowserRouter} from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import NavBar from "./components/NavBar";
+import "./styles/styles.css";
+import "./styles/custom-bootstrap.css"
 
 function App() {
     return (

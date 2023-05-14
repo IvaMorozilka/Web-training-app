@@ -1,10 +1,12 @@
+/*Auth page*/
 .login-container {
     width: 430px;
-    padding: 0px 50px;
+    padding: 0 50px;
     height: 378px;
     border-radius: 8px;
-    box-shadow: 0px 0px 39px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 39px 25px rgba(0, 0, 0, 0.1);
 }
+
 .login-text {
     font-size: 60px;
     font-weight: 800;
@@ -13,6 +15,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
 .input {
     color: white;
     height: 48px;
@@ -20,36 +23,79 @@
     border: 2px solid #8859EC;
     border-radius: 8px;
 }
+
 .input:focus {
-    color:white;
-   background:none;
+    color: white;
+    background: none;
 }
+
 .form-check-label {
     color: white;
     font-size: 12px;
 }
+
 .form-check-input {
     width: 18px;
     height: 18px;
     border-color: #8859EC;
     background: none;
 }
+
 .form-check-input:checked {
     background-color: #8859EC;
 }
+
 a {
     text-decoration: none;
     color: white;
     cursor: pointer;
     font-size: 12px;
 }
+
 .form-button {
     height: 48px;
 }
-.form-button:last-of-type{
+
+.form-button:last-of-type {
     background: none;
     border: 2px solid #8859EC;
 }
-.form-button:last-of-type:hover{
+
+.form-button:last-of-type:hover {
     background: rgba(136, 89, 236, 0.1);
 }
+
+/*---------------------------*/
+/*Landing page*/
+.landing {
+    overflow-x: hidden !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, #002c6a, #002458, #001b47, #011337, #000627);
+}
+
+.landing-text {
+    color: white;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.landing-content {
+    padding: 0 106px;
+}
+
+.crypto-trading-text {
+    background: linear-gradient(89.03deg, #2C66B8 0.54%, #8859EC 97.66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+.down {
+    background-color: #8859EC;
+}
+/*----------------------------*/
