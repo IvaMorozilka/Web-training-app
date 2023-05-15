@@ -33,31 +33,59 @@ const Registration = () => {
                                     <Form.Control className="reg-input" type="text" placeholder="Имя"/>
                                 </FloatingLabel>
                             </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <FloatingLabel
+                                    controlId="floatingInput"
+                                    label="Имя"
+                                >
+                                    <Form.Control className="reg-input" type="text" placeholder="Имя"/>
+                                </FloatingLabel>
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <FloatingLabel
+                                    controlId="floatingInput"
+                                    label="Имя"
+                                >
+                                    <Form.Control className="reg-input" type="text" placeholder="Имя"/>
+                                </FloatingLabel>
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <FloatingLabel
+                                    controlId="floatingInput"
+                                    label="Имя"
+                                >
+                                    <Form.Control className="reg-input" type="text" placeholder="Имя"/>
+                                </FloatingLabel>
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <FloatingLabel
+                                    controlId="floatingInput"
+                                    label="Имя"
+                                >
+                                    <Form.Control className="reg-input" type="text" placeholder="Имя"/>
+                                </FloatingLabel>
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <FloatingLabel
+                                    controlId="floatingInput"
+                                    label="Имя"
+                                >
+                                    <Form.Control className="reg-input" type="text" placeholder="Имя"/>
+                                </FloatingLabel>
+                            </Form.Group>
+                            <Form.Group className="mb-3" controlId="formBasicEmail">
+                                <FloatingLabel
+                                    controlId="floatingInput"
+                                    label="Имя"
+                                >
+                                    <Form.Control className="reg-input" type="text" placeholder="Имя"/>
+                                </FloatingLabel>
+                            </Form.Group>
 
-
-
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="reg input" type="text" placeholder="Фамилия"/>
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="reg input" type="text" placeholder="Отчество"/>
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="reg input" type="text" placeholder="Придумайте логин"/>
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="reg input" type="text" placeholder="Придумайте пароль"/>
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="reg input" type="text" placeholder="Повторите пароль"/>
-                            </Form.Group>
-                            <Form.Group className="mb-3" controlId="formBasicEmail">
-                                <Form.Control className="reg input" type="text"
-                                              placeholder="Номер мобильного телефона"/>
-                            </Form.Group>
                             <Form.Group className="d-flex flex-column justify-content-between gap-1 mb-2"
                                         controlId="formButton">
                                 <Button className="reg-btn">Зарегистрироваться</Button>
+                                <Button className="btn-success">Hello</Button>
                             </Form.Group>
                         </Container>
                     </Form>
