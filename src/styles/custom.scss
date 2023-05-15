@@ -1,3 +1,5 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
 //Floating labels
 $form-floating-line-height: 1.25;
 $form-floating-padding-x: 0.5rem;
@@ -7,5 +9,4 @@ $form-floating-input-padding-b: .625rem;
 $form-floating-label-opacity: .8;
 //----------------------------
 
-@import '../../node_modules/bootstrap/scss/bootstrap';
-$primary: $indigo-200;
+@import 'bootstrap/scss/bootstrap';
