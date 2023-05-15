@@ -10,7 +10,7 @@ import Button from "react-bootstrap/cjs/Button";
 
 const Auth = () => {
     return (
-        <Container fluid className="landing px-0 overflow-auto">
+        <Container fluid className="background px-0 overflow-auto">
             <Container fluid className="d-flex flex-column justify-content-between h-100 px-0">
                 <Row>
                     <img
@@ -19,7 +19,7 @@ const Auth = () => {
                         alt="up background"
                     />
                 </Row>
-                <Row className="landing-content justify-content-center mt-4 ">
+                <Row className="content justify-content-center mt-4 ">
                     <Form className="login-container d-flex flex-column justify-content-around">
 
                         <div className="login-text text-center">Войти</div>
@@ -36,8 +36,8 @@ const Auth = () => {
                         </Form.Group>
 
                         <Form.Group className="d-flex flex-column justify-content-between gap-1 mb-2" controlId="formButtons">
-                            <Button className="form-button">Войти</Button>
-                            <Button className="form-button">Создать аккаунт</Button>
+                            <Button className="auth-btn">Войти</Button>
+                            <Button className="auth-btn">Создать аккаунт</Button>
                         </Form.Group>
                     </Form>
                 </Row>

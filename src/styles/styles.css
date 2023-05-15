@@ -8,8 +8,9 @@
 }
 
 .login-text {
-    font-size: 60px;
     font-weight: 800;
+    font-size: 60px;
+    line-height: 130%;
     background: linear-gradient(89.03deg, #2C66B8 0.54%, #8859EC 97.66%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -52,22 +53,22 @@ a {
     font-size: 12px;
 }
 
-.form-button {
+.auth-btn {
     height: 48px;
 }
 
-.form-button:last-of-type {
+.auth-btn:last-of-type {
     background: none;
     border: 2px solid #8859EC;
 }
 
-.form-button:last-of-type:hover {
+.auth-btn:last-of-type:hover {
     background: rgba(136, 89, 236, 0.1);
 }
 
 /*---------------------------*/
 /*Landing page*/
-.landing {
+.background {
     overflow-x: hidden !important;
     position: absolute;
     top: 0;
@@ -83,7 +84,7 @@ a {
     font-weight: 600;
 }
 
-.landing-content {
+.content {
     padding: 0 106px;
 }
 
@@ -99,3 +100,32 @@ a {
     background-color: #8859EC;
 }
 /*----------------------------*/
+/*Registration page*/
+.reg-text {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 130%;
+    background: linear-gradient(89.03deg, #2C66B8 0.54%, #8859EC 97.66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.reg-container {
+    width: 507px;
+    height: 581px;
+    border: 1px solid rgba(0, 0, 0, 0.01);
+    box-shadow: 0 0 39px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.reg-input {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 3px solid #A07AF0;
+    color: white;
+}
+.reg-input:focus{
+    box-shadow: none;
+    color: white;
+    background: transparent;
+}

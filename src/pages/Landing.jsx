@@ -9,7 +9,7 @@ import Image from "react-bootstrap/cjs/Image";
 
 const Landing = () => {
     return (
-        <Container fluid className="landing px-0 overflow-auto">
+        <Container fluid className="background px-0 overflow-auto">
             <Container fluid className="d-flex flex-column justify-content-between h-100 px-0">
                 <Row>
                     <img
@@ -18,7 +18,7 @@ const Landing = () => {
                         alt="up background"
                     />
                 </Row>
-                <Row className="landing-content flex-wrap">
+                <Row className="content flex-wrap">
                     <Col className="landing-text my-auto">От новичка до профи: освой <span className="crypto-trading-text">крипто трейдинг</span> с нашей
                         платформой!
                     </Col>
