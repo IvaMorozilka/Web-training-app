@@ -15,7 +15,12 @@ const Registration = () => {
     function handleClick() {
         try {
             console.log(Object.keys(regData).length);
+<<<<<<< HEAD
         } catch (e) {
+=======
+        }
+        catch (e) {
+>>>>>>> sass
             console.log(e.value);
         }
 
@@ -94,7 +99,11 @@ const Registration = () => {
 
                     <Form.Group className="d-flex flex-column justify-content-between gap-1 mb-2"
                                 controlId="formButton">
+<<<<<<< HEAD
                         <Button className="reg-btn text-white" onClick={handleClick}>Зарегистрироваться</Button>
+=======
+                        <Button className="reg-btn" onClick={handleClick}>Зарегистрироваться</Button>
+>>>>>>> sass
                     </Form.Group>
                 </Container>
             </Form>

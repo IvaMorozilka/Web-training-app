@@ -8,23 +8,25 @@ import "../styles/custom-bootstrap.css"
 
 const NavBar = () => {
     return (
-        <Navbar style={{zIndex: 1}} className="mx-1 mt-3">
-            <Container className="justify-content-between align-items-center">
-                <Navbar.Brand href={LANDING_ROUTE}>
-                    <img
-                        src={logo}
-                        width="99"
-                        height="26"
-                        alt="Logo"/>
-                </Navbar.Brand>
-                <Nav className="gap-3">
-                    <Nav.Link href="#home">Контакты</Nav.Link>
-                    <Nav.Link href="#features">О нас</Nav.Link>
-                    <Nav.Link href={AUTH_ROUTE}>Войти</Nav.Link>
-                    <Button href={REGISTRATION_ROUTE}> Еще нет аккаунта?</Button>
-                </Nav>
-            </Container>
-        </Navbar>
+        <Container fluid className="navbar-background">
+            <Navbar className="mx-1 pt-4">
+                <Container className="justify-content-between align-items-center">
+                    <Navbar.Brand href={LANDING_ROUTE}>
+                        <img
+                            src={logo}
+                            width="99"
+                            height="26"
+                            alt="Logo"/>
+                    </Navbar.Brand>
+                    <Nav className="gap-3">
+                        <Nav.Link href="#home">Контакты</Nav.Link>
+                        <Nav.Link href="#features">О нас</Nav.Link>
+                        <Nav.Link href={AUTH_ROUTE}>Войти</Nav.Link>
+                        <Button href={REGISTRATION_ROUTE} className="text-white"> Еще нет аккаунта?</Button>
+                    </Nav>
+                </Container>
+            </Navbar>
+        </Container>
     );
 };
 

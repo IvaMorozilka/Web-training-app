@@ -69,12 +69,6 @@ a {
 /*---------------------------*/
 /*Landing page*/
 .background {
-    overflow-x: hidden !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
     background: radial-gradient(circle, #002c6a, #002458, #001b47, #011337, #000627);
 }
 
@@ -128,4 +122,20 @@ a {
     box-shadow: none;
     color: white;
     background: transparent;
+}
+.reg-btn {
+    margin: 0 40px;
+    padding: 15px 0;
+}
+/*NavBar*/
+.navbar-background {
+    background-image: url("../assets/hero-bg-up.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 9.5rem;
+}
+/*Waves*/
+.waves {
+    transform: translateY(30px);
 }
