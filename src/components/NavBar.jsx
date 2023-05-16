@@ -22,7 +22,7 @@ const NavBar = () => {
                         <Nav.Link href="#home">Контакты</Nav.Link>
                         <Nav.Link href="#features">О нас</Nav.Link>
                         <Nav.Link href={AUTH_ROUTE}>Войти</Nav.Link>
-                        <Button href={REGISTRATION_ROUTE}> Еще нет аккаунта?</Button>
+                        <Button href={REGISTRATION_ROUTE} className="text-white"> Еще нет аккаунта?</Button>
                     </Nav>
                 </Container>
             </Navbar>

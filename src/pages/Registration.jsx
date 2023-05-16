@@ -28,92 +28,82 @@ const Registration = () => {
     }
 
     return (
-        <Container fluid className="px-0 overflow-auto">
-            <Container fluid className="d-flex flex-column justify-content-between h-100 px-0">
-                <Row className="content justify-content-center mt-4 ">
-                    <Form className="reg-container d-flex flex-column justify-content-around">
-                        <div className="reg-text text-center">Регистрация</div>
-                        <Container>
+        <Container fluid className="justify-content-center mt-5">
+            <Form className="reg-container d-flex flex-column justify-content-around mx-auto">
+                <div className="reg-text text-center">Регистрация</div>
+                <Container>
+                    <Form.Group className="mb-1" controlId="name">
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Имя"
+                        >
+                            <Form.Control className="reg-input" type="text" placeholder="Имя"
+                                          onChange={(e) => handleChange("name", e.target.value)}/>
+                        </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className="mb-1" controlId="surname">
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Фамилия"
+                        >
+                            <Form.Control className="reg-input" type="text" placeholder="Фамилия"
+                                          onChange={(e) => handleChange("surname", e.target.value)}/>
+                        </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className="mb-1" controlId="patronymic">
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Отчество"
+                        >
+                            <Form.Control className="reg-input" type="text" placeholder="Отчество"
+                                          onChange={(e) => handleChange("patronymic", e.target.value)}/>
+                        </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className="mb-1" controlId="login">
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Придумайте логин"
+                        >
+                            <Form.Control className="reg-input" type="text" placeholder="Придумайте логин"
+                                          onChange={(e) => handleChange("login", e.target.value)}/>
+                        </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className="mb-1" controlId="password">
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Придумайте пароль"
+                        >
+                            <Form.Control className="reg-input" type="password"
+                                          placeholder="Придумайте пароль"
+                                          onChange={(e) => handleChange("password", e.target.value)}/>
+                        </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className="mb-1" controlId="rep-password">
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Повторите пароль"
+                        >
+                            <Form.Control className="reg-input" type="password" placeholder="Повторите пароль"
+                                          onChange={(e) => handleChange("rep-password", e.target.value)}/>
+                        </FloatingLabel>
+                    </Form.Group>
+                    <Form.Group className="mb-4" controlId="phone">
+                        <FloatingLabel
+                            controlId="floatingInput"
+                            label="Номер мобильного телефона"
+                        >
+                            <Form.Control className="reg-input" type="phone"
+                                          placeholder="Номер мобильного телефона"
+                                          onChange={(e) => handleChange("phone", e.target.value)}/>
+                        </FloatingLabel>
+                    </Form.Group>
 
-                            <Form.Group className="mb-1" controlId="name">
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Имя"
-                                >
-                                    <Form.Control className="reg-input" type="text" placeholder="Имя"
-                                                  onChange={(e) => handleChange("name", e.target.value)}/>
-                                </FloatingLabel>
-                            </Form.Group>
-                            <Form.Group className="mb-1" controlId="surname">
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Фамилия"
-                                >
-                                    <Form.Control className="reg-input" type="text" placeholder="Фамилия"
-                                                  onChange={(e) => handleChange("surname", e.target.value)}/>
-                                </FloatingLabel>
-                            </Form.Group>
-                            <Form.Group className="mb-1" controlId="patronymic">
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Отчество"
-                                >
-                                    <Form.Control className="reg-input" type="text" placeholder="Отчество"
-                                                  onChange={(e) => handleChange("patronymic", e.target.value)}/>
-                                </FloatingLabel>
-                            </Form.Group>
-                            <Form.Group className="mb-1" controlId="login">
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Придумайте логин"
-                                >
-                                    <Form.Control className="reg-input" type="text" placeholder="Придумайте логин"
-                                                  onChange={(e) => handleChange("login", e.target.value)}/>
-                                </FloatingLabel>
-                            </Form.Group>
-                            <Form.Group className="mb-1" controlId="password">
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Придумайте пароль"
-                                >
-                                    <Form.Control className="reg-input" type="password"
-                                                  placeholder="Придумайте пароль"
-                                                  onChange={(e) => handleChange("password", e.target.value)}/>
-                                </FloatingLabel>
-                            </Form.Group>
-                            <Form.Group className="mb-1" controlId="rep-password">
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Повторите пароль"
-                                >
-                                    <Form.Control className="reg-input" type="password" placeholder="Повторите пароль"
-                                                  onChange={(e) => handleChange("rep-password", e.target.value)}/>
-                                </FloatingLabel>
-                            </Form.Group>
-                            <Form.Group className="mb-4" controlId="phone">
-                                <FloatingLabel
-                                    controlId="floatingInput"
-                                    label="Номер мобильного телефона"
-                                >
-                                    <Form.Control className="reg-input" type="phone"
-                                                  placeholder="Номер мобильного телефона"
-                                                  onChange={(e) => handleChange("phone", e.target.value)}/>
-                                </FloatingLabel>
-                            </Form.Group>
-
-                            <Form.Group className="d-flex flex-column justify-content-between gap-1 mb-2"
-                                        controlId="formButton">
-                                <Button className="reg-btn" onClick={handleClick}>Зарегистрироваться</Button>
-                            </Form.Group>
-                        </Container>
-                    </Form>
-                </Row>
-                <Row className="none">
-                    <Image src={down}
-                           className="img-fluid"
-                    />
-                </Row>
-            </Container>
+                    <Form.Group className="d-flex flex-column justify-content-between gap-1 mb-2"
+                                controlId="formButton">
+                        <Button className="reg-btn" onClick={handleClick}>Зарегистрироваться</Button>
+                    </Form.Group>
+                </Container>
+            </Form>
         </Container>
     );
 };

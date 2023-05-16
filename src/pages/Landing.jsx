@@ -8,7 +8,7 @@ import Image from "react-bootstrap/cjs/Image";
 const Landing = () => {
     return (
         <Container fluid>
-            <Row className="content flex-wrap px-auto">
+            <Row className="content flex-wrap">
                 <Col className="landing-text my-auto">От новичка до профи: освой <span className="crypto-trading-text">крипто трейдинг</span> с
                     нашей
                     платформой!

@@ -133,13 +133,9 @@ a {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    height: 100px;
+    height: 9.5rem;
 }
 /*Waves*/
 .waves {
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: url("../assets/hero-bg-down.svg");
-    height: 315px;
+    transform: translateY(30px);
 }
