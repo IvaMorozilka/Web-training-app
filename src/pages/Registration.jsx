@@ -7,7 +7,7 @@ import FloatingLabel from "react-bootstrap/cjs/FloatingLabel";
 const Registration = () => {
     const [regData, setRegData] = useState(null);
 
-    function handleChange(key, value) {
+    function handleInputsChange(key, value) {
         setRegData({...regData, [key]: value})
         console.log(regData);
     }
@@ -15,12 +15,7 @@ const Registration = () => {
     function handleClick() {
         try {
             console.log(Object.keys(regData).length);
-<<<<<<< HEAD
         } catch (e) {
-=======
-        }
-        catch (e) {
->>>>>>> sass
             console.log(e.value);
         }
 
@@ -37,7 +32,7 @@ const Registration = () => {
                             label="Имя"
                         >
                             <Form.Control className="reg-input" type="text" placeholder="Имя"
-                                          onChange={(e) => handleChange("name", e.target.value)}/>
+                                          onChange={(e) => handleInputsChange("name", e.target.value)}/>
                         </FloatingLabel>
                     </Form.Group>
                     <Form.Group className="mb-1" controlId="surname">
@@ -46,7 +41,7 @@ const Registration = () => {
                             label="Фамилия"
                         >
                             <Form.Control className="reg-input" type="text" placeholder="Фамилия"
-                                          onChange={(e) => handleChange("surname", e.target.value)}/>
+                                          onChange={(e) => handleInputsChange("surname", e.target.value)}/>
                         </FloatingLabel>
                     </Form.Group>
                     <Form.Group className="mb-1" controlId="patronymic">
@@ -55,7 +50,7 @@ const Registration = () => {
                             label="Отчество"
                         >
                             <Form.Control className="reg-input" type="text" placeholder="Отчество"
-                                          onChange={(e) => handleChange("patronymic", e.target.value)}/>
+                                          onChange={(e) => handleInputsChange("patronymic", e.target.value)}/>
                         </FloatingLabel>
                     </Form.Group>
                     <Form.Group className="mb-1" controlId="login">
@@ -64,7 +59,7 @@ const Registration = () => {
                             label="Придумайте логин"
                         >
                             <Form.Control className="reg-input" type="text" placeholder="Придумайте логин"
-                                          onChange={(e) => handleChange("login", e.target.value)}/>
+                                          onChange={(e) => handleInputsChange("login", e.target.value)}/>
                         </FloatingLabel>
                     </Form.Group>
                     <Form.Group className="mb-1" controlId="password">
@@ -74,7 +69,7 @@ const Registration = () => {
                         >
                             <Form.Control className="reg-input" type="password"
                                           placeholder="Придумайте пароль"
-                                          onChange={(e) => handleChange("password", e.target.value)}/>
+                                          onChange={(e) => handleInputsChange("password", e.target.value)}/>
                         </FloatingLabel>
                     </Form.Group>
                     <Form.Group className="mb-1" controlId="rep-password">
@@ -83,7 +78,7 @@ const Registration = () => {
                             label="Повторите пароль"
                         >
                             <Form.Control className="reg-input" type="password" placeholder="Повторите пароль"
-                                          onChange={(e) => handleChange("rep-password", e.target.value)}/>
+                                          onChange={(e) => handleInputsChange("rep-password", e.target.value)}/>
                         </FloatingLabel>
                     </Form.Group>
                     <Form.Group className="mb-4" controlId="phone">
@@ -93,22 +88,14 @@ const Registration = () => {
                         >
                             <Form.Control className="reg-input" type="phone"
                                           placeholder="Номер мобильного телефона"
-                                          onChange={(e) => handleChange("phone", e.target.value)}/>
+                                          onChange={(e) => handleInputsChange("phone", e.target.value)}/>
                         </FloatingLabel>
-                    </Form.Group>
-
-                    <Form.Group className="d-flex flex-column justify-content-between gap-1 mb-2"
-                                controlId="formButton">
-<<<<<<< HEAD
-                        <Button className="reg-btn text-white" onClick={handleClick}>Зарегистрироваться</Button>
-=======
-                        <Button className="reg-btn" onClick={handleClick}>Зарегистрироваться</Button>
->>>>>>> sass
+                        <Button className="reg-btn white-text" onClick={handleClick}>Зарегистрироваться</Button>
                     </Form.Group>
                 </Container>
             </Form>
-        </Container>
-    );
-};
+        </Container>);
+
+}
 
 export default Registration;
