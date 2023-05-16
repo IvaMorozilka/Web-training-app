@@ -28,15 +28,8 @@ const Registration = () => {
     }
 
     return (
-        <Container fluid className="background px-0 overflow-auto">
+        <Container fluid className="px-0 overflow-auto">
             <Container fluid className="d-flex flex-column justify-content-between h-100 px-0">
-                <Row>
-                    <Image
-                        src={up}
-                        className="img-fluid w-100"
-                        alt="up background"
-                    />
-                </Row>
                 <Row className="content justify-content-center mt-4 ">
                     <Form className="reg-container d-flex flex-column justify-content-around">
                         <div className="reg-text text-center">Регистрация</div>
