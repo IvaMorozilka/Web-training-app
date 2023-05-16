@@ -18,6 +18,9 @@
 /*    border: 1px solid var(--three-purple);*/
 /*    background-color: var(--three-purple);*/
 /*}*/
+.btn-primary {
+    color: white;
+}
 /*----------------*/
 /*Nav link*/
 .nav-link {
