@@ -24,7 +24,7 @@ const Registration = () => {
     return (
         <Container fluid className="justify-content-center mt-5">
             <Form className="reg-container d-flex flex-column justify-content-around mx-auto">
-                <div className="reg-text text-center">Регистрация</div>
+                <div className="reg-text text-center mt-1">Регистрация</div>
                 <Container>
                     <Form.Group className="mb-1" controlId="name">
                         <FloatingLabel
@@ -90,9 +90,10 @@ const Registration = () => {
                                           placeholder="Номер мобильного телефона"
                                           onChange={(e) => handleInputsChange("phone", e.target.value)}/>
                         </FloatingLabel>
-                        <Button className="reg-btn white-text" onClick={handleClick}>Зарегистрироваться</Button>
+
                     </Form.Group>
                 </Container>
+                <Button className="reg-btn text-white mb-3" onClick={handleClick}>Зарегистрироваться</Button>
             </Form>
         </Container>);
 
