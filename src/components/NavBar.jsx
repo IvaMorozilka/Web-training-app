@@ -24,7 +24,7 @@ const NavBar = (props) => {
           sx={{ boxShadow: "none" }}
         >
           <Toolbar sx={{ justifyContent: "space-around" }}>
-            <img src={logo} />
+            <a href="/"><img src={logo} style={{cursor: 'pointer'}} /></a>
             <Box sx={{ display: "flex", gap: "15px" }}>
               <Button
                 href="/"

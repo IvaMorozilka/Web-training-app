@@ -1,12 +1,4 @@
 /*Auth page*/
-.login-container {
-  /* width: 430px;
-    padding: 0 50px;
-    height: 378px;
-    border-radius: 8px; */
-  box-shadow: 0 0 39px 25px rgba(0, 0, 0, 0.1);
-}
-
 .login-text {
   font-weight: 800;
   font-size: 60px;
@@ -103,18 +95,14 @@ a {
 }
 /*----------------------------*/
 /*Registration page*/
-.reg-text {
-  font-weight: 800;
-  font-size: 40px;
+.gradient-text {
   line-height: 130%;
   background: linear-gradient(89.03deg, #2c66b8 0.54%, #8859ec 97.66%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
-.reg-container {
-  width: 507px;
-  height: 581px;
+.form-container {
   border: 1px solid rgba(0, 0, 0, 0.01);
   box-shadow: 0 0 39px 25px rgba(0, 0, 0, 0.1);
   border-radius: 8px;

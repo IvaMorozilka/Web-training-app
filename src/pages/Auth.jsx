@@ -17,18 +17,17 @@ const Auth = () => {
       <Box
         width="420px"
         height="430px"
-        className="login-container"
-        borderRadius="8px"
         display="flex"
         flexDirection="column"
         alignItems="center"
         px="10px"
+        className = "form-container"
       >
         <Typography
-          mt="20px"
+          mt="10px"
           fontSize="60px"
           fontWeight="700"
-          className="login-text"
+          className="gradient-text"
         >
           Войти
         </Typography>

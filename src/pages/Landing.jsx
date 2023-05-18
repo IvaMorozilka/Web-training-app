@@ -7,7 +7,7 @@ const Landing = () => {
     return (
         <Container maxWidth='xl'>
             <Grid container spacing={2} alignItems='center' justifyContent='center'>
-                <Grid item xl={6} className="landing-text" sx = {{textAlign: {lg: 'center', xl: 'left'}}}>От новичка до профи: освой <span
+                <Grid item xl={6} className="landing-text" sx = {{textAlign: {xs: 'center', xl: 'left'}}}>От новичка до профи: освой <span
                     className="crypto-trading-text">крипто трейдинг</span> с
                     нашей
                     платформой!
