@@ -81,10 +81,8 @@ video {
     vertical-align: baseline;
     background: transparent;
 }
-
-body {
+html, body {
     height: 100%;
-    line-height: 1;
 }
 
 article,

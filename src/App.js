@@ -15,12 +15,10 @@ function App() {
           sx={{
             background:
               "radial-gradient(circle, #002c6a, #002458, #001b47, #011337, #000627)",
-            width: "100vw",
-            height: "100vh",
-            overflow: "auto",
+            height: '100%',
           }}
         >
-          <NavBar mb = '75px'/>
+          <NavBar mb = '100px'/>
           <Box
             height="100%"
             width="100%"

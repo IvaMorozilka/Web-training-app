@@ -5,7 +5,7 @@ import {Box, Container, Grid} from "@mui/material";
 
 const Landing = () => {
     return (
-        <Container maxWidth='xl'>
+        <Container maxWidth='xl' sx = {{mb: '50px'}}>
             <Grid container spacing={2} alignItems='center' justifyContent='center'>
                 <Grid item xl={6} className="landing-text" sx = {{textAlign: {xs: 'center', xl: 'left'}}}>От новичка до профи: освой <span
                     className="crypto-trading-text">крипто трейдинг</span> с
@@ -14,7 +14,7 @@ const Landing = () => {
                 </Grid>
                 <Grid item xl={6} display='flex' justifyContent='center'>
                     <Box component='img'
-                         sx={{width: '350px'}}
+                         sx={{width: '350px', height: '350px'}}
                          src={bitcoin}
                          alt="Bitcoin">
                     </Box>
