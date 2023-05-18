@@ -1,26 +1,25 @@
 import React from 'react';
-import Container from "react-bootstrap/cjs/Container";
 import bitcoin from "../assets/bitcoin.svg";
-import Row from "react-bootstrap/cjs/Row";
-import Col from "react-bootstrap/cjs/Col";
-import Image from "react-bootstrap/cjs/Image";
+import {Box, Container, Grid} from "@mui/material";
+
 
 const Landing = () => {
     return (
-        <Container fluid>
-            <Row className="content flex-wrap">
-                <Col className="landing-text my-auto">От новичка до профи: освой <span className="crypto-trading-text">крипто трейдинг</span> с
+        <Container maxWidth='xl'>
+            <Grid container spacing={2} alignItems='center' justifyContent='center'>
+                <Grid item xl={6} className="landing-text" sx = {{textAlign: {lg: 'center', xl: 'left'}}}>От новичка до профи: освой <span
+                    className="crypto-trading-text">крипто трейдинг</span> с
                     нашей
                     платформой!
-                </Col>
-                <Col className="text-center">
-                    <Image
-                        src={bitcoin}
-                        width="350px"
-                        alt="bitcoin logo"
-                    />
-                </Col>
-            </Row>
+                </Grid>
+                <Grid item xl={6} display='flex' justifyContent='center'>
+                    <Box component='img'
+                         sx={{width: '350px'}}
+                         src={bitcoin}
+                         alt="Bitcoin">
+                    </Box>
+                </Grid>
+            </Grid>
         </Container>
     );
 };

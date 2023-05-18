@@ -1,141 +1,166 @@
 /*Auth page*/
 .login-container {
-    width: 430px;
+  /* width: 430px;
     padding: 0 50px;
     height: 378px;
-    border-radius: 8px;
-    box-shadow: 0 0 39px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 8px; */
+  box-shadow: 0 0 39px 25px rgba(0, 0, 0, 0.1);
 }
 
 .login-text {
-    font-weight: 800;
-    font-size: 60px;
-    line-height: 130%;
-    background: linear-gradient(89.03deg, #2C66B8 0.54%, #8859EC 97.66%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 130%;
+  background: linear-gradient(89.03deg, #2c66b8 0.54%, #8859ec 97.66%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .input {
-    color: white;
-    height: 48px;
-    background: none;
-    border: 2px solid #8859EC;
-    border-radius: 8px;
+  color: white;
+  height: 48px;
+  background: none;
+  border: 2px solid #8859ec;
+  border-radius: 8px;
 }
 
 .input:focus {
-    color: white;
-    background: none;
+  color: white;
+  background: none;
 }
 
 .form-check-label {
-    color: white;
-    font-size: 12px;
+  color: white;
+  font-size: 12px;
 }
 
 .form-check-input {
-    width: 18px;
-    height: 18px;
-    border-color: #8859EC;
-    background: none;
+  width: 18px;
+  height: 18px;
+  border-color: #8859ec;
+  background: none;
 }
 
 .form-check-input:checked {
-    background-color: #8859EC;
+  background-color: #8859ec;
 }
 
 a {
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-    font-size: 12px;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  font-size: 12px;
 }
 
 .auth-btn {
-    height: 48px;
+  height: 48px;
 }
 
 .auth-btn:last-of-type {
-    background: none;
-    border: 2px solid #8859EC;
+  background: none;
+  border: 2px solid #8859ec;
 }
 
 .auth-btn:last-of-type:hover {
-    background: rgba(136, 89, 236, 0.1);
+  background: rgba(136, 89, 236, 0.1);
 }
 
 /*---------------------------*/
 /*Landing page*/
 .background {
-    background: radial-gradient(circle, #002c6a, #002458, #001b47, #011337, #000627);
+  background: radial-gradient(
+    circle,
+    #002c6a,
+    #002458,
+    #001b47,
+    #011337,
+    #000627
+  );
 }
 
 .landing-text {
-    color: white;
-    font-size: 50px;
-    font-weight: 600;
+  color: white;
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 130%;
 }
 
 .content {
-    padding: 0 106px;
+  padding: 0 106px;
 }
 
 .crypto-trading-text {
-    background: linear-gradient(89.03deg, #2C66B8 0.54%, #8859EC 97.66%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 700;
+  background: linear-gradient(89.03deg, #2c66b8 0.54%, #8859ec 97.66%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
 }
 
 .down {
-    background-color: #8859EC;
+  background-color: #8859ec;
 }
 /*----------------------------*/
 /*Registration page*/
 .reg-text {
-    font-weight: 800;
-    font-size: 40px;
-    line-height: 130%;
-    background: linear-gradient(89.03deg, #2C66B8 0.54%, #8859EC 97.66%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 130%;
+  background: linear-gradient(89.03deg, #2c66b8 0.54%, #8859ec 97.66%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .reg-container {
-    width: 507px;
-    height: 581px;
-    border: 1px solid rgba(0, 0, 0, 0.01);
-    box-shadow: 0 0 39px 25px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+  width: 507px;
+  height: 581px;
+  border: 1px solid rgba(0, 0, 0, 0.01);
+  box-shadow: 0 0 39px 25px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
 .reg-input {
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    border-bottom: 3px solid #A07AF0;
-    color: white;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 3px solid #a07af0;
+  color: white;
 }
-.reg-input:focus{
-    box-shadow: none;
-    color: white;
-    background: transparent;
+.reg-input:focus {
+  box-shadow: none;
+  color: white;
+  background: transparent;
 }
 .reg-btn {
-    margin: 0 40px;
-    padding: 15px 0;
+  margin: 0 40px;
+  padding: 15px 0;
 }
 /*NavBar*/
 .navbar-background {
-    background-image: url("../assets/hero-bg-up.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 9.5rem;
+  background-image: url("../assets/hero-bg-up.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.footer-background {
+  background-image: url("../assets/hero-bg-down.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 /*Waves*/
 .waves {
-    transform: translateY(30px);
+  transform: translateY(30px); 
+}
+
+.MuiInputLabel-root {
+  color: #8759ec9a !important;
+  font-weight: 600 !important;
+}
+.MuiOutlinedInput-input {
+  color: white !important;
+}
+.MuiOutlinedInput-notchedOutline {
+  border: 2px solid #8859ec !important;
+  border-radius: 8px !important;
 }

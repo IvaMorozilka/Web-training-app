@@ -1,24 +1,43 @@
-import {BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import NavBar from "./components/NavBar";
 import "./styles/styles.css";
-import "./styles/custom-bootstrap.css"
-import down from "./assets/hero-bg-down.svg"
-import Image from "react-bootstrap/cjs/Image";
-import Container from "react-bootstrap/cjs/Container";
+import down from "./assets/hero-bg-down.svg";
+
+import { Box, Grid, ThemeProvider } from "@mui/material";
+import { customTheme } from "./mui/custom-theme";
 
 function App() {
-    return (
-        <BrowserRouter>
-            <div className = "background vh-100 vw-100 d-flex flex-column justify-content-between">
-                <NavBar/>
-                <AppRouter/>
-                <Container fluid className="px-0 overflow-hidden">
-                    <Image src={down} className="w-100 waves" alt="down"/>
-                </Container>
-            </div>
-        </BrowserRouter>
-    );
+  return (
+    <ThemeProvider theme={customTheme}>
+      <BrowserRouter>
+        <Box
+          sx={{
+            background:
+              "radial-gradient(circle, #002c6a, #002458, #001b47, #011337, #000627)",
+            width: "100vw",
+            height: "100vh",
+            overflow: "auto",
+          }}
+        >
+          <NavBar mb = '75px'/>
+          <Box
+            height="100%"
+            width="100%"
+            display="flex"
+            justifyContent="space-around"
+            flexDirection="column"
+          >
+            <AppRouter />
+            <Box
+              className="footer-background"
+              sx={{ width: "100%", height: "400px", marginTop: 'auto'}}
+            />
+          </Box>
+        </Box>
+      </BrowserRouter>
+    </ThemeProvider>
+  );
 }
 
 export default App;
