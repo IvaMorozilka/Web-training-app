@@ -16,6 +16,7 @@ function App() {
             background:
               "radial-gradient(circle, #002c6a, #002458, #001b47, #011337, #000627)",
             height: '100%',
+            width: '100%'
           }}
         >
           <NavBar mb = '100px'/>

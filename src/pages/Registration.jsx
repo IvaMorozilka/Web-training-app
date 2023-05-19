@@ -1,5 +1,29 @@
-import { Container, Box, Typography, TextField } from "@mui/material";
+import styled from "@emotion/styled";
+import {
+  Container,
+  Box,
+  Typography,
+  TextField,
+  Grid,
+  Button,
+} from "@mui/material";
 import React, { useState } from "react";
+
+const MyTextField = styled(TextField)({
+  "&& .MuiInput-root:hover::before": {
+    borderColor: "#A07AF0",
+  },
+  "&& .MuiInput-root": {
+    color: "white",
+  },
+  "&& .MuiInput-root::before": {
+    borderColor: "#A07AF0",
+  },
+  ".MuiInputLabel-root": {
+    color: "#806FA6 !important",
+    fontWeight: "500 !important",
+  },
+});
 
 const Registration = () => {
   const [regData, setRegData] = useState(null);
@@ -21,10 +45,11 @@ const Registration = () => {
     <Container sx={{ display: "flex", justifyContent: "center" }}>
       <Box
         className="form-container"
-        width="507px"
-        height="581px"
+        width="600px"
+        height="500px"
         display="flex"
         flexDirection="column"
+        justifyContent="space-around"
         alignItems="center"
         px="10px"
       >
@@ -37,17 +62,106 @@ const Registration = () => {
           Регистрация
         </Typography>
         <Box component="form" px="10px">
-          <TextField
-            fullWidth
-            margin="normal"
-            type="text"
-            id="Логин"
-            label="Логин"
-            variant="standard"
-            placeholder="Введите логин"
-            sx = {{'& .MuiInput-underline:before' : {borderBottomColor: '#8859EC', '& .MuiInputBase-root-MuiInput-root:hover:not(.Mui-disabled, .Mui-error):before': {borderBottom: '2px solid #8859EC'}}}}
-          />
+          <Grid container spacing={2} justifyContent="center">
+            <Grid item xs={6} sm={6}>
+              <MyTextField
+                fullWidth
+                margin="dense"
+                type="email"
+                id="email"
+                label="Электронная почта"
+                variant="outlined"
+                placeholder="Введите почту"
+              />
+            </Grid>
+            <Grid item xs={6} sm={6}>
+              <MyTextField
+                fullWidth
+                margin="dense"
+                type="text"
+                id="login"
+                label="Придумайте логин"
+                variant="outlined"
+                placeholder="Введите логин"
+              />
+            </Grid>
+            <Grid item xs={6} sm={6}>
+              <MyTextField
+                fullWidth
+                margin="dense"
+                type="password"
+                id="password"
+                label="Придумайте пароль"
+                variant="outlined"
+                placeholder="Введите пароль"
+              />
+            </Grid>
+            <Grid item xs={6} sm={6}>
+              <MyTextField
+                fullWidth
+                margin="dense"
+                type="password"
+                id="repeat-password"
+                label="Повторите пароль"
+                variant="outlined"
+                placeholder="Введите пароль"
+              />
+            </Grid>
+            <Grid item xs={6} sm={4}>
+              <MyTextField
+                fullWidth
+                margin="dense"
+                type="text"
+                id="name"
+                label="Имя"
+                variant="outlined"
+                placeholder="Введите имя"
+              />
+            </Grid>
+            <Grid item xs={6} sm={4}>
+              <MyTextField
+                fullWidth
+                margin="dense"
+                type="text"
+                id="surname"
+                label="Фамилия"
+                variant="outlined"
+                placeholder="Введите фамилию"
+              />
+            </Grid>
+            <Grid item xs={6} sm={4}>
+              <MyTextField
+                fullWidth
+                margin="dense"
+                type="text"
+                id="patronymic"
+                label="Отчество"
+                variant="outlined"
+                placeholder="Введите отчество"
+              />
+            </Grid>
+            <Grid item xs={6} sm={6} alignItems="center">
+              <MyTextField
+                fullWidth
+                margin="dense"
+                type="text"
+                id="phone"
+                label="Номер телефона"
+                variant="outlined"
+                placeholder="Введите номер"
+              />
+            </Grid>
+          </Grid>
         </Box>
+        <Button
+          size="large"
+          type="submit"
+          fullWidth
+          variant="contained"
+          sx={{ my: "15px", width: "286px", borderRadius: '8px', py: '15px' }}
+        >
+          Зарегистрироваться
+        </Button>
       </Box>
     </Container>
 

@@ -17,7 +17,7 @@ import cl from "../styles/Button.module.css";
 const NavBar = (props) => {
   return (
     <>
-      <Box py="12px" className = "navbar-background" {...props}>
+      <Box pt="10px" pb = "25px" className = "navbar-background" {...props}>
         <AppBar
           position="static"
           color="transparent"
@@ -61,7 +61,7 @@ const NavBar = (props) => {
               </Button>
               <Button
                 href={REGISTRATION_ROUTE}
-                size="large"
+                size='large'
                 variant="contained"
               >
                 Еще нет аккаунта?
