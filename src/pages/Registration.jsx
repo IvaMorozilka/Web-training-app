@@ -1,29 +1,12 @@
-import styled from "@emotion/styled";
 import {
   Container,
   Box,
   Typography,
-  TextField,
   Grid,
-  Button,
 } from "@mui/material";
 import React, { useState } from "react";
-
-const MyTextField = styled(TextField)({
-  "&& .MuiInput-root:hover::before": {
-    borderColor: "#A07AF0",
-  },
-  "&& .MuiInput-root": {
-    color: "white",
-  },
-  "&& .MuiInput-root::before": {
-    borderColor: "#A07AF0",
-  },
-  ".MuiInputLabel-root": {
-    color: "#806FA6 !important",
-    fontWeight: "500 !important",
-  },
-});
+import MyTextField from "../ui/MyTextField";
+import MyButton from "../ui/MyButton";
 
 const Registration = () => {
   const [regData, setRegData] = useState(null);
@@ -44,7 +27,7 @@ const Registration = () => {
   return (
     <Container sx={{ display: "flex", justifyContent: "center" }}>
       <Box
-        className="form-container"
+        className="form-container box"
         width="600px"
         height="500px"
         display="flex"
@@ -153,7 +136,7 @@ const Registration = () => {
             </Grid>
           </Grid>
         </Box>
-        <Button
+        <MyButton
           size="large"
           type="submit"
           fullWidth
@@ -161,84 +144,9 @@ const Registration = () => {
           sx={{ my: "15px", width: "286px", borderRadius: '8px', py: '15px' }}
         >
           Зарегистрироваться
-        </Button>
+        </MyButton>
       </Box>
     </Container>
-
-    // <Container fluid className="justify-content-center mt-5">
-    //     <Form className="reg-container d-flex flex-column justify-content-around mx-auto">
-    //         <div className="reg-text text-center mt-1">Регистрация</div>
-    //         <Container>
-    //             <Form.Group className="mb-1" controlId="name">
-    //                 <FloatingLabel
-    //                     controlId="floatingInput"
-    //                     label="Имя"
-    //                 >
-    //                     <Form.Control className="reg-input" type="text" placeholder="Имя"
-    //                                   onChange={(e) => handleInputsChange("name", e.target.value)}/>
-    //                 </FloatingLabel>
-    //             </Form.Group>
-    //             <Form.Group className="mb-1" controlId="surname">
-    //                 <FloatingLabel
-    //                     controlId="floatingInput"
-    //                     label="Фамилия"
-    //                 >
-    //                     <Form.Control className="reg-input" type="text" placeholder="Фамилия"
-    //                                   onChange={(e) => handleInputsChange("surname", e.target.value)}/>
-    //                 </FloatingLabel>
-    //             </Form.Group>
-    //             <Form.Group className="mb-1" controlId="patronymic">
-    //                 <FloatingLabel
-    //                     controlId="floatingInput"
-    //                     label="Отчество"
-    //                 >
-    //                     <Form.Control className="reg-input" type="text" placeholder="Отчество"
-    //                                   onChange={(e) => handleInputsChange("patronymic", e.target.value)}/>
-    //                 </FloatingLabel>
-    //             </Form.Group>
-    //             <Form.Group className="mb-1" controlId="login">
-    //                 <FloatingLabel
-    //                     controlId="floatingInput"
-    //                     label="Придумайте логин"
-    //                 >
-    //                     <Form.Control className="reg-input" type="text" placeholder="Придумайте логин"
-    //                                   onChange={(e) => handleInputsChange("login", e.target.value)}/>
-    //                 </FloatingLabel>
-    //             </Form.Group>
-    //             <Form.Group className="mb-1" controlId="password">
-    //                 <FloatingLabel
-    //                     controlId="floatingInput"
-    //                     label="Придумайте пароль"
-    //                 >
-    //                     <Form.Control className="reg-input" type="password"
-    //                                   placeholder="Придумайте пароль"
-    //                                   onChange={(e) => handleInputsChange("password", e.target.value)}/>
-    //                 </FloatingLabel>
-    //             </Form.Group>
-    //             <Form.Group className="mb-1" controlId="rep-password">
-    //                 <FloatingLabel
-    //                     controlId="floatingInput"
-    //                     label="Повторите пароль"
-    //                 >
-    //                     <Form.Control className="reg-input" type="password" placeholder="Повторите пароль"
-    //                                   onChange={(e) => handleInputsChange("rep-password", e.target.value)}/>
-    //                 </FloatingLabel>
-    //             </Form.Group>
-    //             <Form.Group className="mb-4" controlId="phone">
-    //                 <FloatingLabel
-    //                     controlId="floatingInput"
-    //                     label="Номер мобильного телефона"
-    //                 >
-    //                     <Form.Control className="reg-input" type="phone"
-    //                                   placeholder="Номер мобильного телефона"
-    //                                   onChange={(e) => handleInputsChange("phone", e.target.value)}/>
-    //                 </FloatingLabel>
-    //
-    //             </Form.Group>
-    //         </Container>
-    //         <Button className="reg-btn text-white mb-3" onClick={handleClick}>Зарегистрироваться</Button>
-    //     </Form>
-    // </Container>
   );
 };
 

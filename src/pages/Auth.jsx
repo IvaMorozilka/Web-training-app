@@ -1,132 +1,148 @@
 import {
-  Box,
-  Container,
-  Grid,
-  TextField,
-  Button,
-  Typography,
-  FormControlLabel,
-  Checkbox,
-  Link,
+    Box,
+    Checkbox,
+    CircularProgress,
+    Container,
+    FormControlLabel,
+    Grid,
+    Link,
+    Typography,
 } from "@mui/material";
-import React from "react";
+import React, {useState} from "react";
+import MyButton from "../ui/MyButton";
+import MyTextField from "../ui/MyTextField";
+
 
 const Auth = () => {
-  return (
-    <Container sx={{ display: "flex", justifyContent: "center" }}>
-      <Box
-        width="420px"
-        height="430px"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        px="10px"
-        className = "form-container"
-      >
-        <Typography
-          mt="10px"
-          fontSize="60px"
-          fontWeight="700"
-          className="gradient-text"
-        >
-          Войти
-        </Typography>
-        <Box component="form" px="10px">
-          <TextField
-            fullWidth
-            margin="normal"
-            id="login"
-            label="Логин"
-            variant="outlined"
-            placeholder="Введите логин"
-            borderRadius="8px"
-          />
-          <TextField
-            fullWidth
-            margin="normal"
-            id="password"
-            label="Пароль"
-            variant="outlined"
-            placeholder="Введите пароль"
-            type="password"
-          />
-          <Grid container alignItems="center">
-            <Grid item xs>
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    value="remebmer"
-                    sx={{
-                      ".MuiSvgIcon-root": {
-                        fill: "#8859EC",
-                        height: "30px",
-                        width: "30px",
-                      },
-                    }}
-                  />
-                }
-                label="Запомнить меня"
-                sx={{
-                  "& .MuiFormControlLabel-label": {
-                    color: "#fff",
-                  },
-                }}
-              />
-            </Grid>
-            <Grid item>
-              <Link
-                sx={{ color: "#fff" }}
-                underline="hover"
-              >
-                Забыли пароль?
-              </Link>
-            </Grid>
-          </Grid>
-          <Box display="flex" flexDirection="column" gap="10px">
-            <Button size="large" type="submit" fullWidth variant="contained">
-              Войти
-            </Button>
-            <Button
-              size="large"
-              type="submit"
-              fullWidth
-              variant="outlined"
-              sx={{
-                color: "#fff",
-                border: "2px solid rgba(126, 87, 194, 0.5)",
-                "&:hover": { border: "2px solid #7E57C2" },
-              }}
-            >
-              Зарегистрироваться
-            </Button>
-          </Box>
-        </Box>
-      </Box>
-    </Container>
+    const [login, setLogin] = useState(null);
+    const [password, setPassword] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
-    /* // <Container className="d-flex justify-content-center mt-5">
-        //     <Form className="login-container d-flex flex-column justify-content-around">
-        //         <div className="login-text text-center">Войти</div>
-        //         <Form.Group className="mb-3" controlId="formBasicEmail">
-        //             <Form.Control className="input" type="login" placeholder="Логин" />
-        //         </Form.Group>
-        //         <Form.Group className="mb-0" controlId="formBasicPassword">
-        //             <Form.Control className="input" type="password" placeholder="Пароль" />
-        //         </Form.Group>
-        //
-        //         <Form.Group className="mb-4 d-flex flex-row justify-content-between align-items-baseline"
-        //                     controlId="formBasicCheckbox">
-        //             <Form.Check type="checkbox" label="Запомнить меня" />
-        //             <a href={REGISTRATION_ROUTE}>Забыли пароль?</a>
-        //         </Form.Group>
-        //
-        //         <Form.Group className="d-flex flex-column justify-content-between gap-1 mb-2" controlId="formButtons">
-        //             <Button className="auth-btn text-white">Войти</Button>
-        //             <Button className="auth-btn text-white">Создать аккаунт</Button>
-        //         </Form.Group>
-        //     </Form>
-        // </Container> */
-  );
+    function handleLoginButton(e) {
+        setIsLoading(true);
+        setTimeout(async () => {
+            setIsLoading(false);
+        }, 2000);
+    }
+
+    return (
+        <Container sx={{display: "flex", justifyContent: "center"}}>
+            <Box
+                width="420px"
+                height="430px"
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                px="10px"
+                className="box"
+            >
+                <Typography
+                    mt="10px"
+                    fontSize="60px"
+                    fontWeight="700"
+                    className="gradient-text"
+                >
+                    Войти
+                </Typography>
+                <Box component="form" px="10px">
+                    {/*<TextField*/}
+                    {/*    fullWidth*/}
+                    {/*    margin="normal"*/}
+                    {/*    helperText="Неправильный логин"*/}
+                    {/*    id="login"*/}
+                    {/*    label="Логин"*/}
+                    {/*    variant="outlined"*/}
+                    {/*    placeholder="Введите логин"*/}
+                    {/*    borderRadius="8px"*/}
+                    {/*    onChange={(e) => setLogin(e.target.value)}*/}
+                    {/*/>*/}
+                    <MyTextField
+                        autoComplete='off'
+                        fullWidth
+                        margin="normal"
+                        id="login"
+                        label="Логин"
+                        variant="outlined"
+                        placeholder="Введите логин"
+                        borderRadius="8px"
+                        onChange={(e) => setLogin(e.target.value)}
+                    />
+                    <MyTextField
+                        autoComplete='off'
+                        fullWidth
+                        margin="normal"
+                        id="password"
+                        label="Пароль"
+                        variant="outlined"
+                        placeholder="Введите пароль"
+                        type="password"
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <Grid container alignItems="center">
+                        <Grid item xs>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        value="remebmer"
+                                        sx={{
+                                            ".MuiSvgIcon-root": {
+                                                fill: "#8859EC",
+                                                height: "30px",
+                                                width: "30px",
+                                            },
+                                        }}
+                                    />
+                                }
+                                label="Запомнить меня"
+                                sx={{
+                                    "& .MuiFormControlLabel-label": {
+                                        color: "#fff",
+                                    },
+                                }}
+                            />
+                        </Grid>
+                        <Grid item>
+                            <Link sx={{color: "#fff"}} underline="hover">
+                                Забыли пароль?
+                            </Link>
+                        </Grid>
+                    </Grid>
+                    <Box display="flex" flexDirection="column" gap="10px">
+                        <MyButton
+                            sx={{
+                                '&:disabled': {backgroundColor: '#7e57c2', color: '#5e5e5e'}
+                            }}
+                            size="large"
+                            type="button"
+                            disabled={isLoading}
+                            fullWidth
+                            variant="contained"
+                            onClick={handleLoginButton}
+                        >
+                            {isLoading ? 'ㅤ' : 'Войти'}
+                            {isLoading && (
+                                <CircularProgress
+                                    size={32}
+                                    sx={{
+                                        color: "#fff",
+                                        position: "absolute",
+                                    }}
+                                />
+                            )}
+                        </MyButton>
+                        <MyButton
+                            fullWidth
+                            size="large"
+                            type="button"
+                            variant='outlined'
+                        >
+                            Зарегистрироваться
+                        </MyButton>
+                    </Box>
+                </Box>
+            </Box>
+        </Container>
+    );
 };
 
 export default Auth;

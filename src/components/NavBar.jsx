@@ -1,18 +1,15 @@
 import React from "react";
-import { AUTH_ROUTE, LANDING_ROUTE, REGISTRATION_ROUTE } from "../utils/consts";
+import { AUTH_ROUTE, REGISTRATION_ROUTE } from "../utils/consts";
 import logo from "../assets/logo.svg";
 import "../styles/custom-bootstrap.css";
 import {
   AppBar,
   Box,
-  Button,
-  Container,
-  Grid,
-  IconButton,
   Toolbar,
-  Typography,
+
 } from "@mui/material";
 import cl from "../styles/Button.module.css";
+import MyButton from "../ui/MyButton";
 
 const NavBar = (props) => {
   return (
@@ -24,9 +21,9 @@ const NavBar = (props) => {
           sx={{ boxShadow: "none" }}
         >
           <Toolbar sx={{ justifyContent: "space-around" }}>
-            <a href="/"><img src={logo} width='99px' height='26px' style={{cursor: 'pointer'}} /></a>
+            <a href="/"><img src={logo} width='99px' height='26px' style={{cursor: 'pointer'}} alt='logo'/></a>
             <Box sx={{ display: "flex", gap: "15px" }}>
-              <Button
+              <MyButton
                 href="/"
                 variant="text"
                 sx={{
@@ -36,8 +33,8 @@ const NavBar = (props) => {
                 className={cl.button}
               >
                 Контакты
-              </Button>
-              <Button
+              </MyButton>
+              <MyButton
                 href="/"
                 variant="text"
                 sx={{
@@ -47,8 +44,8 @@ const NavBar = (props) => {
                 className={cl.button}
               >
                 О нас
-              </Button>
-              <Button
+              </MyButton>
+              <MyButton
                 href={AUTH_ROUTE}
                 variant="text"
                 sx={{
@@ -58,14 +55,14 @@ const NavBar = (props) => {
                 className={cl.button}
               >
                 Войти
-              </Button>
-              <Button
+              </MyButton>
+              <MyButton
                 href={REGISTRATION_ROUTE}
                 size='large'
                 variant="contained"
               >
                 Еще нет аккаунта?
-              </Button>
+              </MyButton>
             </Box>
           </Toolbar>
         </AppBar>

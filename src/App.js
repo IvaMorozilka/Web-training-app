@@ -2,9 +2,8 @@ import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./components/AppRouter";
 import NavBar from "./components/NavBar";
 import "./styles/styles.css";
-import down from "./assets/hero-bg-down.svg";
 
-import { Box, Grid, ThemeProvider } from "@mui/material";
+import { Box, ThemeProvider } from "@mui/material";
 import { customTheme } from "./mui/custom-theme";
 
 function App() {

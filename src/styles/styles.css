@@ -107,6 +107,74 @@ a {
   box-shadow: 0 0 39px 25px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
 }
+
+.box {
+  z-index: 1;
+  position: relative;
+  background: #002860;
+  border-radius: 8px;
+}
+
+.box:before {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: radial-gradient(circle, #6999ff, #6f89f1, #7579e3, #7a68d3, #7e57c2);
+  transform: translate3d(0px, 0px, 0) scale(1.07);
+  filter: blur(20px);
+  opacity: var(0.5);
+  transition: opacity 0.3s;
+  border-radius: inherit;
+  background-size: 200% 200%;
+  animation: animate 4s cubic-bezier(0.79, 0.14, 0.15, 0.86) infinite;
+}
+.box::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  border-radius: inherit;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 50%;
+    transform: scale(1.07);
+  }
+  50% {
+    background-position: 100% 0;
+    transform: scale(1.05);
+  }
+  100% {
+    background-position: 0 50%;
+    transform: scale(1.07);
+  }
+}
+/* 
+* Prevents issues when the parent creates a 
+* stacking context. (For example, using the transform
+* property )
+*/
+.box::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: inherit;
+  border-radius: inherit;
+}
+
 .reg-input {
   background: transparent;
   border: none;
@@ -138,17 +206,7 @@ a {
 }
 /*Waves*/
 .waves {
-  transform: translateY(30px); 
+  transform: translateY(30px);
 }
 
-.MuiInputLabel-root {
-  color: #8759ec9a !important;
-  font-weight: 600 !important;
-}
-.MuiOutlinedInput-input {
-  color: white !important;
-}
-.MuiOutlinedInput-notchedOutline {
-  border: 2px solid #8859ec !important;
-  border-radius: 8px !important;
-}
+
