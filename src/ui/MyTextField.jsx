@@ -4,8 +4,14 @@ import styled from "@emotion/styled";
 
 
 const CustomTextField = styled(TextField)(({theme}) => ({
-    '& .MuiInputLabel-root': {
-        color: '#b6b6b6'
+    '& .MuiInputLabel-root, & .Mui-focused': {
+        color: '#b6b6b6',
+        [theme.breakpoints.up('xs')]: {
+            fontSize: '0.7rem'
+        },
+        [theme.breakpoints.up('sm')]: {
+            fontSize: '1rem'
+        },
     },
     '&.MuiTextField-root': {
         '&:hover': {
@@ -23,6 +29,12 @@ const CustomTextField = styled(TextField)(({theme}) => ({
     },
     '& .MuiOutlinedInput-input': {
         color: '#fff',
+        [theme.breakpoints.up('xs')]: {
+            fontSize: '0.7rem'
+        },
+        [theme.breakpoints.up('sm')]: {
+            fontSize: '1rem'
+        }
     },
     '& .MuiOutlinedInput-notchedOutline': {
         borderRadius: '8px',
