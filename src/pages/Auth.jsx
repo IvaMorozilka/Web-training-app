@@ -5,28 +5,31 @@ import {
     Container,
     FormControlLabel,
     Grid,
-    Link,
+    Link, TextField,
     Typography,
 } from "@mui/material";
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import MyButton from "../ui/MyButton";
 import MyTextField from "../ui/MyTextField";
+import {Context} from "../index";
 
 
 const Auth = () => {
     const [login, setLogin] = useState(null);
     const [password, setPassword] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const {user} = useContext(Context);
 
     function handleLoginButton(e) {
         setIsLoading(true);
         setTimeout(async () => {
+            user.setIsAuth(true);
             setIsLoading(false);
         }, 2000);
     }
 
     return (
-        <Container sx={{display: "flex", justifyContent: "center"}}>
+        <Container sx={{display: "flex", justifyContent: "center", my: '75px'}}>
             <Box
                 width="420px"
                 height="430px"
@@ -45,17 +48,6 @@ const Auth = () => {
                     Войти
                 </Typography>
                 <Box component="form" px="10px">
-                    {/*<TextField*/}
-                    {/*    fullWidth*/}
-                    {/*    margin="normal"*/}
-                    {/*    helperText="Неправильный логин"*/}
-                    {/*    id="login"*/}
-                    {/*    label="Логин"*/}
-                    {/*    variant="outlined"*/}
-                    {/*    placeholder="Введите логин"*/}
-                    {/*    borderRadius="8px"*/}
-                    {/*    onChange={(e) => setLogin(e.target.value)}*/}
-                    {/*/>*/}
                     <MyTextField
                         autoComplete='off'
                         fullWidth

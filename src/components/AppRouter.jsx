@@ -4,7 +4,7 @@ import {authRoutes, publicRoutes} from "../routes";
 import {LANDING_ROUTE} from "../utils/consts";
 
 const AppRouter = () => {
-    const isAuth = false;
+    const isAuth = true;
     return (
         <Routes>
             {isAuth && authRoutes.map(({path, Component}) =>
