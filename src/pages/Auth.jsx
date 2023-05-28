@@ -12,6 +12,7 @@ import React, {useContext, useState} from "react";
 import MyButton from "../ui/MyButton";
 import MyTextField from "../ui/MyTextField";
 import {Context} from "../index";
+import {observer} from "mobx-react-lite";
 
 
 const Auth = () => {

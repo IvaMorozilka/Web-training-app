@@ -1,8 +1,9 @@
 import React, {useContext} from 'react';
 import {Box} from "@mui/material";
 import {Context} from "../index";
+import {observer} from "mobx-react-lite";
 
-const BackgroundWrapper = ({children}) => {
+const BackgroundWrapper = observer(({children}) => {
     const {user} = useContext(Context);
     return (
         <Box sx={{
@@ -13,6 +14,6 @@ const BackgroundWrapper = ({children}) => {
             {children}
         </Box>
     );
-};
+});
 
 export default BackgroundWrapper;

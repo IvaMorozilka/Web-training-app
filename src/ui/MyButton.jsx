@@ -9,8 +9,6 @@ const CustomButton = styled(Button)(({theme}) => ({
     '&.MuiButton-outlinedPrimary': {
         borderWidth: '2px',
     },
-
-
 }));
 
 const MyButton = (props) => {
