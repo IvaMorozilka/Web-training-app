@@ -23,7 +23,7 @@ const NavBar = observer((props) => {
             ?
             <>
                 <AppBar position='static'>
-                    <Toolbar sx = {{display: 'flex', justifyContent: 'space-between', mx: '200px'}}>
+                    <Toolbar sx={{display: 'flex', justifyContent: 'space-between', mx: '200px'}}>
                         <a href="/"><img src={logo} width='99px' height='26px' style={{cursor: 'pointer'}} alt='logo'/></a>
                         <Box display='flex' justifyContent='space-between' alignItems='center' gap='5px'>
                             <CustomButton round color='secondary' variant='outlined'>Обучение</CustomButton>
@@ -31,68 +31,73 @@ const NavBar = observer((props) => {
                             <CustomButton round color='secondary' variant='contained'>Практика</CustomButton>
                         </Box>
                         <Box display='flex' justifyContent='space-between' alignItems='center' gap='32px'>
-                            <CustomButton round sx={{fontSize: '16px', fontWeight: '700'}} color='secondary' variant='contained'
-                                    endIcon={<WalletIcon sx={{fontSize: '24px !important', mb: '4px'}}/>}>1000$</CustomButton>
+                            <CustomButton round sx={{fontSize: '16px', fontWeight: '700'}} color='secondary'
+                                          variant='contained'
+                                          endIcon={<WalletIcon
+                                              sx={{fontSize: '24px !important', mb: '4px'}}/>}>1000$</CustomButton>
                             <CustomButton round color='secondary' variant='text'>Таблица лидеров</CustomButton>
-                            <Avatar sx ={{width: '40px', height: '40px'}}/>
+                            <Avatar sx={{width: '40px', height: '40px'}}/>
                         </Box>
                     </Toolbar>
                 </AppBar>
             </>
             :
-            <Box pt="10px" pb="25px" className="navbar-background" {...props}>
-                <AppBar
-                    position="static"
-                    color="transparent"
-                    sx={{boxShadow: "none"}}
-                >
-                    <Toolbar sx={{justifyContent: "space-around"}}>
-                        <a href="/"><img src={logo} width='99px' height='26px' style={{cursor: 'pointer'}} alt='logo'/></a>
-                        <Box sx={{display: "flex", gap: "15px"}}>
-                            <MyButton
-                                href="/"
-                                variant="text"
-                                sx={{
-                                    color: "white",
-                                    "&:hover": {backgroundColor: "rgba(126, 87, 194, 0.25)"},
-                                }}
-                                className={cl.button}
-                            >
-                                Контакты
-                            </MyButton>
-                            <MyButton
-                                href="/"
-                                variant="text"
-                                sx={{
-                                    color: "white",
-                                    "&:hover": {backgroundColor: "rgba(126, 87, 194, 0.25)"},
-                                }}
-                                className={cl.button}
-                            >
-                                О нас
-                            </MyButton>
-                            <MyButton
-                                href={AUTH_ROUTE}
-                                variant="text"
-                                sx={{
-                                    color: "white",
-                                    "&:hover": {backgroundColor: "rgba(126, 87, 194, 0.25)"},
-                                }}
-                                className={cl.button}
-                            >
-                                Войти
-                            </MyButton>
-                            <MyButton
-                                href={REGISTRATION_ROUTE}
-                                size='large'
-                                variant="contained"
-                            >
-                                Еще нет аккаунта?
-                            </MyButton>
-                        </Box>
-                    </Toolbar>
-                </AppBar>
-            </Box>
+            <>
+                <Box pt="10px" pb="25px" className="navbar-background" {...props}>
+                    <AppBar
+                        position="static"
+                        color="transparent"
+                        sx={{boxShadow: "none"}}
+                    >
+                        <Toolbar sx={{justifyContent: "space-around"}}>
+                            <a href="/"><img src={logo} width='99px' height='26px' style={{cursor: 'pointer'}}
+                                             alt='logo'/></a>
+                            <Box sx={{display: "flex", gap: "15px"}}>
+                                <MyButton
+                                    href="/"
+                                    variant="text"
+                                    sx={{
+                                        color: "white",
+                                        "&:hover": {backgroundColor: "rgba(126, 87, 194, 0.25)"},
+                                    }}
+                                    className={cl.button}
+                                >
+                                    Контакты
+                                </MyButton>
+                                <MyButton
+                                    href="/"
+                                    variant="text"
+                                    sx={{
+                                        color: "white",
+                                        "&:hover": {backgroundColor: "rgba(126, 87, 194, 0.25)"},
+                                    }}
+                                    className={cl.button}
+                                >
+                                    О нас
+                                </MyButton>
+                                <MyButton
+                                    href={AUTH_ROUTE}
+                                    variant="text"
+                                    sx={{
+                                        color: "white",
+                                        "&:hover": {backgroundColor: "rgba(126, 87, 194, 0.25)"},
+                                    }}
+                                    className={cl.button}
+                                >
+                                    Войти
+                                </MyButton>
+                                <MyButton
+                                    href={REGISTRATION_ROUTE}
+                                    size='large'
+                                    variant="contained"
+                                >
+                                    Еще нет аккаунта?
+                                </MyButton>
+                            </Box>
+                        </Toolbar>
+                    </AppBar>
+                </Box>
+            </>
     );
 });
 

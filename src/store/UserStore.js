@@ -10,6 +10,7 @@ export default class UserStore {
 
     setIsAuth(bool) {
         this._isAuth = bool;
+        console.log(this.isAuth)
     }
 
     setUser(user) {

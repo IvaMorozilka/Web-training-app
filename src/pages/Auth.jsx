@@ -13,6 +13,8 @@ import MyButton from "../ui/MyButton";
 import MyTextField from "../ui/MyTextField";
 import {Context} from "../index";
 import {observer} from "mobx-react-lite";
+import {useNavigate} from "react-router-dom";
+import {EDUCATION_ROUTE} from "../utils/consts";
 
 
 const Auth = () => {
@@ -20,11 +22,13 @@ const Auth = () => {
     const [password, setPassword] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const {user} = useContext(Context);
+    const navigate = useNavigate();
 
     function handleLoginButton(e) {
         setIsLoading(true);
         setTimeout(async () => {
             user.setIsAuth(true);
+            navigate(EDUCATION_ROUTE);
             setIsLoading(false);
         }, 2000);
     }
