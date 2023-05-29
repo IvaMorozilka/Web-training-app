@@ -8,14 +8,19 @@ import {
     CircularProgress,
     Container,
     Grid,
-    Typography
+    Typography, useTheme
 } from "@mui/material";
 import ExpandIcon from "../ui/Icons/ExpandIcon";
 import {CustomAccordion, CustomAccordionSummary} from "../ui/CustomAccordion";
 import ClockIcon from "../ui/Icons/ClockIcon";
 import {customTheme} from "../mui/custom-theme";
+import ReactPlayer from "react-player/file";
+import mp4 from "../assets/1.mp4";
+import Control from "../components/VideoPlayer/Control";
+import {AccessTime} from "@mui/icons-material";
 
 const Education = () => {
+    const theme = useTheme();
     const data = [
         {
             "blockId": 1,
@@ -91,7 +96,7 @@ const Education = () => {
                                         </Typography>
                                         <Box alignItems='center' display='flex' justifyContent='center'
                                              position='relative'>
-                                            <ClockIcon sx={{fontSize: '30px', position: 'absolute'}}/>
+                                            <AccessTime shapeRendering='geometricPrecision' sx={{fontSize: '30px', position: 'absolute'}}/>
                                             <CircularProgress variant='determinate' value={lesson.process}
                                                               color='secondary' thickness={5}
                                                               size={46}/>
@@ -101,34 +106,14 @@ const Education = () => {
                             </AccordionDetails>
                         </Accordion>
                     )}
-
-
-                    {/*<CustomAccordion>*/}
-                    {/*    <CustomAccordionSummary*/}
-                    {/*        expandIcon={<ExpandIcon/>}*/}
-                    {/*        aria-controls="panel1a-content"*/}
-                    {/*        id="panel1a-header"*/}
-                    {/*    >*/}
-                    {/*        <Typography>Блок I Анализ ценовых колебаний</Typography>*/}
-                    {/*    </CustomAccordionSummary>*/}
-                    {/*    <AccordionDetails>*/}
-                    {/*        <Box display='flex' justifyContent='space-between' alignItems='center' my={1}>*/}
-                    {/*            <Typography fontSize='14px' fontWeight='600'>*/}
-                    {/*                1. Сведение ордеров*/}
-                    {/*            </Typography>*/}
-                    {/*            <Box alignItems='center' display='flex' justifyContent='center'>*/}
-                    {/*                <ClockIcon sx={{fontSize: '30px', position: 'absolute'}}/>*/}
-                    {/*                <CircularProgress variant='determinate' value={70} color='secondary' thickness={5}*/}
-                    {/*                                  size={46}/>*/}
-                    {/*            </Box>*/}
-                    {/*        </Box>*/}
-                    {/*    </AccordionDetails>*/}
-                    {/*</CustomAccordion>*/}
-
-
                 </Grid>
                 <Grid item xs={8}>
-                    <Box height={600} sx={{background: 'red', borderRadius: '16px'}}>
+                    {/*Video borders box*/}
+                    <Box sx={{justifyContent: 'center', display: 'flex', background: 'rgba(88, 60, 135, 0.54)', borderRadius: '16px'}}>
+                        <Box position='relative' maxWidth='md' mx={3}>
+                            <ReactPlayer url={mp4} width="100%" height="100%"/>
+                            <Control/>
+                        </Box>
 
                     </Box>
                 </Grid>
