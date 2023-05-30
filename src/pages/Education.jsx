@@ -17,7 +17,7 @@ import {
   useTheme,
 } from "@mui/material";
 import ExpandIcon from "../ui/Icons/ExpandIcon";
-import ReactPlayer from "react-player/file";
+import ReactPlayer from "react-player";
 import mp4 from "../assets/1.mp4";
 import { AccessTime } from "@mui/icons-material";
 
@@ -223,7 +223,7 @@ const Education = () => {
             }}
           >
             <Box position="relative" maxWidth="md" mx={3}>
-              <ReactPlayer url={mp4} width="100%" height="100%" controls />
+              <ReactPlayer url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' width="100%" height="100%" controls />
               {/*TooDoo*/}
               {/*<Control/>*/}
             </Box>
