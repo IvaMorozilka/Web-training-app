@@ -222,8 +222,9 @@ const Education = () => {
               boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             }}
           >
-            <Box position="relative" maxWidth="md" mx={3}>
-              <ReactPlayer url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' width="100%" height="100%" controls />
+            <Box position="relative" maxWidth='md' mx={3}>
+              {/*Не забыть поменять 100% 100%*/}
+              <ReactPlayer url='https://www.youtube.com/watch?v=dQw4w9WgXcQ' controls playing/>
               {/*TooDoo*/}
               {/*<Control/>*/}
             </Box>
