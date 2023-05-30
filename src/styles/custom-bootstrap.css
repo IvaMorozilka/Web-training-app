@@ -4,6 +4,7 @@
     --two-purple: #7642ef;
     --three-purple: #5131af;
 }
+
 /*---*/
 /*Primary button*/
 /*.btn-primary {*/
@@ -21,18 +22,22 @@
 .btn-primary {
     color: white;
 }
+
 /*----------------*/
 /*Nav link*/
 .nav-link {
     color: #ffffff;
 }
+
 .nav-link:hover {
     color: #bbacec
 }
+
 /*----------------*/
 /*Label*/
 label {
     color: #806FA6;
     font-weight: 600;
 }
+
 /*-----------------*/

@@ -1,212 +1,221 @@
 /*Auth page*/
 .login-text {
-  font-weight: 800;
-  font-size: 60px;
-  line-height: 130%;
-  background: linear-gradient(89.03deg, #2c66b8 0.54%, #8859ec 97.66%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+    font-weight: 800;
+    font-size: 60px;
+    line-height: 130%;
+    background: linear-gradient(89.03deg, #2c66b8 0.54%, #8859ec 97.66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .input {
-  color: white;
-  height: 48px;
-  background: none;
-  border: 2px solid #8859ec;
-  border-radius: 8px;
+    color: white;
+    height: 48px;
+    background: none;
+    border: 2px solid #8859ec;
+    border-radius: 8px;
 }
 
 .input:focus {
-  color: white;
-  background: none;
+    color: white;
+    background: none;
 }
 
 .form-check-label {
-  color: white;
-  font-size: 12px;
+    color: white;
+    font-size: 12px;
 }
 
 .form-check-input {
-  width: 18px;
-  height: 18px;
-  border-color: #8859ec;
-  background: none;
+    width: 18px;
+    height: 18px;
+    border-color: #8859ec;
+    background: none;
 }
 
 .form-check-input:checked {
-  background-color: #8859ec;
+    background-color: #8859ec;
 }
 
 a {
-  text-decoration: none;
-  color: white;
-  cursor: pointer;
-  font-size: 12px;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
 }
 
 .auth-btn {
-  height: 48px;
+    height: 48px;
 }
 
 .auth-btn:last-of-type {
-  background: none;
-  border: 2px solid #8859ec;
+    background: none;
+    border: 2px solid #8859ec;
 }
 
 .auth-btn:last-of-type:hover {
-  background: rgba(136, 89, 236, 0.1);
+    background: rgba(136, 89, 236, 0.1);
 }
 
 /*---------------------------*/
 /*Landing page*/
 .background {
-  background: radial-gradient(
-    circle,
-    #002c6a,
-    #002458,
-    #001b47,
-    #011337,
-    #000627
-  );
+    background: radial-gradient(
+            circle,
+            #002c6a,
+            #002458,
+            #001b47,
+            #011337,
+            #000627
+    );
 }
 
 .landing-text {
-  color: white;
-  font-size: 50px;
-  font-weight: 600;
-  line-height: 130%;
+    color: white;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 130%;
 }
 
 .content {
-  padding: 0 106px;
+    padding: 0 106px;
 }
 
 .crypto-trading-text {
-  background: linear-gradient(89.03deg, #2c66b8 0.54%, #8859ec 97.66%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  font-weight: 700;
+    background: linear-gradient(89.03deg, #2c66b8 0.54%, #8859ec 97.66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
 }
 
 .down {
-  background-color: #8859ec;
+    background-color: #8859ec;
 }
+
 /*----------------------------*/
 /*Registration page*/
 .gradient-text {
-  line-height: 130%;
-  background: linear-gradient(89.03deg, #2c66b8 0.54%, #8859ec 97.66%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+    line-height: 130%;
+    background: linear-gradient(89.03deg, #2c66b8 0.54%, #8859ec 97.66%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
+
 .form-container {
-  border: 1px solid rgba(0, 0, 0, 0.01);
-  box-shadow: 0 0 39px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.01);
+    box-shadow: 0 0 39px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
 }
 
 .box {
-  z-index: 1;
-  position: relative;
-  background: #002860;
-  border-radius: 8px;
+    z-index: 1;
+    position: relative;
+    background: #002860;
+    border-radius: 8px;
 }
 
 .box:before {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: radial-gradient(circle, #6999ff, #6f89f1, #7579e3, #7a68d3, #7e57c2);
-  transform: translate3d(0px, 0px, 0) scale(1.07);
-  filter: blur(20px);
-  opacity: var(0.5);
-  transition: opacity 0.3s;
-  border-radius: inherit;
-  background-size: 200% 200%;
-  animation: animate 4s cubic-bezier(0.79, 0.14, 0.15, 0.86) infinite;
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: radial-gradient(circle, #6999ff, #6f89f1, #7579e3, #7a68d3, #7e57c2);
+    transform: translate3d(0px, 0px, 0) scale(1.07);
+    filter: blur(20px);
+    opacity: var(0.5);
+    transition: opacity 0.3s;
+    border-radius: inherit;
+    background-size: 200% 200%;
+    animation: animate 4s cubic-bezier(0.79, 0.14, 0.15, 0.86) infinite;
 }
+
 .box::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: inherit;
-  border-radius: inherit;
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
 }
 
 @keyframes animate {
-  0% {
-    background-position: 0 50%;
-    transform: scale(1.07);
-  }
-  50% {
-    background-position: 100% 0;
-    transform: scale(1.05);
-  }
-  100% {
-    background-position: 0 50%;
-    transform: scale(1.07);
-  }
+    0% {
+        background-position: 0 50%;
+        transform: scale(1.07);
+    }
+    50% {
+        background-position: 100% 0;
+        transform: scale(1.05);
+    }
+    100% {
+        background-position: 0 50%;
+        transform: scale(1.07);
+    }
 }
-/* 
+
+/*
 * Prevents issues when the parent creates a 
 * stacking context. (For example, using the transform
 * property )
 */
 .box::after {
-  content: "";
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: inherit;
-  border-radius: inherit;
+    content: "";
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    border-radius: inherit;
 }
 
 .reg-input {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  border-bottom: 3px solid #a07af0;
-  color: white;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    border-bottom: 3px solid #a07af0;
+    color: white;
 }
+
 .reg-input:focus {
-  box-shadow: none;
-  color: white;
-  background: transparent;
+    box-shadow: none;
+    color: white;
+    background: transparent;
 }
+
 .reg-btn {
-  margin: 0 40px;
-  padding: 15px 0;
+    margin: 0 40px;
+    padding: 15px 0;
 }
+
 /*NavBar*/
 .navbar-background {
-  background-image: url("../assets/hero-bg-up.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+    background-image: url("../assets/hero-bg-up.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
+
 .footer-background {
-  background-image: url("../assets/hero-bg-down.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+    background-image: url("../assets/hero-bg-down.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
+
 /*Waves*/
 .waves {
-  transform: translateY(30px);
+    transform: translateY(30px);
 }
 
 

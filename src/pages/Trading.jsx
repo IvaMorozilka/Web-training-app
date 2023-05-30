@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Trading = () => {
-    return (
-        <div>
-            Trading page
-        </div>
-    );
+  return <div>Trading page</div>;
 };
 
 export default Trading;
