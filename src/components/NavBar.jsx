@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AUTH_ROUTE, REGISTRATION_ROUTE } from "../utils/consts";
+import {AUTH_ROUTE, EDUCATION_ROUTE, REGISTRATION_ROUTE, TRADING_ROUTE} from "../utils/consts";
 import logo from "../assets/logo.svg";
 import "../styles/custom-bootstrap.css";
 import { AppBar, Avatar, Box, Toolbar } from "@mui/material";
@@ -9,9 +9,13 @@ import { Context } from "../index";
 import { CustomButton } from "../ui/CustomButton";
 import { observer } from "mobx-react-lite";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
+import {useLocation} from "react-router-dom";
+import Education from "../pages/Education";
 
 const NavBar = observer((props) => {
   const { user } = useContext(Context);
+  const location = useLocation();
+
 
   return user.isAuth ? (
     <>
@@ -34,7 +38,7 @@ const NavBar = observer((props) => {
             alignItems="center"
             gap="5px"
           >
-            <CustomButton round color="secondary" variant="outlined">
+            <CustomButton round color="secondary" variant={location.pathname === EDUCATION_ROUTE ? "contained" : 'outlined'}>
               Обучение
             </CustomButton>
             <Box
@@ -42,7 +46,7 @@ const NavBar = observer((props) => {
               width="2px"
               sx={{ background: "#fff", borderRadius: "100px" }}
             />
-            <CustomButton round color="secondary" variant="contained">
+            <CustomButton round color="secondary" variant={location.pathname === TRADING_ROUTE ? "contained" : 'outlined'}>
               Практика
             </CustomButton>
           </Box>
@@ -54,12 +58,12 @@ const NavBar = observer((props) => {
           >
             <CustomButton
               round
-              sx={{ fontSize: "16px", fontWeight: "700" }}
+              sx={{ fontSize: "14px", fontWeight: "700" }}
               color="secondary"
               variant="contained"
               endIcon={
                 <AccountBalanceWalletOutlined
-                  sx={{ fontSize: "24px!important", mb: "2px" }}
+                  sx={{ fontSize: "24px!important"}}
                 />
               }
             >

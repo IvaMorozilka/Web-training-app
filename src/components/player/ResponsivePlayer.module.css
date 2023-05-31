@@ -1,0 +1,13 @@
+.playerWrapper {
+    background: #7a68d3;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.reactPlayer {
+    position: absolute;
+    top: 0;
+    left: 0;
+}

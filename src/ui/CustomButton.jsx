@@ -6,9 +6,12 @@ export const CustomButton = styled(Button, {
 })(({ theme, round, textColor }) => ({
   color: textColor ? `${textColor}` : "#fff",
   borderRadius: round ? "100px" : "8px",
+  paddingLeft: "25px",
+  paddingRight: "25px",
 
   "&.MuiButton-outlined": {
     borderWidth: "2px",
-    padding: "4px 15px",
+    paddingBottom: '4px',
+    paddingTop: '4px',
   },
 }));
