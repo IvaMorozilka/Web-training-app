@@ -5,6 +5,7 @@ import App from "./App";
 import { DevSupport } from "@react-buddy/ide-toolbox";
 import { ComponentPreviews, useInitial } from "./dev";
 import UserStore from "./store/UserStore";
+import EducationStore from "./store/EducationStore";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 export const Context = createContext(null);
@@ -13,6 +14,7 @@ root.render(
   <Context.Provider
     value={{
       user: new UserStore(),
+      education: new EducationStore(),
     }}
   >
     <DevSupport
