@@ -11,10 +11,12 @@ import {
 import React, {useContext} from "react";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
+import {isEmptyArray} from "../../utils/helpers";
 
 export const DescriptionBlock = observer(() => {
     const theme = useTheme();
     const {education} = useContext(Context);
+
     return (
         <Box
             height="auto"
@@ -30,9 +32,9 @@ export const DescriptionBlock = observer(() => {
                 ОСНОВНЫЕ ТЕМЫ
             </Typography>
             <List>
-                {education.currentLessonDescription ? (
+                {!isEmptyArray(education.history) ? (
                     <>
-                        {education.currentLessonDescription.split(".").map((value, index) =>
+                        {education.lastHistory(0).description.split(".").map((value, index) =>
                             value.length === 0 ? (
                                 <></>
                             ) : (

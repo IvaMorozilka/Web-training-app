@@ -1,4 +1,5 @@
 import {makeAutoObservable} from "mobx";
+import {isEmptyArray, isLastElementEqual} from "../utils/helpers";
 
 export default class EducationStore {
     constructor() {
@@ -12,7 +13,7 @@ export default class EducationStore {
                         id: 1,
                         title: "Сведение ордеров",
                         progress: 0,
-                        url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
+                        url: "https://youtu.be/z9TU--BE4vY",
                         description:
                             "Преимущество крупного капитала на финансовых рынках.Механика рыночных колебаний и сведение ордеров.Лента и стакан как элемент сырой биржевой информации.Принцип двойного аукциона на финансовых рынках.",
                     },
@@ -20,7 +21,7 @@ export default class EducationStore {
                         id: 2,
                         title: "Анализ рынков",
                         progress: 0,
-                        url: "https://www.youtube.com/watch?v=Wy2-BaGMPHc",
+                        url: "https://youtu.be/KiUAy1LGSmc",
                         description:
                             "Новости как элемент неэффективного восприятия рынка.Тонкости фундаментального и технического анализа.Три измерения трейдинга",
                     },
@@ -36,7 +37,7 @@ export default class EducationStore {
                         id: 4,
                         title: "Флет",
                         progress: 0,
-                        url: "../blablabla.mp4",
+                        url: "https://youtu.be/son0lkFs_PI",
                         description:
                             "Волатильность.Принцип сужения/расширение.Инструменты оценки волатильности.Логика образования флетов, глубинный смысл фазы.Методика Locked in Range.Переосмысление Locked in Range by Crypto Mentors.Манипуляции во флете как элемент теста ликвидности за границами справедливой стоимости инструмента.2 структуры выхода из диапазона: импульсный или через останавливающий объём Wyckoff Schematic.",
                     },
@@ -44,7 +45,7 @@ export default class EducationStore {
                         id: 5,
                         title: "Тренд",
                         progress: 0,
-                        url: "../blablabla.mp4",
+                        url: "https://youtu.be/QRuE72MAcsw",
                         description:
                             "Принцип движения и структура тренда.Логика образования тренда, глубинный смысл фазы.Market Structure.Построение первостепенных трендовых линий.Reversal Trendlines, Trend Channels.Трендовая “перекупленность” и “перепроданность” по методу VSA.Расширение диапазона с тестом ликвидности.3 типа разворота тренда: Break of Market Structure (bos), cложный откат, через проторговку.",
                     },
@@ -52,7 +53,7 @@ export default class EducationStore {
                         id: 6,
                         title: "Price Action",
                         progress: 0,
-                        url: "../blablabla.mp4",
+                        url: "https://youtu.be/8dGbs4Tu78s",
                         description:
                             "Контекст - Сетап - Сигнал (+ специализированная литература).Элемент методики: Углы атаки.Элемент методики: Моментум.Принцип завершения тренда: Ускорение и закругление тренда.Элемент методики: Проекция цены.Элемент методики: Глубина.Тормозные конструкции как показатель инициативы.Average Daily Range Блок.",
                     },
@@ -201,7 +202,7 @@ export default class EducationStore {
             },
             {
                 blockId: 4,
-                blockTitle: "Анализ ценовых колебаний",
+                blockTitle: "Формирование системы. С голого графика до точки входа",
                 blockProgress: 0,
                 lessons: [
                     {
@@ -245,7 +246,7 @@ export default class EducationStore {
             },
             {
                 blockId: 5,
-                blockTitle: "Анализ ценовых колебаний",
+                blockTitle: "Менеджмент в трейдинге",
                 blockProgress: 0,
                 lessons: [
                     {
@@ -274,32 +275,59 @@ export default class EducationStore {
                 ],
             },
         ];
-        this._currentLesson = {};
+        this._history = [];
         makeAutoObservable(this);
+    }
+
+    get history() {
+        return this._history;
     }
 
     get educationData() {
         return this._educationData;
     }
 
-    get currentUrl() {
-        return this._currentLesson.url;
+    lastHistory(offset) {
+        return isEmptyArray(this._history) || this._history.slice(offset - 1)[0];
     }
 
-    get currentLesson() {
-        return this._currentLesson;
-    }
-
-    get currentLessonDescription() {
-        console.log(this._currentLesson.description);
-        return this._currentLesson.description;
+    addHistory(value) {
+        if (isLastElementEqual(this._history, value)) return;
+        this._history = [...this._history, value];
     }
 
     setEducationData(value) {
         this._educationData = value;
     }
 
-    setCurrentLesson(lesson) {
-        this._currentLesson = lesson;
+
+    updateLessonProgress(id, progress) {
+        const lessonMap = new Map();
+        for (let i = 0; i < this._educationData.length; i++) {
+            const block = this._educationData[i];
+            for (let j = 0; j < block.lessons.length; j++) {
+                const lesson = block.lessons[j];
+                lessonMap.set(lesson.id, lesson);
+            }
+        }
+        const lesson = lessonMap.get(id);
+        if (lesson && lesson.progress < progress) {
+            lesson.progress = progress;
+        }
+    }
+
+    updateBlockProgress(lessonId) {
+        // Находим блок, содержащий урок с lessonId
+        const block = this._educationData.find((b) => b.lessons.some((l) => l.id === lessonId));
+        // Если блок не найден, возвращаем false
+        if (!block) {
+            return false;
+        }
+        // Вычисляем общий прогресс блока
+        const totalProgress = block.lessons.reduce((acc, lesson) => acc + lesson.progress, 0);
+        // Обновляем поле blockProgress
+        block.blockProgress = Math.round((totalProgress / (block.lessons.length * 100)) * 100);
+        // Возвращаем true, чтобы показать, что блок был успешно обновлен
+        return true;
     }
 }

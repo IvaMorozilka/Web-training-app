@@ -3,6 +3,13 @@ export function calculateAverageProgress(lessons) {
   for (let i = 0; i < lessons.length; i++) {
     totalProgress += lessons[i].progress;
   }
-  const averageProgress = totalProgress / lessons.length;
-  return averageProgress;
+  return totalProgress / lessons.length;
+}
+
+export function isEmptyArray(arr) {
+  return Array.isArray(arr) && arr.length === 0;
+}
+
+export function isLastElementEqual(arr, element) {
+  return arr.length > 0 && arr[arr.length - 1] === element;
 }

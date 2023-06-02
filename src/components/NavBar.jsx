@@ -10,7 +10,6 @@ import { CustomButton } from "../ui/CustomButton";
 import { observer } from "mobx-react-lite";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
 import {useLocation} from "react-router-dom";
-import Education from "../pages/Education";
 
 const NavBar = observer((props) => {
   const { user } = useContext(Context);

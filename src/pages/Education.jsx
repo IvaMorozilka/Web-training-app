@@ -1,10 +1,10 @@
-import React from "react";
+import React, {memo} from "react";
 import {Box, Grid} from "@mui/material";
 import ResponsivePlayer from "../components/player/ResponsivePlayer";
 import LessonSelector from "../components/education/LessonSelector";
 import {DescriptionBlock} from "../components/education/DescriptionBlock";
 
-const Education = () => {
+const Education = memo(() => {
   return (
       <Box p={2}>
         <Grid container spacing={2}>
@@ -18,6 +18,6 @@ const Education = () => {
         </Grid>
       </Box>
   );
-};
+});
 
 export default Education;
