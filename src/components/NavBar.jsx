@@ -1,5 +1,10 @@
 import React, { useContext } from "react";
-import {AUTH_ROUTE, EDUCATION_ROUTE, REGISTRATION_ROUTE, TRADING_ROUTE} from "../utils/consts";
+import {
+  AUTH_ROUTE,
+  EDUCATION_ROUTE,
+  REGISTRATION_ROUTE,
+  TRADING_ROUTE,
+} from "../utils/consts";
 import logo from "../assets/logo.svg";
 import "../styles/custom-bootstrap.css";
 import { AppBar, Avatar, Box, Toolbar } from "@mui/material";
@@ -9,12 +14,12 @@ import { Context } from "../index";
 import { CustomButton } from "../ui/CustomButton";
 import { observer } from "mobx-react-lite";
 import { AccountBalanceWalletOutlined } from "@mui/icons-material";
-import {useLocation} from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const NavBar = observer((props) => {
   const { user } = useContext(Context);
+  const navigate = useNavigate();
   const location = useLocation();
-
 
   return user.isAuth ? (
     <>
@@ -37,7 +42,14 @@ const NavBar = observer((props) => {
             alignItems="center"
             gap="5px"
           >
-            <CustomButton round color="secondary" variant={location.pathname === EDUCATION_ROUTE ? "contained" : 'outlined'}>
+            <CustomButton
+              onClick={() => navigate(EDUCATION_ROUTE)}
+              round
+              color="secondary"
+              variant={
+                location.pathname === EDUCATION_ROUTE ? "contained" : "outlined"
+              }
+            >
               Обучение
             </CustomButton>
             <Box
@@ -45,7 +57,14 @@ const NavBar = observer((props) => {
               width="2px"
               sx={{ background: "#fff", borderRadius: "100px" }}
             />
-            <CustomButton round color="secondary" variant={location.pathname === TRADING_ROUTE ? "contained" : 'outlined'}>
+            <CustomButton
+              onClick={() => navigate(TRADING_ROUTE)}
+              round
+              color="secondary"
+              variant={
+                location.pathname === TRADING_ROUTE ? "contained" : "outlined"
+              }
+            >
               Практика
             </CustomButton>
           </Box>
@@ -62,7 +81,7 @@ const NavBar = observer((props) => {
               variant="contained"
               endIcon={
                 <AccountBalanceWalletOutlined
-                  sx={{ fontSize: "24px!important"}}
+                  sx={{ fontSize: "24px!important" }}
                 />
               }
             >

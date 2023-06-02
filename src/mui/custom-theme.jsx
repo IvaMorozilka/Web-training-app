@@ -9,10 +9,14 @@ const themeOptions: ThemeOptions = {
     secondary: {
       main: "#D81B60",
     },
+    success: {
+      main: "#48DF5D",
+    },
     background: {
       default: "#fff",
       paper: "#fff",
     },
+
   },
   typography: {
     fontFamily: "Montserrat, sans-serif",
