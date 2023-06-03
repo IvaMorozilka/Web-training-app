@@ -30,7 +30,7 @@ const CustomSlider = styled(Slider)(({theme}) => ({
                 left: 1,
             }
         },
-        "& .MuiSlider-mark" : {
+        "& .MuiSlider-mark": {
             backgroundColor: '#fff',
             opacity: 1,
             width: 4,
@@ -39,7 +39,7 @@ const CustomSlider = styled(Slider)(({theme}) => ({
             outline: `1px solid ${purple[500]}`
         },
         "& .MuiSlider-markLabel": {
-            '&[data-index="1"]' : {
+            '&[data-index="1"]': {
                 transform: 'translate(-75%,-50%)',
             },
             transform: 'translate(-50%,-50%)',
@@ -49,12 +49,46 @@ const CustomSlider = styled(Slider)(({theme}) => ({
     }
 
 }));
+const CustomTextField = styled(TextField)(({theme}) => ({
+    direction: 'rtl',
+    "& .Mui-disabled": {
+        "& .MuiOutlinedInput-input" : {
+            "&::placeholder": {
+                opacity: 0.75,
+            },
+        },
+    },
 
-export const TradeGroup = ({btnColor}) => {
+    "& .MuiOutlinedInput-root": {
+        height: 40,
+    },
+    "& .MuiOutlinedInput-notchedOutline": {
+        borderRadius: '8px'
+    },
+    "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
+        display: "none",
+    },
+    "& input[type=number]": {
+        MozAppearance: "textfield",
+    },
+
+
+}))
+
+export const TradeGroup = ({btnColor, type}) => {
     const marks = [
         {
             value: 0,
             label: '0'
+        },
+        {
+            value: 25,
+        },
+        {
+            value: 50,
+        },
+        {
+            value: 75,
         },
         {
             value: 100,
@@ -62,27 +96,36 @@ export const TradeGroup = ({btnColor}) => {
         },
     ]
     return (
-        <Box sx={{outline: "1px solid red"}} width={500} p = {1}>
-            <Stack spacing={2}>
-                <TextField
-                    sx={{direction: 'rtl', "& .MuiOutlinedInput-notchedOutline": {borderRadius: '8px'}}}
+        <Box p={1} sx = {{outline: '1px solid blue'}}>
+            <Stack spacing={1} >
+                <CustomTextField
+                    disabled = {type === 'market'}
                     InputProps={{
                         endAdornment: <InputAdornment position="end">Цена</InputAdornment>,
                     }}
                     type='number'
+                    placeholder ={type === 'market' ? "Рыночная цена" : ' '}
                 >
-                </TextField>
-                <TextField
-                    sx={{direction: 'rtl', "& .MuiOutlinedInput-notchedOutline": {borderRadius: '8px'}}}
+                </CustomTextField>
+                <CustomTextField
                     InputProps={{
-                        endAdornment: <InputAdornment position="end">Сумма</InputAdornment>,
+                        endAdornment: <InputAdornment position="end">{type === 'market' ? "Всего" : "Сумма"}</InputAdornment>,
                     }}
                     type='number'
                 >
-                </TextField>
+                </CustomTextField>
             </Stack>
-            <CustomSlider size='small' valueLabelDisplay="auto" marks={marks}/>
-
+            <Box px={0.5}>
+                <CustomSlider size='small' valueLabelDisplay="auto" marks={marks}/>
+            </Box>
+            <CustomTextField
+                sx = {{display: type === 'limit' ? 'block' : 'none'}}
+                InputProps={{
+                    endAdornment: <InputAdornment position="end">Всего</InputAdornment>,
+                }}
+                type='number'
+            >
+            </CustomTextField>
             <Stack direction='row' spacing={1}>
                 <Typography color={grey[500]}>Доступно</Typography>
                 <Box display='flex' gap='3px'>
@@ -91,7 +134,7 @@ export const TradeGroup = ({btnColor}) => {
                 </Box>
             </Stack>
 
-            <CustomButton round variant='contained' color={btnColor} fullWidth sx = {{mt: '8px', fontWeight: 600}}>
+            <CustomButton round variant='contained' color={btnColor} fullWidth sx={{mt: '8px', fontWeight: 600}}>
                 Купить
             </CustomButton>
         </Box>

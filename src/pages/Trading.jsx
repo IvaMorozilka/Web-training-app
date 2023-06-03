@@ -15,10 +15,10 @@ const Trading = () => {
                     </Grid>
                     <Grid item xs={4}>
                         <Stack spacing={1} height='100%'>
-                            <Box sx = {{outline: '1px solid red'}} flexBasis='30%'>
+                            <Box sx = {{outline: '1px solid red'}} flexBasis='33%'>
                                 <Trade/>
                             </Box>
-                            <Box sx = {{outline: '1px solid red'}} flexBasis='70%'>4</Box>
+                            <Box sx = {{outline: '1px solid red'}} flexBasis='67%'>4</Box>
                         </Stack>
                     </Grid>
                 </Grid>
