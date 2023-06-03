@@ -2,6 +2,7 @@ import React from "react";
 import {Box, Grid, Stack} from "@mui/material";
 import {Trade} from "../components/trading/Trade";
 import styled from "@emotion/styled";
+import {grey} from "@mui/material/colors";
 
 const RoundBox = styled(Box)(({theme}) => ({
     borderRadius: '16px',
@@ -20,7 +21,7 @@ const Trading = () => {
                     </Grid>
                     <Grid item xs={4}>
                         <Stack spacing={1} height='100%'>
-                            <RoundBox sx = {{outline: '1px solid red'}} flexBasis='33%'>
+                            <RoundBox sx = {{outline: `1px solid ${grey[500]}`}} flexBasis='33%'>
                                 <Trade/>
                             </RoundBox>
                             <RoundBox sx = {{outline: '1px solid red'}} flexBasis='67%'>4</RoundBox>

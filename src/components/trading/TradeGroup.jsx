@@ -11,7 +11,8 @@ const CustomSlider = styled(Slider)(({theme}) => ({
         },
         "& .MuiSlider-thumb": {
             "&.Mui-active": {
-                boxShadow: '0px 0px 0px 7px rgba(126, 87, 194, 0.2)',
+                "&:hover": {boxShadow: "0px 0px 0px 7px rgba(126, 87, 194, 0.2)"},
+                boxShadow: "0px 0px 0px 7px rgba(126, 87, 194, 0.2)",
             },
             "&:hover": {
                 boxShadow: '0px 0px 0px 4px rgba(126, 87, 194, 0.2)',
@@ -25,45 +26,46 @@ const CustomSlider = styled(Slider)(({theme}) => ({
         "& .MuiSlider-valueLabelOpen": {
             "&:after": {
                 content: '"%"',
-                position: 'relative',
-                top: 1,
-                left: 1,
-            }
+                position: "relative",
+            },
         },
         "& .MuiSlider-mark": {
-            backgroundColor: '#fff',
+            "&.MuiSlider-markActive": {
+                outline: `1px solid ${purple[500]}`,
+            },
+            backgroundColor: "#fff",
             opacity: 1,
             width: 4,
             height: 4,
-            borderRadius: '100%',
-            outline: `1px solid ${purple[500]}`
+            borderRadius: "100%",
+            outline: `1px solid ${grey[500]}`,
         },
         "& .MuiSlider-markLabel": {
-            '&[data-index="1"]': {
-                transform: 'translate(-75%,-50%)',
+            '&[data-index="4"]': {
+                transform: "translate(-75%,-50%)",
             },
-            transform: 'translate(-50%,-50%)',
+            transform: "translate(-50%,-50%)",
             color: `${grey[500]}`,
-            fontSize: '12px',
+            fontSize: "12px",
         },
-    }
-
+    },
 }));
 const CustomTextField = styled(TextField)(({theme}) => ({
-    direction: 'rtl',
     "& .Mui-disabled": {
-        "& .MuiOutlinedInput-input" : {
+        "& .MuiOutlinedInput-input": {
             "&::placeholder": {
                 opacity: 0.75,
             },
         },
     },
-
+    "& .MuiOutlinedInput-input": {
+        textAlign: "end",
+    },
     "& .MuiOutlinedInput-root": {
         height: 40,
     },
     "& .MuiOutlinedInput-notchedOutline": {
-        borderRadius: '8px'
+        borderRadius: "8px",
     },
     "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
         display: "none",
@@ -71,9 +73,7 @@ const CustomTextField = styled(TextField)(({theme}) => ({
     "& input[type=number]": {
         MozAppearance: "textfield",
     },
-
-
-}))
+}));
 
 export const TradeGroup = ({btnColor, type}) => {
     const marks = [
