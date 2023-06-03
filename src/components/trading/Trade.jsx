@@ -58,13 +58,14 @@ export const Trade = () => {
         display='flex'
         flexDirection='column'
         justifyContent='space-between'
-        sx={{ outline: "1px solid blue" }}>
+    >
       <Box pt={1}>
         <ToggleButtonGroup
             value={option}
             exclusive
             onChange={handleOption}
             sx={{
+              pl: theme.spacing(1),
               gap: theme.spacing(2),
             }}
         >

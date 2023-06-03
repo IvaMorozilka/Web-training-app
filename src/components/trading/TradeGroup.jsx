@@ -96,7 +96,7 @@ export const TradeGroup = ({btnColor, type}) => {
         },
     ]
     return (
-        <Box p={1} sx = {{outline: '1px solid blue'}}>
+        <Box p={1}>
             <Stack spacing={1} >
                 <CustomTextField
                     disabled = {type === 'market'}
@@ -134,7 +134,7 @@ export const TradeGroup = ({btnColor, type}) => {
                 </Box>
             </Stack>
 
-            <CustomButton round variant='contained' color={btnColor} fullWidth sx={{mt: '8px', fontWeight: 600}}>
+            <CustomButton variant='contained' color={btnColor} fullWidth sx={{mt: '8px', fontWeight: 600, borderRadius: '9px'}}>
                 Купить
             </CustomButton>
         </Box>
