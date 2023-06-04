@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 import styled from "@emotion/styled";
-import { TradeGroup } from "./TradeGroup";
+import TradeSection from "./TradeSection";
 
 const CustomToggleButton = styled(ToggleButton)(({ theme }) => ({
   "&.MuiToggleButton-standard": {
@@ -46,14 +46,15 @@ const CustomToggleButton = styled(ToggleButton)(({ theme }) => ({
 }));
 
 export const Trade = () => {
-  const [option, setOption] = useState("market");
+  const [option, setOption] = useState('market');
   const theme = useTheme();
   const handleOption = (event, newOption) => {
+    if (!newOption) return;
     setOption(newOption);
   };
   return (
     <Box
-        height="100%"
+
         width="100%"
         display='flex'
         flexDirection='column'
@@ -74,9 +75,9 @@ export const Trade = () => {
         </ToggleButtonGroup>
         <Divider />
       </Box>
-      <Stack direction="row">
-        <TradeGroup btnColor="success" type = {option}/>
-        <TradeGroup btnColor="secondary" type = {option}/>
+      <Stack direction="row" alignItems='center' spacing={-0.5} height='100%'>
+        <TradeSection isBuy isMarket={option === 'market'}/>
+        <TradeSection isMarket={option === 'market'}/>
       </Stack>
     </Box>
   );

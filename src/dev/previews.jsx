@@ -7,7 +7,7 @@ import Registration from "../pages/Registration";
 import MyButton from "../ui/MyButton";
 import MyTextField from "../ui/MyTextField";
 import {Trade} from "../components/trading/Trade";
-import {TradeGroup} from "../components/trading/TradeGroup";
+
 
 const ComponentPreviews = () => {
   return (
@@ -27,12 +27,6 @@ const ComponentPreviews = () => {
       <ComponentPreview path="/MyTextField">
         <MyTextField />
       </ComponentPreview>
-        <ComponentPreview path="/Trade">
-            <Trade/>
-        </ComponentPreview>
-        <ComponentPreview path="/TradeGroup">
-            <TradeGroup/>
-        </ComponentPreview>
     </Previews>
   );
 };

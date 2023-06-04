@@ -17,7 +17,7 @@ import { AccountBalanceWalletOutlined } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const NavBar = observer((props) => {
-  const { user } = useContext(Context);
+  const { user, trading } = useContext(Context);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -76,7 +76,7 @@ const NavBar = observer((props) => {
           >
             <CustomButton
               round
-              sx={{ fontSize: "14px", fontWeight: "700" }}
+              sx={{ fontSize: "14px", fontWeight: "600" }}
               color="secondary"
               variant="contained"
               endIcon={
@@ -85,7 +85,7 @@ const NavBar = observer((props) => {
                 />
               }
             >
-              1000$
+              {trading.usdAmount + ' USD'}
             </CustomButton>
             <CustomButton round color="secondary" variant="text">
               Таблица лидеров

@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Grid, Stack} from "@mui/material";
+import {Box, Grid, Slider, Stack} from "@mui/material";
 import {Trade} from "../components/trading/Trade";
 import styled from "@emotion/styled";
 import {grey} from "@mui/material/colors";
@@ -21,10 +21,11 @@ const Trading = () => {
                     </Grid>
                     <Grid item xs={4}>
                         <Stack spacing={1} height='100%'>
-                            <RoundBox sx = {{outline: `1px solid ${grey[500]}`}} flexBasis='33%'>
+                            <RoundBox sx = {{outline: `1px solid ${grey[500]}`}}  flexBasis='content'>
                                 <Trade/>
                             </RoundBox>
-                            <RoundBox sx = {{outline: '1px solid red'}} flexBasis='67%'>4</RoundBox>
+                            <RoundBox sx = {{outline: '1px solid red'}} flex={1}>12
+                            </RoundBox>
                         </Stack>
                     </Grid>
                 </Grid>

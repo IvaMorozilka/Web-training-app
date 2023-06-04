@@ -4,11 +4,16 @@ export default class TradingStore {
     constructor() {
         makeAutoObservable(this);
         this._tradingAccounts = [
-            {currencyId: 1, currencyName: 'USD', currencyAmount: 2714.1,},
-            {currencyId: 2, currencyName: 'BTC', currencyAmount: 0.0000025,},
+            {currencyId: 1, currencyName: 'USD', currencyAmount: 2000,},
+            {currencyId: 2, currencyName: 'BTC', currencyAmount: 0.123431, exchangeRate: 26003.2},
         ];
+        this._selectedAccount = {currencyId: 2, currencyName: 'BTC', currencyAmount: 0.030234, exchangeRate: 26003.2};
+        this._operationsHistory = []
     }
 
+    get selectedAccount(){
+        return this._selectedAccount;
+    }
     get usdAmount() {
         return this._tradingAccounts[0].currencyAmount;
     }
@@ -19,6 +24,13 @@ export default class TradingStore {
 
     set TradeGroup(value) {
         this._TradeGroup = value;
+    }
+
+    confirmBuy(price, amount, total){
+        alert(`Вы купили ${amount} BTC по цене ${price} на сумму ${total}`);
+    }
+    confirmSell(price, amount, total){
+        alert(`Вы продали ${amount} BTC по цене ${price} и получили ${total}`);
     }
 
 }
