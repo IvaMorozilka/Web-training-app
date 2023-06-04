@@ -6,7 +6,7 @@ import {
     Box,
     CircularProgress,
     Divider,
-    LinearProgress,
+    LinearProgress, Paper,
     Typography,
     useTheme
 } from "@mui/material";
@@ -14,6 +14,7 @@ import ExpandIcon from "../../ui/Icons/ExpandIcon";
 import {AccessTime} from "@mui/icons-material";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
+import {grey} from "@mui/material/colors";
 
 const LessonSelector = observer(() => {
     const theme = useTheme();
@@ -34,10 +35,10 @@ const LessonSelector = observer(() => {
             sx={{
                 height: "100%",
                 borderRadius: "16px",
-                backgroundColor: "#ececec",
-                boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
                 overflow: "auto",
             }}
+            component = {Paper}
+            elevation = {6}
         >
             {education.educationData.map((block) => (
                 <Accordion
@@ -101,10 +102,11 @@ const LessonSelector = observer(() => {
                                     px={2}
                                     key={lesson.id}
                                     sx={{
+                                        backgroundColor: education.lastHistory(0).id === lesson.id ?  `${grey[300]}` : '#fff',
                                         cursor: "pointer",
                                         transition: "background-color 0.2s ease-in-out",
                                         "&:hover": {
-                                            backgroundColor: "#ececec",
+                                            backgroundColor: `${grey[200]}`,
                                         },
                                     }}
                                 >

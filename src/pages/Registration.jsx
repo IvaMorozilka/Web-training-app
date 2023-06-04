@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import React, { useState } from "react";
-import MyTextField from "../ui/MyTextField";
+import AuthTextField from "../ui/AuthTextField";
 import MyButton from "../ui/MyButton";
 import { observer } from "mobx-react-lite";
 
@@ -80,7 +80,7 @@ const Registration = observer(() => {
                 key={field.id}
                 alignItems={index === fields.length - 1 ? "center" : "none"}
               >
-                <MyTextField
+                <AuthTextField
                   fullWidth
                   autoComplete="off"
                   margin="dense"

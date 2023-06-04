@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import ReactPlayer from "react-player";
 import cl from "./ResponsivePlayer.module.css";
-import { Box, Typography } from "@mui/material";
+import {Box, Paper, Typography} from "@mui/material";
 import { ErrorOutline } from "@mui/icons-material";
 import { Context } from "../../index";
 import { observer } from "mobx-react-lite";
@@ -28,32 +28,35 @@ const ResponsivePlayer = observer(() => {
   };
 
   return (
-    <div className={cl.playerWrapper}>
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        gap="20px"
-        sx={{ position: "absolute", top: "25%" }}
-      >
-        <ErrorOutline sx={{ color: "white", fontSize: "128px" }} />
-        <Typography variant="h2" color="white" align="center" px={2}>
-          Выберите урок из списка, чтобы начать обучение.
-        </Typography>
+      <Box component = {Paper} elevation = {6} borderRadius='16px'>
+        <div className={cl.playerWrapper}>
+          <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              gap="20px"
+              sx={{ position: "absolute", top: "25%" }}
+          >
+            <ErrorOutline sx={{ color: "white", fontSize: "128px" }} />
+            <Typography variant="h2" color="white" align="center" px={2}>
+              Выберите урок из списка, чтобы начать обучение.
+            </Typography>
+          </Box>
+
+          <ReactPlayer
+              ref={ref}
+              onStart={handleStart}
+              onProgress={(progress) => handleProgress(progress)}
+              className={cl.reactPlayer}
+              url={url}
+              playing
+              controls
+              width="100%"
+              height="100%"
+          />
+        </div>
       </Box>
 
-      <ReactPlayer
-        ref={ref}
-        onStart={handleStart}
-        onProgress={(progress) => handleProgress(progress)}
-        className={cl.reactPlayer}
-        url={url}
-        playing
-        controls
-        width="100%"
-        height="100%"
-      />
-    </div>
   );
 });
 

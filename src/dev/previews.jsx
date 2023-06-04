@@ -5,7 +5,7 @@ import Landing from "../pages/Landing";
 import Auth from "../pages/Auth";
 import Registration from "../pages/Registration";
 import MyButton from "../ui/MyButton";
-import MyTextField from "../ui/MyTextField";
+import AuthTextField from "../ui/AuthTextField";
 import {Trade} from "../components/trading/Trade";
 
 
@@ -24,8 +24,8 @@ const ComponentPreviews = () => {
       <ComponentPreview path="/MyButton">
         <MyButton />
       </ComponentPreview>
-      <ComponentPreview path="/MyTextField">
-        <MyTextField />
+      <ComponentPreview path="/AuthTextField">
+        <AuthTextField />
       </ComponentPreview>
     </Previews>
   );

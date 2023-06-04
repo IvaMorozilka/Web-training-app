@@ -1,10 +1,10 @@
 import {
     Avatar,
-    Box,
+    Box, Divider,
     List,
     ListItem,
     ListItemIcon,
-    ListItemText,
+    ListItemText, Paper,
     Typography,
     useTheme,
 } from "@mui/material";
@@ -24,13 +24,13 @@ export const DescriptionBlock = observer(() => {
             p={2}
             sx={{
                 borderRadius: "16px",
-                backgroundColor: "#ececec",
-                boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
             }}
+            component = {Paper} elevation = {6}
         >
-            <Typography variant="h3" align="center" mb={2}>
-                ОСНОВНЫЕ ТЕМЫ
+            <Typography variant="h3" align="center" fontWeight='500' mb={2}>
+                Что будет в данном уроке?
             </Typography>
+            <Divider variant='middle'/>
             <List>
                 {!isEmptyArray(education.history) ? (
                     <>

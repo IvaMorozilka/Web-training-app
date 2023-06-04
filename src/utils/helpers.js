@@ -1,3 +1,5 @@
+import {grey} from "@mui/material/colors";
+
 export function calculateAverageProgress(lessons) {
   let totalProgress = 0;
   for (let i = 0; i < lessons.length; i++) {
@@ -20,4 +22,12 @@ export function checkDecimalInput(input, precision) {
 export function getTotal(price, sum) {
   const result = parseFloat(price).toFixed(1) * parseFloat(sum).toFixed(8);
   return result.toFixed(1);
+}
+export function formatPercentage(number) {
+  return `${number > 0 ? '+' : ''}${number}%`;
+}
+export function changeColorPicker(number, theme) {
+  if (number == 0) return grey[500];
+  if (number > 0) return theme.palette.success.main;
+  return theme.palette.secondary.light;
 }

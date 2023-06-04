@@ -42,8 +42,8 @@ const CustomTextField = styled(TextField)(({ theme }) => ({
   },
 }));
 
-const MyTextField = (props) => {
+const AuthTextField = (props) => {
   return <CustomTextField {...props}>{props.children}</CustomTextField>;
 };
 
-export default MyTextField;
+export default AuthTextField;

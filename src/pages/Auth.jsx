@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import React, { useContext, useState } from "react";
 import MyButton from "../ui/MyButton";
-import MyTextField from "../ui/MyTextField";
+import AuthTextField from "../ui/AuthTextField";
 import { Context } from "../index";
 import { useNavigate } from "react-router-dom";
 import { EDUCATION_ROUTE } from "../utils/consts";
@@ -51,7 +51,7 @@ const Auth = () => {
           Войти
         </Typography>
         <Box component="form" px="10px">
-          <MyTextField
+          <AuthTextField
             autoComplete="off"
             fullWidth
             margin="normal"
@@ -62,7 +62,7 @@ const Auth = () => {
             borderRadius="8px"
             onChange={(e) => setLogin(e.target.value)}
           />
-          <MyTextField
+          <AuthTextField
             autoComplete="off"
             fullWidth
             margin="normal"

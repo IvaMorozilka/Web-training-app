@@ -54,7 +54,6 @@ export const Trade = () => {
   };
   return (
     <Box
-
         width="100%"
         display='flex'
         flexDirection='column'

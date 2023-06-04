@@ -1,5 +1,5 @@
 import React, {memo} from "react";
-import {Box, Grid} from "@mui/material";
+import {Box, Grid, Paper} from "@mui/material";
 import ResponsivePlayer from "../components/player/ResponsivePlayer";
 import LessonSelector from "../components/education/LessonSelector";
 import {DescriptionBlock} from "../components/education/DescriptionBlock";
