@@ -2,7 +2,7 @@ import {TextField} from "@mui/material";
 import styled from "@emotion/styled";
 import {slotShouldForwardProp} from "@mui/material/styles/styled";
 
-export const CustomTextField = styled(TextField, slotShouldForwardProp((prop) => prop !== 'height' && prop !== 'textAlign'))(({theme, height, textAlign}) => ({
+export const CustomTextField = styled(TextField, slotShouldForwardProp((prop) => prop !== 'height' && prop !== 'textAlign' ))(({theme,height, textAlign}) => ({
     "& .Mui-disabled": {
         "& .MuiOutlinedInput-input": {
             "&::placeholder": {
