@@ -161,7 +161,7 @@ const TradeSection = ({isBuy, isMarket, ...props}) => {
         trading.confirmBuy(price, sum, total);
     }
     const handleSell = () => {
-        trading.confirmBuy(price, sum, total);
+        trading.confirmSell(price, sum, total);
     }
 
     return (

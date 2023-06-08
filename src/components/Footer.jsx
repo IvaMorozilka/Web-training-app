@@ -11,6 +11,8 @@ const Footer = observer((props) => {
         sx={{
           height: "60px",
           width: "100%",
+            position: 'relative',
+            bottom: 0,
           background: "#7E57C2",
           // borderTopLeftRadius: "8px",
           // borderTopRightRadius: "8px",

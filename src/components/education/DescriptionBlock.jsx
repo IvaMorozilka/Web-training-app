@@ -67,7 +67,7 @@ export const DescriptionBlock = observer(() => {
                         )}
                     </>
                 ) : (
-                    ""
+                    <Typography variant='h5' textAlign="center">Описание недоступно, пока не выбран урок.</Typography>
                 )}
             </List>
         </Box>

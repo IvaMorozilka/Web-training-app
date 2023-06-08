@@ -33,9 +33,10 @@ const LessonSelector = observer(() => {
     return (
         <Box
             sx={{
-                height: "100%",
+                width: '100%',
                 borderRadius: "16px",
-                overflow: "auto",
+                overflow: 'auto',
+                flexGrow: '1',
             }}
             component = {Paper}
             elevation = {6}
@@ -108,6 +109,7 @@ const LessonSelector = observer(() => {
                                         "&:hover": {
                                             backgroundColor: `${grey[200]}`,
                                         },
+                                        borderRadius: '16px',
                                     }}
                                 >
                                     <Typography fontSize="14px" fontWeight="600">

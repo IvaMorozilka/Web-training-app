@@ -8,7 +8,7 @@ const Education = memo(() => {
   return (
       <Box p={2}>
         <Grid container spacing={2}>
-          <Grid item xs={4}>
+          <Grid item xs={4} display='flex'>
             <LessonSelector/>
           </Grid>
           <Grid item xs={8}>
