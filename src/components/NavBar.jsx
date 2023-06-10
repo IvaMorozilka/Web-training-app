@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import {
+  ACCOUNT_ROUTE,
   AUTH_ROUTE,
   EDUCATION_ROUTE,
   REGISTRATION_ROUTE,
@@ -44,7 +45,7 @@ const NavBar = observer((props) => {
             <CustomButton
               onClick={() => navigate(EDUCATION_ROUTE)}
               round
-              color="secondary"
+              btnColor={'#fff'}
               variant={
                 location.pathname === EDUCATION_ROUTE ? "contained" : "outlined"
               }
@@ -58,8 +59,8 @@ const NavBar = observer((props) => {
             />
             <CustomButton
               onClick={() => navigate(TRADING_ROUTE)}
+              btnColor={'#fff'}
               round
-              color="secondary"
               variant={
                 location.pathname === TRADING_ROUTE ? "contained" : "outlined"
               }
@@ -76,7 +77,7 @@ const NavBar = observer((props) => {
             <CustomButton
               round
               sx={{ fontSize: "14px", fontWeight: "600" }}
-              color="secondary"
+              btnColor={'#fff'}
               variant="contained"
               endIcon={
                 <AccountBalanceWalletOutlined
@@ -86,10 +87,7 @@ const NavBar = observer((props) => {
             >
               {trading.usdAmount + ' USD'}
             </CustomButton>
-            <CustomButton round color="secondary" variant="text">
-              Таблица лидеров
-            </CustomButton>
-            <Avatar sx={{ width: "40px", height: "40px" }} />
+            <Avatar sx={{ width: "40px", height: "40px", cursor: 'pointer', outline: '2px solid white' }} onClick = { () => navigate(ACCOUNT_ROUTE)}/>
           </Box>
         </Toolbar>
       </AppBar>
