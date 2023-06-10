@@ -1,77 +1,33 @@
-import {
+ import {
     Box,
-    Chip,
     InputAdornment,
     Stack,
     Table,
     TableBody,
-    TableCell,
     TableHead,
-    TableRow,
     TableSortLabel,
     Typography
 } from "@mui/material";
 import {CustomTextField} from "../../ui/CustomTextField";
 import {Search} from "@mui/icons-material";
 import React, {useContext, useMemo, useState} from "react";
-import styled from "@emotion/styled";
 import {grey} from "@mui/material/colors";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
 import {Cryptocurrencies} from "./Cryptocurrencies";
 import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
-
-const CustomChip = styled(Chip)(({theme}) => ({
-    fontWeight: 500,
-    border: '1px solid #fff',
-    "&.MuiChip-outlined": {
-        color: `${grey[500]}`,
-    }
-}))
-const CustomTableCell = styled(TableCell)(({theme}) => ({
-    "&.MuiTableCell-root": {
-        border: 'none',
-        fontWeight: 500,
-        fontSize: '13pt',
-        paddingLeft: 0,
-    },
-}))
-const CustomTableRow = styled(TableRow)(({theme}) => ({
-    "&.MuiTableRow-hover": {
-        "&:hover": {
-            backgroundColor: `${grey[100]}`
-        },
-    },
-    "&.Mui-selected": {
-        backgroundColor: `${grey[100]}`
-    },
-}))
+ import {CustomChip, CustomTableCell, CustomTableRow} from "../../ui/StyledComponents";
+ import {marketHeaderCells} from "../../utils/consts";
+ import {TableHeader} from "./TableHeader";
+ import {useSort} from "../../hooks/useSort";
 
 export const Market = observer(() => {
     const {trading} = useContext(Context);
-    const headerCells = [
-        {
-            id: 'pair',
-            numeric: false,
-            label: 'Пара',
-        },
-        {
-            id: 'price',
-            numeric: true,
-            label: 'Последняя цена',
-        },
-        {
-            id: 'change',
-            numeric: true,
-            label: 'Изм. (24ч)',
-        },
-    ]
     const assetsData = trading.tradingAssets;
     const [isFav, setIsFav] = useState(false);
     const [order, setOrder] = useState('asc');
     const [orderBy, setOrderBy] = useState('pair');
     const [searchQuery, setSearchQuery] = useState('');
-
 
     const handleChipClick = (e) => {
         if (e.target.textContent === 'Все') {
@@ -86,38 +42,50 @@ export const Market = observer(() => {
             setSearchQuery(e.target.value.toUpperCase());
         }
     }
-    const sort = useMemo(() => {
-        const data = isFav ? [...assetsData.filter(asset => asset.fav === true)] : [...assetsData];
-        switch (orderBy) {
-            case 'pair':
-                return data.sort((a, b) => {
-                    if (order === 'asc')
-                        return a.name.localeCompare(b.name)
-                    else
-                        return b.name.localeCompare(a.name)
-                })
-            case 'price':
-                return data.sort((a, b) => {
-                    if (order === 'asc')
-                        return parseFloat(a.price) - parseFloat(b.price)
-                    else
-                        return parseFloat(b.price) - parseFloat(a.price)
-                })
-            case 'change':
-                return data.sort((a, b) => {
-                    if (order === 'asc')
-                        return parseFloat(a.change) - parseFloat(b.change)
-                    else
-                        return parseFloat(b.change) - parseFloat(a.change)
-                })
-            default:
-                return data;
-        }
-    }, [order, orderBy, isFav]);
-    const searchedAndSorted = useMemo(() => {
-        console.log(sort);
-        return sort.filter(data => data.name.toUpperCase().includes(searchQuery));
-    }, [searchQuery, sort]);
+
+    const sortResult = useSort(
+        isFav ? [...assetsData.filter(asset => asset.fav === true)] : [...assetsData],
+        isFav,
+        orderBy,
+        order,
+        searchQuery
+    )
+
+
+    // const sort = useMemo(() => {
+    //     const data = isFav ? [...assetsData.filter(asset => asset.fav === true)] : [...assetsData];
+    //     switch (orderBy) {
+    //         case 'pair':
+    //             return data.sort((a, b) => {
+    //                 if (order === 'asc')
+    //                     return a.name.localeCompare(b.name)
+    //                 else
+    //                     return b.name.localeCompare(a.name)
+    //             })
+    //         case 'price':
+    //             return data.sort((a, b) => {
+    //                 if (order === 'asc')
+    //                     return parseFloat(a.price) - parseFloat(b.price)
+    //                 else
+    //                     return parseFloat(b.price) - parseFloat(a.price)
+    //             })
+    //         case 'change':
+    //             return data.sort((a, b) => {
+    //                 if (order === 'asc')
+    //                     return parseFloat(a.change) - parseFloat(b.change)
+    //                 else
+    //                     return parseFloat(b.change) - parseFloat(a.change)
+    //             })
+    //         default:
+    //             return data;
+    //     }
+    // }, [order, orderBy, isFav]);
+    // const searchedAndSorted = useMemo(() => {
+    //     console.log(sort);
+    //     return sort.filter(data => data.name.toUpperCase().includes(searchQuery));
+    // }, [searchQuery, sort]);
+
+
     const handleRequestSort = (property) => {
         const isAsc = orderBy === property && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
@@ -143,29 +111,15 @@ export const Market = observer(() => {
                             variant={isFav ? 'filled' : 'outlined'}/>
             </Stack>
             <Table size='small'>
-                <TableHead sx={{}}>
-                    <CustomTableRow>
-                        {headerCells.map(headCell =>
-                            <CustomTableCell
-                                sortDirection={orderBy === headCell.id ? order : false}
-                                key={headCell.id}
-                                align={headCell.id === 'pair' ? 'left' : 'right'}
-                            >
-                                <TableSortLabel
-                                    active={orderBy === headCell.id}
-                                    direction={orderBy === headCell.id ? order : 'asc'}
-                                    sx={{flexDirection: 'row-reverse'}}
-                                    onClick={() => handleRequestSort(headCell.id)}
-                                >
-                                    {headCell.label}
-                                </TableSortLabel>
-
-                            </CustomTableCell>
-                        )}
-                    </CustomTableRow>
-                </TableHead>
+                <TableHeader
+                    headerCells={marketHeaderCells}
+                    orderBy={orderBy}
+                    order={order}
+                    handleRequestSort={handleRequestSort}
+                    flexDirection={'row-reverse'}
+                />
                 <TableBody>
-                    {searchedAndSorted.length === 0
+                    {sortResult.length === 0
                         ? <CustomTableRow align='center'>
                             <CustomTableCell colSpan={3} sx = {{py: '128px'}}>
                                 <Stack direction='column' alignItems='center' spacing={2} sx = {{outline: '1px solid blue'}}>
@@ -175,7 +129,7 @@ export const Market = observer(() => {
                             </CustomTableCell>
                         </CustomTableRow>
                         :
-                        <Cryptocurrencies data={searchedAndSorted}/>
+                        <Cryptocurrencies data={sortResult}/>
                     }
                 </TableBody>
             </Table>

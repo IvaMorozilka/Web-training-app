@@ -1,10 +1,11 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Box, InputAdornment, Slider, Stack, TextField, Typography} from "@mui/material";
 import {grey, purple} from "@mui/material/colors";
 import styled from "@emotion/styled";
 import {Context} from "../../index";
 import {checkDecimalInput, getTotal} from "../../utils/helpers";
 import {CustomButton} from "../../ui/CustomButton";
+import {observer} from "mobx-react-lite";
 
 const CustomSlider = styled(Slider)(({theme}) => ({
     "&.MuiSlider-colorPrimary": {
@@ -80,7 +81,7 @@ const CustomTextField = styled(TextField)(({theme}) => ({
     },
 }));
 
-const TradeSection = ({isBuy, isMarket, ...props}) => {
+const TradeSection = observer( ({isBuy, isMarket, ...props}) => {
     const marks = [
         {
             value: 0,
@@ -103,12 +104,16 @@ const TradeSection = ({isBuy, isMarket, ...props}) => {
     const {trading} = useContext(Context);
     const currencyAmount = isBuy
         ? trading.usdAmount
-        : trading.selectedAccount.currencyAmount;
-    const exchangeRate = trading.selectedAccount.exchangeRate;
-
+        : trading.selectedAccount.amount;
+    const exchangeRate = trading.selectedAccount.price;
     const [sum, setSum] = useState(0);
     const [price, setPrice] = useState(exchangeRate);
     const [total, setTotal] = useState(0);
+
+    useEffect(()=> {
+      setPrice(exchangeRate);
+    }, [trading.selectedAccount])
+
 
     const handlePriceChange = (e) => {
         if (checkDecimalInput(e.target.value, 1)) {
@@ -202,11 +207,11 @@ const TradeSection = ({isBuy, isMarket, ...props}) => {
                             ),
                             endAdornment: isMarket ? (
                                 <InputAdornment position="end">
-                                    {isBuy ? 'USD' : trading.selectedAccount.currencyName}
+                                    {isBuy ? 'USD' : trading.selectedAccountCurrency}
                                 </InputAdornment>
                             ) : (
                                 <InputAdornment position="end">
-                                    {trading.selectedAccount.currencyName}
+                                    {trading.selectedAccountCurrency}
                                 </InputAdornment>
                             ),
                         }}
@@ -245,7 +250,7 @@ const TradeSection = ({isBuy, isMarket, ...props}) => {
 
                     <Box display='flex' gap='3px'>
                         <Typography>{currencyAmount}</Typography>
-                        <Typography>{isBuy ? 'USD' : trading.selectedAccount.currencyName}</Typography>
+                        <Typography>{isBuy ? 'USD' : trading.selectedAccountCurrency}</Typography>
                     </Box>
 
                 </Stack>
@@ -257,6 +262,6 @@ const TradeSection = ({isBuy, isMarket, ...props}) => {
             </Stack>
         </Box>
     );
-};
+});
 
 export default TradeSection;

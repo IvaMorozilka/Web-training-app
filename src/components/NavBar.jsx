@@ -6,7 +6,6 @@ import {
   TRADING_ROUTE,
 } from "../utils/consts";
 import logo from "../assets/logo.svg";
-import "../styles/custom-bootstrap.css";
 import { AppBar, Avatar, Box, Toolbar } from "@mui/material";
 import cl from "../styles/Button.module.css";
 import MyButton from "../ui/MyButton";

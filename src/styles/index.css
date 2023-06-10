@@ -168,3 +168,6 @@ select {
 iframe {
     border-radius: 16px !important;
 }
+svg {
+    pointer-events: none;
+}

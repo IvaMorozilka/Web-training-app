@@ -10,8 +10,7 @@ import {
     Typography,
     useTheme
 } from "@mui/material";
-import ExpandIcon from "../../ui/Icons/ExpandIcon";
-import {AccessTime} from "@mui/icons-material";
+import {AccessTime, ExpandMore} from "@mui/icons-material";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
 import {grey} from "@mui/material/colors";
@@ -34,9 +33,9 @@ const LessonSelector = observer(() => {
         <Box
             sx={{
                 width: '100%',
+                height: '100%',
                 borderRadius: "16px",
                 overflow: 'auto',
-                flexGrow: '1',
             }}
             component = {Paper}
             elevation = {6}
@@ -60,7 +59,7 @@ const LessonSelector = observer(() => {
                     onChange={handleChange(`${block.blockId}`)}
                 >
                     <AccordionSummary
-                        expandIcon={<ExpandIcon/>}
+                        expandIcon={<ExpandMore sx = {{color: '#fff', fontSize: '2rem'}}/>}
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                         sx={{
@@ -126,6 +125,7 @@ const LessonSelector = observer(() => {
                                             <AccessTime
                                                 shapeRendering="geometricPrecision"
                                                 sx={{
+                                                    filter: 'blur(.3px)',
                                                     fontSize: "30px",
                                                     position: "absolute",
                                                     top: 8,
@@ -141,7 +141,7 @@ const LessonSelector = observer(() => {
                                             />
                                         </Box>
                                         <Typography align="center" variant="subtitle2">
-                                            20 мин.
+                                            {lesson.duration} мин.
                                         </Typography>
                                     </Box>
                                 </Box>

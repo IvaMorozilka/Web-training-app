@@ -5,12 +5,12 @@ import {observer} from "mobx-react-lite";
 
 export const Chart = observer (() => {
     const {trading} = useContext(Context);
-    const currencyName = trading.selectedAccount.currencyName;
+    const currencyName = trading.selectedAccount.name;
     return (
         <AdvancedRealTimeChart
             autosize
             theme='light'
-            symbol={`CRYPTO:${currencyName}USD`}
+            symbol={`CRYPTO:${currencyName.replace("/",'')}`}
             interval='15'
             timezone='Europe/Moscow'
             locale='ru'

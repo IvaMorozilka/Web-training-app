@@ -2,48 +2,12 @@ import {
   Box,
   Divider,
   Stack,
-  ToggleButton,
   ToggleButtonGroup,
   useTheme,
 } from "@mui/material";
 import { useState } from "react";
-import styled from "@emotion/styled";
 import TradeSection from "./TradeSection";
-
-const CustomToggleButton = styled(ToggleButton)(({ theme }) => ({
-  "&.MuiToggleButton-standard": {
-    color: "#929292",
-    padding: 0,
-    border: "none",
-    textTransform: "none",
-
-    "&:after": {
-      content: '""',
-      position: "absolute",
-      width: "100%",
-      border: "1px solid black",
-      bottom: -1,
-      left: 0,
-      opacity: 0,
-      transition: "opacity .1s ease-in-out",
-    },
-
-    "&.Mui-selected": {
-      "&:after": {
-        content: '""',
-        position: "absolute",
-        width: "100%",
-        border: "1px solid black",
-        bottom: -1,
-        left: 0,
-        opacity: 1,
-      },
-
-      background: "none",
-      color: "#000",
-    },
-  },
-}));
+import {CustomToggleButton} from "../../ui/StyledComponents";
 
 export const Trade = () => {
   const [option, setOption] = useState('market');

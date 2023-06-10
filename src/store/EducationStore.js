@@ -11,6 +11,7 @@ export default class EducationStore {
                 lessons: [
                     {
                         id: 1,
+                        duration: 28,
                         title: "Сведение ордеров",
                         progress: 0,
                         url: "https://youtu.be/z9TU--BE4vY",
@@ -19,14 +20,16 @@ export default class EducationStore {
                     },
                     {
                         id: 2,
+                        duration: 15,
                         title: "Анализ рынков",
                         progress: 0,
-                        url: "https://youtu.be/KiUAy1LGSmc",
+                        url: "https://download1532.mediafire.com/l7k1kbyaylcgxPBsXN_BLf-YhTQ3Nus8x2GlGh-BKASVVMx-d2BdboHzyTHenUc3IPwQv0Z4B8OyEBXgzfRUQTYSg_FkQa2Y8Vx_YbbQY_BbKnt-5iqLCK5LO0dg0FLsQNph2R7LUY-Mk6y6ZG5a-9Qo6K99RdHzpZ5-FHGRhoJVng/xreosjr31bubxgc/2.mp4",
                         description:
                             "Новости как элемент неэффективного восприятия рынка.Тонкости фундаментального и технического анализа.Три измерения трейдинга",
                     },
                     {
                         id: 3,
+                        duration: 16,
                         title: "Движение цены",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=Nq2sDZIvwDE",
@@ -35,6 +38,7 @@ export default class EducationStore {
                     },
                     {
                         id: 4,
+                        duration: 24,
                         title: "Флет",
                         progress: 0,
                         url: "https://youtu.be/son0lkFs_PI",
@@ -43,6 +47,7 @@ export default class EducationStore {
                     },
                     {
                         id: 5,
+                        duration: 27,
                         title: "Тренд",
                         progress: 0,
                         url: "https://youtu.be/QRuE72MAcsw",
@@ -51,6 +56,7 @@ export default class EducationStore {
                     },
                     {
                         id: 6,
+                        duration: 35,
                         title: "Price Action",
                         progress: 0,
                         url: "https://youtu.be/8dGbs4Tu78s",
@@ -66,6 +72,7 @@ export default class EducationStore {
                 lessons: [
                     {
                         id: 7,
+                        duration: 0,
                         title: "Объёмы как основной элемент движения рынка",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -74,6 +81,7 @@ export default class EducationStore {
                     },
                     {
                         id: 8,
+                        duration: 0,
                         title: "Побарный анализ. Часть №1",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=Wy2-BaGMPHc",
@@ -82,6 +90,7 @@ export default class EducationStore {
                     },
                     {
                         id: 9,
+                        duration: 0,
                         title: "Побарный анализ. Часть №2",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=Nq2sDZIvwDE",
@@ -90,6 +99,7 @@ export default class EducationStore {
                     },
                     {
                         id: 10,
+                        duration: 0,
                         title: "Побарный анализ. Часть №3",
                         progress: 0,
                         url: "../blablabla.mp4",
@@ -98,6 +108,7 @@ export default class EducationStore {
                     },
                     {
                         id: 11,
+                        duration: 0,
                         title: "Побарный анализ. Часть №4",
                         progress: 0,
                         url: "../blablabla.mp4",
@@ -105,6 +116,7 @@ export default class EducationStore {
                     },
                     {
                         id: 12,
+                        duration: 0,
                         title: "Уровни",
                         progress: 0,
                         url: "../blablabla.mp4",
@@ -113,6 +125,7 @@ export default class EducationStore {
                     },
                     {
                         id: 13,
+                        duration: 0,
                         title: "Индикаторы",
                         progress: 0,
                         url: "../blablabla.mp4",
@@ -128,6 +141,7 @@ export default class EducationStore {
                 lessons: [
                     {
                         id: 14,
+                        duration: 0,
                         title: "Прямая биржевая информация/ Order Flow",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -136,6 +150,7 @@ export default class EducationStore {
                     },
                     {
                         id: 15,
+                        duration: 0,
                         title: "Кластерный анализ",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -144,6 +159,7 @@ export default class EducationStore {
                     },
                     {
                         id: 16,
+                        duration: 0,
                         title: "Формации кластерного анализа",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -152,6 +168,7 @@ export default class EducationStore {
                     },
                     {
                         id: 17,
+                        duration: 0,
                         title: "Дельта",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -160,6 +177,7 @@ export default class EducationStore {
                     },
                     {
                         id: 18,
+                        duration: 0,
                         title: "Кумулятивная дельта",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -168,6 +186,7 @@ export default class EducationStore {
                     },
                     {
                         id: 19,
+                        duration: 0,
                         title: "Дельта: рыночная неэффективность",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -176,6 +195,7 @@ export default class EducationStore {
                     },
                     {
                         id: 20,
+                        duration: 0,
                         title: "Volume Profile",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -184,6 +204,7 @@ export default class EducationStore {
                     },
                     {
                         id: 21,
+                        duration: 0,
                         title: "Гибкий Volume Profile",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -192,6 +213,7 @@ export default class EducationStore {
                     },
                     {
                         id: 22,
+                        duration: 0,
                         title: "Системы координат",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -207,6 +229,7 @@ export default class EducationStore {
                 lessons: [
                     {
                         id: 23,
+                        duration: 0,
                         title: "Сетапы на вход: смена чередования экстремумов",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -214,6 +237,7 @@ export default class EducationStore {
                     },
                     {
                         id: 24,
+                        duration: 0,
                         title: "Сетапы на вход: тест накопления",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -221,6 +245,7 @@ export default class EducationStore {
                     },
                     {
                         id: 25,
+                        duration: 0,
                         title: "Сетапы на вход: пробой и ложный пробой",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -228,6 +253,7 @@ export default class EducationStore {
                     },
                     {
                         id: 26,
+                        duration: 0,
                         title: "Точки входа",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -236,6 +262,7 @@ export default class EducationStore {
                     },
                     {
                         id: 27,
+                        duration: 0,
                         title: "Готовый алгоритм",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -251,6 +278,7 @@ export default class EducationStore {
                 lessons: [
                     {
                         id: 28,
+                        duration: 0,
                         title: "Risk Management",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -259,6 +287,7 @@ export default class EducationStore {
                     },
                     {
                         id: 29,
+                        duration: 0,
                         title: "Управление позицией",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",
@@ -266,6 +295,7 @@ export default class EducationStore {
                     },
                     {
                         id: 30,
+                        duration: 0,
                         title: "Перед началом",
                         progress: 0,
                         url: "https://www.youtube.com/watch?v=RGF2mC-o0rE",

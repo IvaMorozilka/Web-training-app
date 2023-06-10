@@ -1,45 +1,38 @@
-import {Stack, TableCell, TableRow, Typography, useTheme} from "@mui/material";
+import {Box, Stack, Typography, useTheme} from "@mui/material";
 import {StarBorderRounded, StarRounded} from "@mui/icons-material";
 import {changeColorPicker, formatPercentage} from "../../utils/helpers";
-import React from "react";
-import styled from "@emotion/styled";
-import {grey} from "@mui/material/colors";
+import React, {useContext} from "react";
+import {Context} from "../../index";
+import {observer} from "mobx-react-lite";
+import {CustomTableCell, CustomTableRow} from "../../ui/StyledComponents";
 
-const CustomTableCell = styled(TableCell)(({theme}) => ({
-    "&.MuiTableCell-root": {
-        border: 'none',
-        fontWeight: 500,
-        fontSize: '13pt',
-        paddingLeft: 0,
-    },
-}))
-const CustomTableRow = styled(TableRow)(({theme}) => ({
-    "&.MuiTableRow-hover": {
-        "&:hover": {
-            backgroundColor: `${grey[100]}`
-        },
-    },
-    "&.Mui-selected": {
-        backgroundColor: `${grey[100]}`
-    },
-}))
-
-
-export const Cryptocurrencies = ({data, ...props}) => {
+export const Cryptocurrencies = observer(({data, ...props}) => {
     const theme = useTheme();
+    const {trading} = useContext(Context);
+
+    const handleFavClick = (e) => {
+        if (trading.isFavorite(e.target.id)) {
+            trading.updateFavById(e.target.id,false);
+        } else {
+            trading.updateFavById(e.target.id,true);
+        }
+    }
+
     return (
         <>
             {data.map((asset, index) =>
-            <CustomTableRow hover selected={asset.name === 'BTC'}>
-                <CustomTableCell align='left'>
+            <CustomTableRow hover selected={asset.id === trading.selectedAccount.id}  onClick = {(e) => e.target.id || trading.changeSelectedAccountById(asset.id)} key = {asset.id} sx = {{cursor: 'pointer'}}>
+                <CustomTableCell align='left' key = {asset.id}>
                     <Stack direction='row' alignItems='center' spacing={1}>
-                        {asset.fav ?
-                            <StarRounded color='primary' sx={{fontSize: '28px', cursor: 'pointer'}}/>
-                            :
-                            <StarBorderRounded color='primary' sx={{fontSize: '28px', cursor: 'pointer'}}/>
-                        }
+                        <Box sx = {{cursor: 'pointer'}} onClick = {handleFavClick} key={asset.id} id = {asset.id}>
+                            {asset.fav ?
+                                <StarRounded color='primary' sx={{fontSize: '28px'}} children={'hello'}/>
+                                :
+                                <StarBorderRounded color='primary' sx={{fontSize: '28px'}}/>
+                            }
+                        </Box>
                         <Typography variant='subtitle1'>
-                            {asset.name + '/USD'}
+                            {asset.name}
                         </Typography>
                     </Stack>
                 </CustomTableCell>
@@ -58,4 +51,4 @@ export const Cryptocurrencies = ({data, ...props}) => {
         )}
         </>
     )
-}
+});
