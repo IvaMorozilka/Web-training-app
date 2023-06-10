@@ -8,6 +8,7 @@ const Footer = observer((props) => {
   return user.isAuth ? (
     <>
       <Box
+          id = '777'
         sx={{
           height: "60px",
           width: "100%",
@@ -21,7 +22,7 @@ const Footer = observer((props) => {
           justifyContent: "center",
         }}
       >
-        <Typography variant="body1" color="#FFF" fontSize="20px">
+        <Typography variant="body1" color="#FFF" fontSize="1rem">
           Обучающая платформа VANILL' , 2023
         </Typography>
       </Box>

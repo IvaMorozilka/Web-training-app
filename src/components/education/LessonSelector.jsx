@@ -73,10 +73,10 @@ const LessonSelector = observer(() => {
                             color: "#fff",
                             backgroundColor: theme.palette.primary.main,
                             borderRadius: "inherit",
-                            height: '64px',
+                            height: {xs:'56px',lg:'64px'},
                         }}
                     >
-                        <Typography>{block.blockTitle}</Typography>
+                        <Typography fontSize={{sm: '1rem', lg: '1.1rem'}}>{block.blockTitle}</Typography>
                     </AccordionSummary>
                     <AccordionDetails
                         sx={{
@@ -99,7 +99,7 @@ const LessonSelector = observer(() => {
                                     justifyContent="space-between"
                                     alignItems="center"
                                     p={1}
-                                    px={2}
+                                    px={{xs: 1, lg: 2}}
                                     key={lesson.id}
                                     sx={{
                                         backgroundColor: education.lastHistory(0).id === lesson.id ?  `${grey[300]}` : '#fff',
@@ -111,7 +111,7 @@ const LessonSelector = observer(() => {
                                         borderRadius: '16px',
                                     }}
                                 >
-                                    <Typography fontSize="14px" fontWeight="600">
+                                    <Typography fontSize={{xs: '0.8rem' ,sm: '0.9rem', lg: '1rem'}} fontWeight="600">
                                         {lesson.id + ". " + lesson.title}
                                     </Typography>
                                     <Box
@@ -140,7 +140,7 @@ const LessonSelector = observer(() => {
                                                 size={46}
                                             />
                                         </Box>
-                                        <Typography align="center" variant="subtitle2">
+                                        <Typography align="center" variant="subtitle2" fontSize={{xs: '0.7rem'}}>
                                             {lesson.duration} мин.
                                         </Typography>
                                     </Box>

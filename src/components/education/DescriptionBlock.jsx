@@ -19,7 +19,7 @@ export const DescriptionBlock = observer(() => {
 
     return (
         <Box
-            height="auto"
+            height="100%"
             mt={2}
             p={2}
             sx={{
@@ -27,7 +27,7 @@ export const DescriptionBlock = observer(() => {
             }}
             component = {Paper} elevation = {6}
         >
-            <Typography variant="h3" align="center" fontWeight='500' mb={2}>
+            <Typography variant="h3" align="center" fontWeight='500' mb={2} sx = {{fontSize: {xs: '1.2rem', lg:'2rem'}}}>
                 Что будет в данном уроке?
             </Typography>
             <Divider variant='middle'/>
@@ -48,8 +48,8 @@ export const DescriptionBlock = observer(() => {
                                         <ListItemIcon sx={{alignItems: "center"}}>
                                             <Avatar
                                                 sx={{
-                                                    width: "46px",
-                                                    height: "46px",
+                                                    width: {sm : "2rem",lg : "46px",},
+                                                    height: {sm: "2rem",lg : "46px",},
                                                     backgroundColor: theme.palette.primary.main,
                                                 }}
                                             >
@@ -57,7 +57,7 @@ export const DescriptionBlock = observer(() => {
                                             </Avatar>
                                         </ListItemIcon>
                                         <ListItemText sx={{my: "auto"}}>
-                                            <Typography variant="subtitle1" fontSize="1.2rem">
+                                            <Typography variant="subtitle1" fontSize={{sm: '1rem', lg:'1.2rem'}}>
                                                 {value}
                                             </Typography>
                                         </ListItemText>
@@ -67,7 +67,7 @@ export const DescriptionBlock = observer(() => {
                         )}
                     </>
                 ) : (
-                    <Typography variant='h5' textAlign="center">Описание недоступно, пока не выбран урок.</Typography>
+                    <Typography variant='h5' textAlign="center" sx = {{fontSize: {xs: '1rem', lg:'1.8rem'}}}>Описание недоступно, пока не выбран урок.</Typography>
                 )}
             </List>
         </Box>

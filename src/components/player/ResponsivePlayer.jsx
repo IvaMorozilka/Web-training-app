@@ -37,8 +37,8 @@ const ResponsivePlayer = observer(() => {
               gap="20px"
               sx={{ position: "absolute", top: "25%" }}
           >
-            <ErrorOutline sx={{ color: "white", fontSize: "128px" }} />
-            <Typography variant="h2" color="white" align="center" px={2}>
+            <ErrorOutline sx={{ color: "white", fontSize: {xs : '3rem',lg: '6rem'} }} />
+            <Typography variant='h2' color="white" align="center" px={2} sx = {{fontSize: {xs : '1rem', sm: '2rem', lg: '3rem'}}}>
               Выберите урок из списка, чтобы начать обучение.
             </Typography>
           </Box>
