@@ -85,7 +85,8 @@ export const DescriptionBlock = observer(() => {
                         top: -5,
                         fontSize: '2rem',
                         display: 'flex',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        userSelect: 'none',
                     }}
                     initial={false}
                     animate={{rotate: expanded ? -180 : 0}}
