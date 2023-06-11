@@ -6,13 +6,14 @@ import {Box, ThemeProvider} from "@mui/material";
 import { customTheme } from "./mui/custom-theme";
 import BackgroundWrapper from "./components/BackgroundWrapper";
 import Footer from "./components/Footer";
+import ResponsiveNavBar from "./components/ResponsiveNavBar";
 
 function App() {
   return (
     <ThemeProvider theme={customTheme}>
       <BackgroundWrapper>
         <BrowserRouter>
-          <NavBar />
+          <ResponsiveNavBar/>
             <AppRouter />
           <Footer />
         </BrowserRouter>

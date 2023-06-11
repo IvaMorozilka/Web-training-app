@@ -10,17 +10,17 @@ const Education = () => {
               container
               minHeight={'calc(100vh - 108px)'}
               spacing={{xs: 1, lg: 2}}
-              direction={{ sm: 'row-reverse' ,md: 'row',lg: 'row'}}
+              direction={{ sm: 'row' ,md: 'row',lg: 'row'}}
                p={{xs: 1, sm: 1, lg: 2}}
-
+              overflow={'hidden'}
         >
-            <Grid item  sm = {3} lg = {2}>
+            <Grid item  xs = {3} sm = {3} md = {2}>
                 <Stack spacing={{xs: 1, lg: 2}}>
                     <ResponsivePlayer/>
                     <DescriptionBlock/>
                 </Stack>
             </Grid>
-            <Grid item sm = {3} lg = {1}>
+            <Grid item xs = {3} sm = {3} md = {1}>
                 <LessonSelector/>
             </Grid>
         </Grid>

@@ -25,19 +25,21 @@ const NavBar = observer((props) => {
     <>
       <AppBar position="static">
         <Toolbar
-          sx={{ display: "flex", justifyContent: "space-between", mx: "200px" }}
+          sx={{ display: "flex", justifyContent: "space-between"}}
         >
-          <a href="/">
-            <img
-              src={logo}
-              width="99px"
-              height="26px"
-              style={{ cursor: "pointer" }}
-              alt="logo"
-            />
-          </a>
+          <Box display={{xs: 'none', sm: "flex"}}>
+            <a href="/">
+              <img
+                  src={logo}
+                  width="99px"
+                  height="26px"
+                  style={{ cursor: "pointer" }}
+                  alt="logo"
+              />
+            </a>
+          </Box>
           <Box
-            display="flex"
+            display={{xs: 'none', sm: "flex"}}
             justifyContent="space-between"
             alignItems="center"
             gap="5px"

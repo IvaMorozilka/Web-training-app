@@ -5,6 +5,7 @@ import {Box, Paper, Typography} from "@mui/material";
 import { ErrorOutline } from "@mui/icons-material";
 import { Context } from "../../index";
 import { observer } from "mobx-react-lite";
+import {purple} from "@mui/material/colors";
 
 const ResponsivePlayer = observer(() => {
   const { education } = useContext(Context);
@@ -34,15 +35,15 @@ const ResponsivePlayer = observer(() => {
               display="flex"
               flexDirection="column"
               alignItems="center"
+              justifyContent='center'
               gap="20px"
-              sx={{ position: "absolute", top: "25%" }}
+              sx={{ position: "absolute", top:5, left:5, bottom:5, right: 5}}
           >
-            <ErrorOutline sx={{ color: "white", fontSize: {xs : '3rem',lg: '6rem'} }} />
-            <Typography variant='h2' color="white" align="center" px={2} sx = {{fontSize: {xs : '1rem', sm: '2rem', lg: '3rem'}}}>
+            <ErrorOutline sx={{ color: "white", fontSize: {xs : '3rem', md: '4.5rem', lg: '6rem'} }} />
+            <Typography variant='h2' color="white" align="center" px={2} sx = {{fontSize: {xs : '1rem', sm: '2rem', md: '2.2rem', lg: '3rem'}}}>
               Выберите урок из списка, чтобы начать обучение.
             </Typography>
           </Box>
-
           <ReactPlayer
               ref={ref}
               onStart={handleStart}

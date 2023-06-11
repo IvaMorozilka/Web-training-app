@@ -26,6 +26,13 @@ const LessonSelector = observer(() => {
 
     const handleLessonClick = (lesson) => {
         education.addHistory(lesson);
+        window.scrollTo(
+            {
+                top: 60,
+                behavior: 'smooth',
+            }
+        )
+        setExpanded(false);
     }
 
 
@@ -76,7 +83,7 @@ const LessonSelector = observer(() => {
                             height: {xs:'56px',lg:'64px'},
                         }}
                     >
-                        <Typography fontSize={{sm: '1rem', lg: '1.1rem'}}>{block.blockTitle}</Typography>
+                        <Typography fontSize={{sm: '0.9rem', lg: '1.1rem'}} variant={'subtitle2'} lineHeight={1.2}>{block.blockTitle}</Typography>
                     </AccordionSummary>
                     <AccordionDetails
                         sx={{
