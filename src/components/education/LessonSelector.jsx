@@ -28,7 +28,7 @@ const LessonSelector = observer(() => {
         education.addHistory(lesson);
         window.scrollTo(
             {
-                top: 60,
+                top: 0,
                 behavior: 'smooth',
             }
         )
