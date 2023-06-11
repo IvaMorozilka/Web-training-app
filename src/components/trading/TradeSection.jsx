@@ -1,87 +1,15 @@
 import React, {useContext, useEffect, useState} from "react";
 import {Box, InputAdornment, Slider, Stack, TextField, Typography} from "@mui/material";
-import {grey, purple} from "@mui/material/colors";
-import styled from "@emotion/styled";
+import {grey} from "@mui/material/colors";
 import {Context} from "../../index";
 import {checkDecimalInput, getTotal} from "../../utils/helpers";
 import {CustomButton} from "../../ui/CustomButton";
 import {observer} from "mobx-react-lite";
+import {CustomSlider, CustomTextField} from "../../ui/StyledComponents";
 
-const CustomSlider = styled(Slider)(({theme}) => ({
-    "&.MuiSlider-colorPrimary": {
-        marginTop: '-8px',
-        marginBottom: '5px',
-        color: grey[500],
-        "& .MuiSlider-track": {
-            color: purple[500],
-        },
-        "& .MuiSlider-thumb": {
-            "&.Mui-active": {
-                "&:hover": {boxShadow: "0px 0px 0px 7px rgba(126, 87, 194, 0.2)"},
-                boxShadow: "0px 0px 0px 7px rgba(126, 87, 194, 0.2)",
-            },
-            "&:hover": {
-                boxShadow: "0px 0px 0px 4px rgba(126, 87, 194, 0.2)",
-            },
-            "&.Mui-focusVisible": {
-                boxShadow: "0px 0px 0px 7px rgba(126, 87, 194, 0.2)",
-            },
-            color: "#fff",
-            outline: `1px solid ${grey[500]}`,
-        },
-        "& .MuiSlider-valueLabelOpen": {
-            "&:after": {
-                content: '"%"',
-                position: "relative",
-            },
-        },
-        "& .MuiSlider-mark": {
-            "&.MuiSlider-markActive": {
-                outline: `1px solid ${purple[500]}`,
-            },
-            backgroundColor: "#fff",
-            opacity: 1,
-            width: 4,
-            height: 4,
-            borderRadius: "100%",
-            outline: `1px solid ${grey[500]}`,
-        },
-        "& .MuiSlider-markLabel": {
-            '&[data-index="4"]': {
-                transform: "translate(-75%,-50%)",
-            },
-            transform: "translate(-50%,-50%)",
-            color: `${grey[500]}`,
-            fontSize: "12px",
-        },
-    },
-}));
-const CustomTextField = styled(TextField)(({theme}) => ({
-    "& .Mui-disabled": {
-        "& .MuiOutlinedInput-input": {
-            "&::placeholder": {
-                opacity: 0.75,
-            },
-        },
-    },
-    "& .MuiOutlinedInput-input": {
-        textAlign: "end",
-    },
-    "& .MuiOutlinedInput-root": {
-        height: 40,
-    },
-    "& .MuiOutlinedInput-notchedOutline": {
-        borderRadius: "8px",
-    },
-    "& input::-webkit-outer-spin-button, & input::-webkit-inner-spin-button": {
-        display: "none",
-    },
-    "& input[type=number]": {
-        MozAppearance: "textfield",
-    },
-}));
 
-const TradeSection = observer( ({isBuy, isMarket, ...props}) => {
+
+const TradeSection = observer( ({isBuy, isMarket, hide, ...props}) => {
     const marks = [
         {
             value: 0,
@@ -170,7 +98,7 @@ const TradeSection = observer( ({isBuy, isMarket, ...props}) => {
     }
 
     return (
-        <Box p={1}>
+        <Box p={1} display={hide ? 'none' : 'block'}>
             <Stack direction="column"
                    spacing={1}>
                 <Stack spacing={1}>
@@ -207,7 +135,7 @@ const TradeSection = observer( ({isBuy, isMarket, ...props}) => {
                             ),
                             endAdornment: isMarket ? (
                                 <InputAdornment position="end">
-                                    {isBuy ? 'USD' : trading.selectedAccountCurrency}
+                                    USD
                                 </InputAdornment>
                             ) : (
                                 <InputAdornment position="end">
@@ -247,12 +175,10 @@ const TradeSection = observer( ({isBuy, isMarket, ...props}) => {
 
                 <Stack direction='row' spacing={1}>
                     <Typography color={grey[500]}>Доступно</Typography>
-
                     <Box display='flex' gap='3px'>
                         <Typography>{currencyAmount}</Typography>
                         <Typography>{isBuy ? 'USD' : trading.selectedAccountCurrency}</Typography>
                     </Box>
-
                 </Stack>
 
                 <CustomButton onClick = { isBuy ? handleBuy : handleSell}  variant='contained' color={isBuy ? 'success' : 'secondary'} fullWidth

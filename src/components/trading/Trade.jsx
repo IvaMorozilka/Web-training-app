@@ -1,5 +1,5 @@
 import {
-  Box,
+  Box, Button,
   Divider,
   Stack,
   ToggleButtonGroup,
@@ -8,9 +8,11 @@ import {
 import { useState } from "react";
 import TradeSection from "./TradeSection";
 import {CustomToggleButton} from "../../ui/StyledComponents";
+import ChangeCircleIcon from '@mui/icons-material/ChangeCircle';
 
 export const Trade = () => {
   const [option, setOption] = useState('market');
+  const [orderType, setOrderType] = useState('buy');
   const theme = useTheme();
   const handleOption = (event, newOption) => {
     if (!newOption) return;
@@ -38,9 +40,10 @@ export const Trade = () => {
         </ToggleButtonGroup>
         <Divider />
       </Box>
-      <Stack direction="row" alignItems='center' spacing={-0.5} height='100%'>
-        <TradeSection isBuy isMarket={option === 'market'}/>
-        <TradeSection isMarket={option === 'market'}/>
+      <Button startIcon={<ChangeCircleIcon/>} onClick = {() => setOrderType(orderType === 'buy' ? 'sell' : 'buy')}>Сменить тип</Button>
+      <Stack direction={'column'}>
+        <TradeSection hide = {orderType === 'sell'} isBuy isMarket={option === 'market'}/>
+        <TradeSection hide = {orderType === 'buy'} isMarket={option === 'market'}/>
       </Stack>
     </Box>
   );

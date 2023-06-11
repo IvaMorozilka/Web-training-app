@@ -26,3 +26,9 @@ yarn-error.log*
 .idea/vcs.xml
 .idea/inspectionProfiles/Project_Default.xml
 .idea/web-training-app.iml
+src/assets/Drop Down.svg
+src/assets/Education page.png
+src/assets/github.svg
+src/assets/telegram.svg
+src/assets/time.svg
+src/assets/wallet.svg

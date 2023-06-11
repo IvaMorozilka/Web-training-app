@@ -12,10 +12,10 @@ const Education = () => {
               spacing={{xs: 1, lg: 2}}
               direction={{ sm: 'row' ,md: 'row',lg: 'row'}}
                p={{xs: 1, sm: 1, lg: 2}}
-              overflow={'hidden'}
+              sx = {{contain: 'paint'}}
         >
             <Grid item  xs = {3} sm = {2} md = {2}>
-                <Stack spacing={{xs: 1, lg: 2}}>
+                <Stack spacing={{xs: 1, lg: 2}}  position={'sticky'} top = {8}>
                     <ResponsivePlayer/>
                     <DescriptionBlock/>
                 </Stack>

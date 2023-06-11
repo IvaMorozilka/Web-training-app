@@ -26,12 +26,12 @@ const LessonSelector = observer(() => {
 
     const handleLessonClick = (lesson) => {
         education.addHistory(lesson);
-        window.scrollTo(
-            {
-                top: 0,
-                behavior: 'smooth',
-            }
-        )
+        // window.scrollTo(
+        //     {
+        //         top: 0,
+        //         behavior: 'smooth',
+        //     }
+        // )
         setExpanded(false);
     }
 
@@ -49,6 +49,9 @@ const LessonSelector = observer(() => {
         >
             {education.educationData.map((block) => (
                 <Accordion
+                    // TransitionProps={{
+                    //     timeout: 500,
+                    // }}
                     disableGutters
                     sx={{
                         boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
