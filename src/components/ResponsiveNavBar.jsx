@@ -39,10 +39,9 @@ const  ResponsiveNavBar = observer(() => {
 
     const handleCloseNavMenu = (e) => {
         setAnchorElNav(null);
-        console.log(e.target);
         if (e.target.textContent.toUpperCase() === 'ОБУЧЕНИЕ')
             navigate(EDUCATION_ROUTE);
-        else
+        else if (e.target.textContent.toUpperCase() === 'ПРАКТИКА')
             navigate(TRADING_ROUTE);
     };
 
