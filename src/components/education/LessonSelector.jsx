@@ -83,7 +83,7 @@ const LessonSelector = observer(() => {
                             height: {xs:'56px',lg:'64px'},
                         }}
                     >
-                        <Typography fontSize={{sm: '0.9rem', lg: '1.1rem'}} variant={'subtitle2'} lineHeight={1.2}>{block.blockTitle}</Typography>
+                        <Typography fontSize={{sm: '0.75rem', lg: '1.1rem'}} variant={'subtitle2'} lineHeight={{sm: 1, md: 1.2}}>{block.blockTitle}</Typography>
                     </AccordionSummary>
                     <AccordionDetails
                         sx={{
@@ -105,8 +105,8 @@ const LessonSelector = observer(() => {
                                     display="flex"
                                     justifyContent="space-between"
                                     alignItems="center"
-                                    p={1}
-                                    px={{xs: 1, lg: 2}}
+                                    p={{xs: 0.5, md: 1}}
+                                    px={{xs: 2, lg: 2}}
                                     key={lesson.id}
                                     sx={{
                                         backgroundColor: education.lastHistory(0).id === lesson.id ?  `${grey[300]}` : '#fff',
@@ -118,7 +118,7 @@ const LessonSelector = observer(() => {
                                         borderRadius: '16px',
                                     }}
                                 >
-                                    <Typography fontSize={{xs: '0.8rem' ,sm: '0.9rem', lg: '1rem'}} fontWeight="600">
+                                    <Typography fontSize={{xs: '0.8rem' ,sm: '0.6rem', md: '0.8rem', lg: '1rem'}} lineHeight={{sm: 1, md: 1.2}} fontWeight="600">
                                         {lesson.id + ". " + lesson.title}
                                     </Typography>
                                     <Box
@@ -127,27 +127,32 @@ const LessonSelector = observer(() => {
                                         justifyContent="center"
                                         flexDirection="column"
                                         position="relative"
+                                        py = {{xs: 0.5, md: 0}}
                                     >
                                         <Box position="relative">
                                             <AccessTime
                                                 shapeRendering="geometricPrecision"
                                                 sx={{
                                                     filter: 'blur(.3px)',
-                                                    fontSize: "30px",
+                                                    fontSize: {xs: '22px' ,md: "38px"},
                                                     position: "absolute",
-                                                    top: 8,
-                                                    left: 8,
+                                                    top: 4,
+                                                    left: 4,
                                                 }}
                                             />
                                             <CircularProgress
                                                 variant="determinate"
-                                                value={lesson.progress}
+                                                // value={lesson.progress}
+                                                value = {100}
                                                 color="secondary"
-                                                thickness={7}
-                                                size={46}
+                                                thickness={5}
+                                                sx = {{
+                                                    width: {xs: '30px!important',md: '46px!important'},
+                                                    height: {xs: '30px!important',md: '46px!important'},
+                                                }}
                                             />
                                         </Box>
-                                        <Typography align="center" variant="subtitle2" fontSize={{xs: '0.7rem'}}>
+                                        <Typography align="center" variant="subtitle2" fontSize={{xs: '0.55rem',md: '0.7rem', lg: '0.9rem' }}>
                                             {lesson.duration} мин.
                                         </Typography>
                                     </Box>
