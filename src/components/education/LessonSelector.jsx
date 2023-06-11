@@ -133,7 +133,6 @@ const LessonSelector = observer(() => {
                                             <AccessTime
                                                 shapeRendering="geometricPrecision"
                                                 sx={{
-                                                    filter: 'blur(.3px)',
                                                     fontSize: {xs: '22px' ,md: "38px"},
                                                     position: "absolute",
                                                     top: 4,
@@ -142,8 +141,7 @@ const LessonSelector = observer(() => {
                                             />
                                             <CircularProgress
                                                 variant="determinate"
-                                                // value={lesson.progress}
-                                                value = {100}
+                                                value={lesson.progress}
                                                 color="secondary"
                                                 thickness={5}
                                                 sx = {{
