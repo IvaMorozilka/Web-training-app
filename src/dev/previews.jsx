@@ -6,7 +6,6 @@ import Auth from "../pages/Auth";
 import Registration from "../pages/Registration";
 import MyButton from "../ui/MyButton";
 import AuthTextField from "../ui/AuthTextField";
-import {Trade} from "../components/trading/Trade";
 
 
 const ComponentPreviews = () => {

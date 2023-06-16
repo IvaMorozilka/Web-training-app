@@ -4,8 +4,6 @@ import {authRoutes, publicRoutes} from "../routes";
 import {EDUCATION_ROUTE, LANDING_ROUTE} from "../utils/consts";
 import {Context} from "../index";
 import {observer} from "mobx-react-lite";
-import {Alert} from "@mui/material";
-import AlertDialog from "./AlertDialog";
 import {RouteCheck} from "./RouteCheck";
 
 const AppRouter = observer(() => {

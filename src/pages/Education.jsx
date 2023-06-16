@@ -1,5 +1,5 @@
 import React from "react";
-import {Box, Grid, Stack} from "@mui/material";
+import {Grid, Stack} from "@mui/material";
 import ResponsivePlayer from "../components/player/ResponsivePlayer";
 import LessonSelector from "../components/education/LessonSelector";
 import {DescriptionBlock} from "../components/education/DescriptionBlock";

@@ -4,13 +4,11 @@
     Stack,
     Table,
     TableBody,
-    TableHead,
-    TableSortLabel,
     Typography
 } from "@mui/material";
 import {CustomTextField} from "../../ui/CustomTextField";
 import {Search} from "@mui/icons-material";
-import React, {useContext, useMemo, useState} from "react";
+import React, {useContext, useState} from "react";
 import {grey} from "@mui/material/colors";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite";

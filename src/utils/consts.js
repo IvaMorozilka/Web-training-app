@@ -66,3 +66,9 @@ export const assetsHeaderCells = [
     },
 ]
 
+export const BAD_PASSWORD = 'BAD_PASSWORD';
+export const EMPTY_VALUES = 'EMPTY_VALUES';
+export const BAD_PHONE = 'BAD_PHONE';
+export const BAD_EMAIL = 'BAD_EMAIL';
+export const PASSWORD_LENGTH = 'PASSWORD_LENGTH';
+export const BAD_BIRTHDAY = 'BAD_BIRTHDAY';

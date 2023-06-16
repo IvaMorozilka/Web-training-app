@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {TableHeader} from "./TableHeader";
-import {assetsHeaderCells, historyHeaderCells} from "../../utils/consts";
+import {assetsHeaderCells} from "../../utils/consts";
 import {grey} from "@mui/material/colors";
 import {Table, TableBody, Typography} from "@mui/material";
 import {CustomTableCell, CustomTableRow} from "../../ui/StyledComponents";

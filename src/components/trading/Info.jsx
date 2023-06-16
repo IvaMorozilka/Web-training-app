@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {Box, Divider, Stack, ToggleButtonGroup, useTheme} from "@mui/material";
+import {Box, Divider, ToggleButtonGroup, useTheme} from "@mui/material";
 import {CustomToggleButton} from "../../ui/StyledComponents";
 import {HistoryTable} from "./HistoryTable";
 import AssetsTable from "./AssetsTable";

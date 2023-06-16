@@ -10,17 +10,16 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import {orange} from "@mui/material/colors";
 import {CustomButton} from "../ui/CustomButton";
 import {useLocation, useNavigate, } from "react-router-dom";
-import {ACCOUNT_ROUTE, EDUCATION_ROUTE, TRADING_ROUTE} from "../utils/consts";
+import {ACCOUNT_ROUTE, AUTH_ROUTE, EDUCATION_ROUTE, REGISTRATION_ROUTE, TRADING_ROUTE} from "../utils/consts";
 import {AccountBalanceWalletOutlined} from "@mui/icons-material";
 import {useContext} from "react";
 import {Context} from "../index";
 import {observer} from "mobx-react-lite";
 
-const pages = ['Обучение', 'Практика'];
+
 const settings = ['Профиль', 'Выйти'];
 
 const  ResponsiveNavBar = observer(() => {
@@ -28,7 +27,9 @@ const  ResponsiveNavBar = observer(() => {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const location = useLocation();
     const navigate = useNavigate();
-    const {trading} = useContext(Context);
+    const {user, trading} = useContext(Context);
+    const pages =  user.isAuth ? ['Обучение', 'Практика'] : ['Войти', 'Зарегистрироваться'];
+
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -39,10 +40,23 @@ const  ResponsiveNavBar = observer(() => {
 
     const handleCloseNavMenu = (e) => {
         setAnchorElNav(null);
-        if (e.target.textContent.toUpperCase() === 'ОБУЧЕНИЕ')
-            navigate(EDUCATION_ROUTE);
-        else if (e.target.textContent.toUpperCase() === 'ПРАКТИКА')
-            navigate(TRADING_ROUTE);
+        switch (e.target.textContent.toUpperCase()){
+            case 'ОБУЧЕНИЕ':
+                navigate(EDUCATION_ROUTE);
+                break;
+            case 'ПРАКТИКА':
+                navigate(TRADING_ROUTE);
+                break;
+            case 'ВОЙТИ':
+                navigate(AUTH_ROUTE);
+                break;
+            case 'ЗАРЕГИСТРИРОВАТЬСЯ':
+                navigate(REGISTRATION_ROUTE);
+                break;
+            default:
+                navigate('/');
+                break;
+        }
     };
 
     const handleCloseUserMenu = () => {
@@ -50,7 +64,12 @@ const  ResponsiveNavBar = observer(() => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar
+            position="static"
+            color = {user.isAuth ? 'primary': 'transparent'}
+            sx = {{boxShadow: user.isAuth || 'none'}}
+            className={user.isAuth || 'navbar-background'}
+        >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -71,16 +90,15 @@ const  ResponsiveNavBar = observer(() => {
                         LOGO
                     </Typography>
 
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }}>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }} >
                         <IconButton
                             size="large"
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit"
                         >
-                            <MenuIcon />
+                            <MenuIcon sx = {{color: "#fff"}}/>
                         </IconButton>
                         <Menu
                             id="menu-appbar"
@@ -107,7 +125,8 @@ const  ResponsiveNavBar = observer(() => {
                             ))}
                         </Menu>
                     </Box>
-                    <CustomButton
+
+                    {user.isAuth && <CustomButton
                         round
                         sx={{ fontSize: "14px", fontWeight: "600", display: { xs: 'flex', sm: 'none' }, }}
                         btnColor={'#fff'}
@@ -119,15 +138,15 @@ const  ResponsiveNavBar = observer(() => {
                         }
                     >
                         {trading.usdAmount + ' USD'}
-                    </CustomButton>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
+                    </CustomButton>}
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }} justifyContent={user.isAuth || 'end'} gap={user.isAuth || '10px'}>
                         {pages.map((page) => (
                             <CustomButton
                                 key={page}
-                                round
+                                round = {user.isAuth}
                                 size = 'small'
-                                variant ={(location.pathname === EDUCATION_ROUTE && page === 'Обучение')||(location.pathname === TRADING_ROUTE && page === 'Практика') ? 'contained' : 'outlined'}
-                                btnColor = {'#fff'}
+                                variant ={(location.pathname === EDUCATION_ROUTE && page === 'Обучение')||(location.pathname === TRADING_ROUTE && page === 'Практика')||(page === 'Зарегистрироваться') ? 'contained' : 'outlined'}
+                                btnColor = {user.isAuth && '#fff'}
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
@@ -135,7 +154,7 @@ const  ResponsiveNavBar = observer(() => {
                             </CustomButton>
                         ))}
                     </Box>
-                    <CustomButton
+                    {user.isAuth && <CustomButton
                         round
                         sx={{ fontSize: "14px", fontWeight: "600", display: { xs: 'none', sm: 'flex' }, }}
                         btnColor={'#fff'}
@@ -147,8 +166,8 @@ const  ResponsiveNavBar = observer(() => {
                         }
                     >
                         {trading.usdAmount + ' USD'}
-                    </CustomButton>
-                    <Box sx={{ flexGrow: 0, pl: 2 }}>
+                    </CustomButton>}
+                    {user.isAuth &&  <Box sx={{ flexGrow: 0, pl: 2 }}>
                         <Tooltip title="Настройки">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar sx = {{bgcolor: orange[500], outline: '2px solid white'}}>B</Avatar>
@@ -176,7 +195,7 @@ const  ResponsiveNavBar = observer(() => {
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box>
+                    </Box>}
                 </Toolbar>
             </Container>
         </AppBar>

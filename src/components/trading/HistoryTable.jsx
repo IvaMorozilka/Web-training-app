@@ -1,4 +1,4 @@
-import {Box, Table, TableBody, Typography} from "@mui/material";
+import {Table, TableBody, Typography} from "@mui/material";
 import {historyHeaderCells} from "../../utils/consts";
 import React, {useContext, useState} from "react";
 import {TableHeader} from "./TableHeader";
