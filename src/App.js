@@ -6,9 +6,10 @@ import { customTheme } from "./mui/custom-theme";
 import BackgroundWrapper from "./components/BackgroundWrapper";
 import Footer from "./components/Footer";
 import ResponsiveNavBar from "./components/ResponsiveNavBar";
+import {useContext, useEffect} from "react";
+import {Context} from "./index";
 
 function App() {
-    console.log(process.env.REACT_APP_CRM_API)
   return (
     <ThemeProvider theme={customTheme}>
       <BackgroundWrapper>

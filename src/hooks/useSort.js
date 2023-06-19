@@ -2,14 +2,14 @@ import {useMemo} from "react";
 
 export const useSort = (data, isFav, orderBy, order, searchQuery) => {
     const sort = useMemo(() => {
-        // const data = isFav ? [...assetsData.filter(asset => asset.fav === true)] : [...assetsData];
+        //const data = isFav ? [...assetsData.filter(asset => asset.fav === true)] : [...assetsData];
         switch (orderBy) {
-            case 'pair':
+            case 'symbol':
                 return data.sort((a, b) => {
                     if (order === 'asc')
-                        return a.name.localeCompare(b.name)
+                        return a.symbol.localeCompare(b.symbol)
                     else
-                        return b.name.localeCompare(a.name)
+                        return b.symbol.localeCompare(a.symbol)
                 })
             case 'price':
                 return data.sort((a, b) => {
@@ -28,9 +28,9 @@ export const useSort = (data, isFav, orderBy, order, searchQuery) => {
             default:
                 return data;
         }
-    }, [order, orderBy, isFav]);
+    }, [data ,order, orderBy, isFav]);
     const searchedAndSorted = useMemo(() => {
-        return sort.filter(data => data.name.toUpperCase().includes(searchQuery));
+        return sort.filter(data => data.symbol.toUpperCase().includes(searchQuery));
     }, [searchQuery, sort]);
 
     return searchedAndSorted;

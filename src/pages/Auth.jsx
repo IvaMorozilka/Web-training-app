@@ -14,6 +14,7 @@ import AuthTextField from "../ui/AuthTextField";
 import { Context } from "../index";
 import { useNavigate } from "react-router-dom";
 import { EDUCATION_ROUTE } from "../utils/consts";
+import {motion} from "framer-motion";
 
 const Auth = () => {
   const [login, setLogin] = useState(null);
@@ -32,7 +33,7 @@ const Auth = () => {
   }
 
   return (
-    <Container sx={{ display: "flex", justifyContent: "center", my: "75px" }}>
+    <Container component={motion.div} sx={{ display: "flex", justifyContent: "center", my: "75px" }} initial={{opacity: 0, y: 50}} animate={{opacity: 1, y: 0}}>
       <Box
         width="420px"
         height="430px"
@@ -55,10 +56,10 @@ const Auth = () => {
             autoComplete="off"
             fullWidth
             margin="normal"
-            id="login"
-            label="Логин"
+            id="email"
+            label="Электронная почта"
             variant="outlined"
-            placeholder="Введите логин"
+            placeholder="Введите эл. почту"
             borderRadius="8px"
             onChange={(e) => setLogin(e.target.value)}
           />

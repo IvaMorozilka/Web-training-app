@@ -1,37 +1,43 @@
-import React from "react";
-import {Box, Grid, Paper, Stack} from "@mui/material";
+import React, {useContext} from "react";
+import {Box, Button, Grid, Paper, Stack} from "@mui/material";
 import {Trade} from "../components/trading/Trade";
 import styled from "@emotion/styled";
 import {Market} from "../components/trading/Market";
 import {Chart} from "../components/trading/Chart";
 import {Info} from "../components/trading/Info";
+import {get_coin_list} from "../http/coinAPI";
+import {Context} from "../index";
 
 const RoundBox = styled(Box)(({theme}) => ({
     borderRadius: '16px',
 }));
 
 const Trading = () => {
-
+    const {trading} = useContext(Context);
+    const handleClick = async() => {
+        await trading.updateMarketData()
+    }
     return (
-        <Box p={1} height={'100vh'}>
+        <Box p={1} height={'calc(100vh - 108px)'}>
             <Grid container spacing={1} height={'100%'}>
                 <Grid item xs={8}>
-                    <Stack spacing={1} height='100%'>
+                    <Stack spacing={1} height={'100%'}>
                         <RoundBox flexBasis='75%' component={Paper} elevation={4}>
                             <Chart/>
                         </RoundBox>
-                        <RoundBox id={'123'} display='flex' overflow='hidden' flexBasis='25%' component={Paper}
+                        <RoundBox display='flex' overflow='hidden' flexBasis='25%' component={Paper}
                                   elevation={4}>
                             <Info/>
                         </RoundBox>
                     </Stack>
                 </Grid>
-                <Grid item xs={4}>
-                    <Stack spacing={1} height='100%'>
-                        <RoundBox flexBasis='content' component={Paper} elevation={4}>
+                <Grid item xs={4} flexDirection={'column'} display={'flex'}>
+                    <Stack spacing={1} flex={1}>
+                        <RoundBox flexBasis='content' component={Paper} elevation={4} >
                             <Trade/>
+                            {/*<Button variant={'contained'} onClick={handleClick}>Проверка</Button>*/}
                         </RoundBox>
-                        <RoundBox flex={1} p={1} component={Paper} elevation={4}>
+                        <RoundBox p={1} flex={1} component={Paper} elevation={4}>
                             <Market/>
                         </RoundBox>
                     </Stack>

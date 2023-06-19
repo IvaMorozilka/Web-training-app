@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Box, Typography } from "@mui/material";
 import { Context } from "../index";
 import { observer } from "mobx-react-lite";
+import {motion} from "framer-motion";
 
 const Footer = observer((props) => {
   const { user } = useContext(Context);
@@ -13,8 +14,8 @@ const Footer = observer((props) => {
           height: "60px",
           width: "100%",
             position: 'relative',
-            marginBottom: '-60px',
-            clear: 'both',
+            left: 0,
+            bottom: 0,
           background: "#7E57C2",
           // borderTopLeftRadius: "8px",
           // borderTopRightRadius: "8px",
@@ -31,6 +32,7 @@ const Footer = observer((props) => {
   ) : (
     <Box
       {...props}
+        component={motion.div}
       className="footer-background"
       sx={{ width: "100%", height: "400px", marginTop: "auto" }}
     />

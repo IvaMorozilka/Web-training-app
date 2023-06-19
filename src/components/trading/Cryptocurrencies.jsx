@@ -11,9 +11,12 @@ export const Cryptocurrencies = observer(({data, ...props}) => {
     const {trading} = useContext(Context);
 
     const handleFavClick = (e) => {
+        console.log(e.target.id);
         if (trading.isFavorite(e.target.id)) {
+            console.log('yes')
             trading.updateFavById(e.target.id,false);
         } else {
+            console.log('nope')
             trading.updateFavById(e.target.id,true);
         }
     }
@@ -21,7 +24,7 @@ export const Cryptocurrencies = observer(({data, ...props}) => {
     return (
         <>
             {data.map((asset, index) =>
-            <CustomTableRow hover selected={asset.id === trading.selectedAccount.id}  onClick = {(e) => e.target.id || trading.changeSelectedAccountById(asset.id)} key = {asset.id} sx = {{cursor: 'pointer'}}>
+            <CustomTableRow hover selected={asset.id === trading.selectedAccount.id}  onClick = {(e) => e.target.id || trading.changeSelectedAccountById(asset.id+2)} key = {asset.id} sx = {{cursor: 'pointer'}}>
                 <CustomTableCell align='left' key = {asset.id}>
                     <Stack direction='row' alignItems='center' spacing={1}>
                         <Box sx = {{cursor: 'pointer'}} onClick = {handleFavClick} key={asset.id} id = {asset.id}>
@@ -32,7 +35,7 @@ export const Cryptocurrencies = observer(({data, ...props}) => {
                             }
                         </Box>
                         <Typography variant='subtitle1'>
-                            {asset.name}
+                            {asset.symbol}
                         </Typography>
                     </Stack>
                 </CustomTableCell>

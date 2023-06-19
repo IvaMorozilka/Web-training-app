@@ -6,9 +6,9 @@ export const TRADING_ROUTE = "/trading";
 export const ACCOUNT_ROUTE = "/account";
 export const marketHeaderCells = [
     {
-        id: 'pair',
+        id: 'symbol',
         numeric: false,
-        label: 'Пара',
+        label: 'Символ',
     },
     {
         id: 'price',

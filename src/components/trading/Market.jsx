@@ -8,7 +8,7 @@
 } from "@mui/material";
 import {CustomTextField} from "../../ui/CustomTextField";
 import {Search} from "@mui/icons-material";
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {grey} from "@mui/material/colors";
 import {Context} from "../../index";
 import {observer} from "mobx-react-lite";
@@ -21,11 +21,21 @@ import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
 
 export const Market = observer(() => {
     const {trading} = useContext(Context);
-    const assetsData = trading.tradingAssets;
+    const marketData = trading.marketData;
     const [isFav, setIsFav] = useState(false);
     const [order, setOrder] = useState('asc');
-    const [orderBy, setOrderBy] = useState('pair');
+    const [orderBy, setOrderBy] = useState('symbol');
     const [searchQuery, setSearchQuery] = useState('');
+
+    useEffect(() => {
+        async function updatePrices(){
+            await trading.updateMarketData();
+            trading.createTradingAccounts();
+        }
+        updatePrices();
+        // const intervalId = setInterval(() => trading.updateMarketData(), 5000);
+        // return () => clearInterval(intervalId);
+    }, [])
 
     const handleChipClick = (e) => {
         if (e.target.textContent === 'Все') {
@@ -42,7 +52,7 @@ export const Market = observer(() => {
     }
 
     const sortResult = useSort(
-        isFav ? [...assetsData.filter(asset => asset.fav === true)] : [...assetsData],
+        isFav ? [...marketData.filter(asset => asset.fav === true)] : [...marketData],
         isFav,
         orderBy,
         order,
@@ -57,7 +67,7 @@ export const Market = observer(() => {
     };
 
     return (
-        <Box width='100%' height='100%'>
+        <Box>
             <Typography variant='subtitle1' fontWeight='600'>Рынки</Typography>
             <CustomTextField fullWidth height='34px' value={searchQuery} textAlign="start" placeholder="Поиск"
                              InputProps={{
@@ -73,30 +83,32 @@ export const Market = observer(() => {
                 <CustomChip label='Избранное' size='small' clickable onClick={handleChipClick}
                             variant={isFav ? 'filled' : 'outlined'}/>
             </Stack>
-            <Table size='small'>
-                <TableHeader
-                    headerCells={marketHeaderCells}
-                    orderBy={orderBy}
-                    order={order}
-                    handleRequestSort={handleRequestSort}
-                    flexDirection={'row-reverse'}
-                    fontSize={{md: '0.8rem', lg: '1rem'}}
-                />
-                <TableBody>
-                    {sortResult.length === 0
-                        ? <CustomTableRow align='center'>
-                            <CustomTableCell colSpan={3} sx = {{py: '128px'}}>
-                                <Stack direction='column' alignItems='center' spacing={2} sx = {{outline: '1px solid blue'}}>
-                                    <DescriptionOutlinedIcon sx = {{fontSize: '64px', fill: `${grey[500]}`}}/>
-                                    <Typography variant='subtitle2' color={grey[500]}>Ничего не найдено</Typography>
-                                </Stack>
-                            </CustomTableCell>
-                        </CustomTableRow>
-                        :
-                        <Cryptocurrencies data={sortResult}/>
-                    }
-                </TableBody>
-            </Table>
+            <Box sx = {{overflowY: 'scroll'}} height={'436px'}>
+                <Table size='small' stickyHeader>
+                    <TableHeader
+                        headerCells={marketHeaderCells}
+                        orderBy={orderBy}
+                        order={order}
+                        handleRequestSort={handleRequestSort}
+                        flexDirection={'row-reverse'}
+                        fontSize={{md: '0.8rem', lg: '1rem'}}
+                    />
+                    <TableBody>
+                        {sortResult.length === 0
+                            ? <CustomTableRow align='center'>
+                                <CustomTableCell colSpan={3} sx = {{py: '128px'}}>
+                                    <Stack direction='column' alignItems='center' spacing={2}>
+                                        <DescriptionOutlinedIcon sx = {{fontSize: '64px', fill: `${grey[500]}`}}/>
+                                        <Typography variant='subtitle2' color={grey[500]}>Ничего не найдено</Typography>
+                                    </Stack>
+                                </CustomTableCell>
+                            </CustomTableRow>
+                            :
+                            <Cryptocurrencies data={sortResult}/>
+                        }
+                    </TableBody>
+                </Table>
+            </Box>
         </Box>
     )
 });

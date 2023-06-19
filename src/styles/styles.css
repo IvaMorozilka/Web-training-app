@@ -199,11 +199,18 @@ a {
 }
 
 /*NavBar*/
-.navbar-background {
-    background-image: url("../assets/hero-bg-up.svg");
-    background-repeat: no-repeat;
-    background-position: center;
+.navbar-background::before {
+    content: '';
+    height: 110px;
+    position: absolute;
+    top: -20px;
+    left:  0;
+    right: 0;
+    background: url("../assets/hero-bg-up.svg") no-repeat center;
     background-size: cover;
+    /*background-repeat: no-repeat;*/
+    /*background-position: left;*/
+    /*background-size:auto ;*/
 }
 
 .footer-background {
