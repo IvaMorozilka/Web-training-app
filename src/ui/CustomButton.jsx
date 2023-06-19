@@ -21,7 +21,7 @@ export const CustomButton = styled(Button, {
         },
         "&.MuiButton-containedPrimary": {
             backgroundColor: btnColor ? `${btnColor}` : theme.palette.primary.main,
-            color: '#000',
+            color: textColor ? `${textColor}` : '#000',
         },
     },
 }));

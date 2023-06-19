@@ -82,12 +82,12 @@ const  ResponsiveNavBar = observer(() => {
                             display: { xs: 'none', sm: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
+                            letterSpacing: '.1rem',
+                            color: '#fff',
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        VANILLA
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', sm: 'none' } }} >
@@ -144,9 +144,10 @@ const  ResponsiveNavBar = observer(() => {
                             <CustomButton
                                 key={page}
                                 round = {user.isAuth}
-                                size = 'small'
+                                size = 'large'
                                 variant ={(location.pathname === EDUCATION_ROUTE && page === 'Обучение')||(location.pathname === TRADING_ROUTE && page === 'Практика')||(page === 'Зарегистрироваться') ? 'contained' : 'outlined'}
                                 btnColor = {user.isAuth && '#fff'}
+                                textColor={location.pathname === EDUCATION_ROUTE || location.pathname === TRADING_ROUTE || location.pathname === ACCOUNT_ROUTE ? undefined : '#fff' }
                                 onClick={handleCloseNavMenu}
                                 sx={{ my: 2, color: 'white', display: 'block' }}
                             >
@@ -154,19 +155,23 @@ const  ResponsiveNavBar = observer(() => {
                             </CustomButton>
                         ))}
                     </Box>
-                    {user.isAuth && <CustomButton
-                        round
-                        sx={{ fontSize: "14px", fontWeight: "600", display: { xs: 'none', sm: 'flex' }, }}
-                        btnColor={'#fff'}
-                        variant="contained"
-                        endIcon={
-                            <AccountBalanceWalletOutlined
-                                sx={{ fontSize: "24px!important" }}
-                            />
+                    {user.isAuth &&
+                        <Tooltip title = {'Нажмите, чтобы пополнить баланс'}>
+                            <CustomButton
+                                round
+                                sx={{ fontSize: "14px", fontWeight: "600", display: { xs: 'none', sm: 'flex' }, }}
+                                btnColor={'#fff'}
+                                variant="contained"
+                                endIcon={
+                                    <AccountBalanceWalletOutlined
+                                        sx={{ fontSize: "24px!important" }}
+                                    />
+                                }
+                            >
+                                {trading.usdAmount + ' USD'}
+                            </CustomButton>
+                        </Tooltip>
                         }
-                    >
-                        {trading.usdAmount + ' USD'}
-                    </CustomButton>}
                     {user.isAuth &&  <Box sx={{ flexGrow: 0, pl: 2 }}>
                         <Tooltip title="Настройки">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

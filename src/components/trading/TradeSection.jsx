@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Box, InputAdornment, Stack, Typography} from "@mui/material";
 import {grey} from "@mui/material/colors";
 import {Context} from "../../index";
@@ -8,7 +8,7 @@ import {observer} from "mobx-react-lite";
 import {CustomSlider, CustomTextField} from "../../ui/StyledComponents";
 
 
-const TradeSection = observer(({isBuy, isMarket, hide, ...props}) => {
+const TradeSection = observer(({isBuy, isMarket, hide}) => {
     const marks = [
         {
             value: 0,
@@ -39,11 +39,13 @@ const TradeSection = observer(({isBuy, isMarket, hide, ...props}) => {
     const [sliderValue, setSliderValue] = useState(0);
 
     useEffect(() => {
-        setTotal(0);
-        setSum(0);
-        setSliderValue(0)
         setPrice(trading.getSelectedAccountCurrentPrice());
     }, [trading.selectedAccount, trading.marketData])
+    useEffect(() => {
+        setTotal(0);
+        setSum(0);
+        setSliderValue(0);
+    }, [trading.selectedAccount])
 
     const handlePriceChange = (e) => {
         if (checkDecimalInput(e.target.value, 1)) {

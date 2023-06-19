@@ -20,8 +20,9 @@ const AssetsTable = observer (() => {
         console.log('order:', order, '|by:', orderBy);
     };
     useEffect(() => {
-        setAssets(assets.map(obj => ({...obj, amountUSD: (obj.amount * trading.getPriceBySymbol(obj.symbol)).toFixed(2)})))
+        setAssets(trading.assets.map(obj => ({...obj, amountUSD: (obj.amount * trading.getPriceBySymbol(obj.symbol)).toFixed(2)})))
     }, [trading.marketData, trading.transactions])
+
     const sorted = useSort([...assets], orderBy, order);
 
     return (

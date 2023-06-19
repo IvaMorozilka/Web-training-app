@@ -4,10 +4,9 @@ import AuthTextField from "../ui/AuthTextField";
 import MyButton from "../ui/MyButton";
 import {observer} from "mobx-react-lite";
 import {AnimatePresence, motion} from "framer-motion";
-import {clearError, isErrorsExist, isRegistrationDataValid, transformRegData, validateData} from "../utils/helpers";
+import {clearError, isErrorsExist, validateData} from "../utils/helpers";
 import {register} from "../http/userAPI";
 import InputMask from "react-input-mask";
-import {$crm_host} from "../http";
 
 
 const Registration = observer(() => {
@@ -57,26 +56,16 @@ const Registration = observer(() => {
         setRegData({...regData, [key]: value})
     }
     async function handleRegistration() {
-        // if (!regData) return;
-        // if (Object.keys(regData).length < 8) return;
-        // const newFields = validateData(regData, fields);
-        // if (isErrorsExist(newFields)){
-        //     setFields(newFields);
-        // }
-        // else {
-            const data = {
-                "email": "mail@mail.ru",
-                "login": "123123",
-                "password": "1111111",
-                "firstName": "11",
-                "lastName": "11",
-                "patronymic": "11",
-                "phone": "72131231232",
-                "birthday": "2001-06-05T20:00:00.000Z"
-            }
-            const response = await register(data)
-            // console.log(response)
-        // }
+        if (!regData) return;
+        if (Object.keys(regData).length < 8) return;
+        const newFields = validateData(regData, fields);
+        if (isErrorsExist(newFields)){
+            setFields(newFields);
+        }
+        else {
+            const response = await register(regData);
+            console.log(response)
+        }
     }
     const gridLayout = (index) => {
         switch (index) {

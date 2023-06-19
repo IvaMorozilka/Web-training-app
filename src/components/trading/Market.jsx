@@ -28,8 +28,8 @@ export const Market = observer(() => {
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        // const intervalId = setInterval(() => trading.updateMarketData(), 5000);
-        // return () => clearInterval(intervalId);
+        const intervalId = setInterval(() => trading.updateMarketData(), 5000);
+        return () => clearInterval(intervalId);
     }, [])
 
     const handleChipClick = (e) => {
