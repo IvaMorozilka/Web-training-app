@@ -1,15 +1,14 @@
-import React, {useContext, useEffect, useState} from "react";
-import {Box, InputAdornment, Slider, Stack, TextField, Typography} from "@mui/material";
+import React, {useContext, useEffect, useRef, useState} from "react";
+import {Box, InputAdornment, Stack, Typography} from "@mui/material";
 import {grey} from "@mui/material/colors";
 import {Context} from "../../index";
-import {checkDecimalInput, getTotal} from "../../utils/helpers";
+import {checkDecimalInput, formatSum, getTotal} from "../../utils/helpers";
 import {CustomButton} from "../../ui/CustomButton";
 import {observer} from "mobx-react-lite";
 import {CustomSlider, CustomTextField} from "../../ui/StyledComponents";
 
 
-
-const TradeSection = observer( ({isBuy, isMarket, hide, ...props}) => {
+const TradeSection = observer(({isBuy, isMarket, hide, ...props}) => {
     const marks = [
         {
             value: 0,
@@ -32,16 +31,19 @@ const TradeSection = observer( ({isBuy, isMarket, hide, ...props}) => {
     const {trading} = useContext(Context);
     const currencyAmount = isBuy
         ? trading.usdAmount
-        : trading.selectedAccount.amount;
-    const exchangeRate = trading.selectedAccount.price;
+        : trading.selectedAccountAmount;
+
     const [sum, setSum] = useState(0);
-    const [price, setPrice] = useState(exchangeRate);
+    const [price, setPrice] = useState(0);
     const [total, setTotal] = useState(0);
+    const [sliderValue, setSliderValue] = useState(0);
 
-    useEffect(()=> {
-      setPrice(exchangeRate);
-    }, [trading.selectedAccount])
-
+    useEffect(() => {
+        setTotal(0);
+        setSum(0);
+        setSliderValue(0)
+        setPrice(trading.getSelectedAccountCurrentPrice());
+    }, [trading.selectedAccount, trading.marketData])
 
     const handlePriceChange = (e) => {
         if (checkDecimalInput(e.target.value, 1)) {
@@ -52,20 +54,21 @@ const TradeSection = observer( ({isBuy, isMarket, hide, ...props}) => {
     const handleSumChange = (e) => {
         if (checkDecimalInput(e.target.value, isBuy ? 1 : 8)) {
             setSum(e.target.value);
-            setTotal(getTotal(e.target.value,price));
+            setTotal(getTotal(e.target.value, price));
         }
     };
     const handleTotalChange = (e) => {
-        if (checkDecimalInput(e.target.value, 1)) {
+        if (checkDecimalInput(e.target.value, 2)) {
             setSum((e.target.value / price).toFixed(8));
             setTotal(e.target.value);
         }
     };
     const handleSliderChange = (e) => {
+        setSliderValue(e.target.value)
         const percent = e.target.value / 100;
         if (isBuy) {
-            setSum((currencyAmount / price * percent).toFixed(8));
-            setTotal(currencyAmount * percent);
+            setSum(formatSum((currencyAmount / price * percent), price));
+            setTotal((currencyAmount * percent).toFixed(2));
         } else {
             setSum((currencyAmount * percent).toFixed(8));
             setTotal((price * currencyAmount * percent).toFixed(1));
@@ -98,7 +101,7 @@ const TradeSection = observer( ({isBuy, isMarket, hide, ...props}) => {
     }
 
     return (
-        <Box p={1} display={hide ? 'none' : 'block'}>
+        <Box p={1} display={hide ? 'none' : 'block'} sx = {{overflowX: 'hidden'}}>
             <Stack direction="column"
                    spacing={1}>
                 <Stack spacing={1}>
@@ -145,8 +148,9 @@ const TradeSection = observer( ({isBuy, isMarket, hide, ...props}) => {
                         }}
                         type="text"
                     ></CustomTextField>
-                    <Box px = {0.5}>
+                    <Box px={0.5}>
                         <CustomSlider
+                            value = {sliderValue}
                             size="small"
                             valueLabelDisplay="auto"
                             marks={marks}
@@ -176,12 +180,13 @@ const TradeSection = observer( ({isBuy, isMarket, hide, ...props}) => {
                 <Stack direction='row' spacing={1}>
                     <Typography color={grey[500]}>Доступно</Typography>
                     <Box display='flex' gap='3px'>
-                        <Typography>{currencyAmount}</Typography>
+                        <Typography>{isBuy ? currencyAmount :  formatSum(parseFloat(currencyAmount), price)}</Typography>
                         <Typography>{isBuy ? 'USD' : trading.selectedAccountCurrency}</Typography>
                     </Box>
                 </Stack>
 
-                <CustomButton onClick = { isBuy ? handleBuy : handleSell}  variant='contained' color={isBuy ? 'success' : 'secondary'} fullWidth
+                <CustomButton onClick={isBuy ? handleBuy : handleSell} variant='contained'
+                              color={isBuy ? 'success' : 'secondary'} fullWidth
                               sx={{mt: '8px', fontWeight: 600, borderRadius: '9px'}}>
                     {isBuy ? 'Купить' : 'Продать'}
                 </CustomButton>

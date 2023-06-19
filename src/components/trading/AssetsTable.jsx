@@ -1,22 +1,29 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {TableHeader} from "./TableHeader";
 import {assetsHeaderCells} from "../../utils/consts";
 import {grey} from "@mui/material/colors";
 import {Table, TableBody, Typography} from "@mui/material";
 import {CustomTableCell, CustomTableRow} from "../../ui/StyledComponents";
 import {Context} from "../../index";
+import {observer} from "mobx-react-lite";
+import {useSort} from "../../hooks/useSort";
 
-const AssetsTable = () => {
+const AssetsTable = observer (() => {
     const {trading} = useContext(Context);
-    const assets = trading.assets;
-    const [order, setOrder] = useState('asc');
-    const [orderBy, setOrderBy] = useState('pair');
+    const [assets, setAssets] = useState(trading.assets);
+    const [order, setOrder] = useState('desc');
+    const [orderBy, setOrderBy] = useState('amountUSD');
     const handleRequestSort = (property) => {
         const isAsc = orderBy === property && order === 'asc';
         setOrder(isAsc ? 'desc' : 'asc');
         setOrderBy(property);
         console.log('order:', order, '|by:', orderBy);
     };
+    useEffect(() => {
+        setAssets(assets.map(obj => ({...obj, amountUSD: (obj.amount * trading.getPriceBySymbol(obj.symbol)).toFixed(2)})))
+    }, [trading.marketData, trading.transactions])
+    const sorted = useSort([...assets], orderBy, order);
+
     return (
         <Table stickyHeader sx = {{tableLayout: 'fixed', width: '100%'}}>
             <TableHeader
@@ -29,7 +36,7 @@ const AssetsTable = () => {
                 textColor={grey[500]}
             />
             <TableBody>
-                {assets.map(record =>
+                {sorted.map(record =>
                     <CustomTableRow>
                         {Object.keys(record).map(key =>
                             key !== 'id' ?
@@ -41,6 +48,6 @@ const AssetsTable = () => {
             </TableBody>
         </Table>
     );
-};
+});
 
 export default AssetsTable;

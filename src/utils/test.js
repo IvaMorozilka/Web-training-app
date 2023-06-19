@@ -6,7 +6,7 @@ const $coin_api = axios.create({
     headers: {'Authorization': 'Bearer 8bc3efda-b055-402e-ad3e-b10b6692adea'}
 })
 
-$coin_api.get('/markets', {params: {limit: 10, exchangeId: 'binance', quoteSymbol: 'USDT'}}).then(response => {
+$coin_api.get('/assets', {params: {limit: 25}}).then(response => {
     const btc = response.data.data;
     console.log('BTC:', btc)
 })

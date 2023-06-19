@@ -21,11 +21,6 @@ export function checkDecimalInput(input, precision) {
     return regex.test(input);
 }
 
-export function getTotal(price, sum) {
-    const result = parseFloat(price).toFixed(1) * parseFloat(sum).toFixed(8);
-    return result.toFixed(1);
-}
-
 export function formatPercentage(number) {
     return `${number > 0 ? '+' : ''}${number}%`;
 }
@@ -79,4 +74,54 @@ export const transformRegData = (reg) => {
     newData.birthday = new Date(newData.birthday.replace(/\D/g, '.')).toISOString();
     delete newData.repeatPassword;
     return newData;
+}
+export function formatValue(value) {
+    const float = parseFloat(value)
+    if (Number.isInteger(float)) {
+        return float.toFixed(2).replace(/\.?0+$/, '') + '.00';
+    } else if (float >= 1.1) {
+        return float.toFixed(2).replace(/\.?0+$/, '');
+    } else if (float >= 0.1 && float < 1.1) {
+        return float.toFixed(4).replace(/\.?0+$/, '');
+    } else if (float >= 0.01 && float < 0.1) {
+        return float.toFixed(6).replace(/\.?0+$/, '');
+    } else if (float < 0.01) {
+        return float.toFixed(9).replace(/\.?0+$/, '');
+    }
+}
+export function getTotal(val1, val2) {
+    const result = parseFloat(val1) * parseFloat(val2);
+    return result.toFixed(2);
+}
+
+export function formatSum(value, price) {
+    const float = parseFloat(price)
+    if (Number.isInteger(float)) {
+        return value.toFixed(9);
+    } else if (float >= 5000) {
+        return value.toFixed(9);
+    } else if (float >= 1000 && float < 5000) {
+        return value.toFixed(6);
+    } else if (float >= 1 && float < 1000) {
+        return value.toFixed(4);
+    } else if (float < 1) {
+        return value.toFixed(2);
+    }
+}
+
+export function currentDateTime(){
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const hours = String(currentDate.getHours()).padStart(2, '0');
+    const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+    return `${year}.${month}.${day} ${hours}:${minutes}`;
+}
+
+export function getLastId(array){
+    if (isEmptyArray(array))
+        return 0;
+    else
+        return array[array.length - 1].id;
 }

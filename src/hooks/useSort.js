@@ -1,8 +1,8 @@
 import {useMemo} from "react";
 
-export const useSort = (data, isFav, orderBy, order, searchQuery) => {
+export const useSort = (data, orderBy, order) => {
+    console.log('sorted')
     const sort = useMemo(() => {
-        //const data = isFav ? [...assetsData.filter(asset => asset.fav === true)] : [...assetsData];
         switch (orderBy) {
             case 'symbol':
                 return data.sort((a, b) => {
@@ -11,6 +11,20 @@ export const useSort = (data, isFav, orderBy, order, searchQuery) => {
                     else
                         return b.symbol.localeCompare(a.symbol)
                 })
+            case 'date':
+                return data.sort((a, b) => {
+                    if (order === 'asc')
+                        return new Date(a.date).getTime() - new Date(b.date).getTime()
+                    else
+                        return new Date(b.date).getTime() - new Date(a.date).getTime()
+                })
+            case 'amount':
+                return data.sort((a, b) => {
+                    if (order === 'asc')
+                        return parseFloat(a.amount) - parseFloat(b.amount)
+                    else
+                        return parseFloat(b.amount) - parseFloat(a.amount)
+                })
             case 'price':
                 return data.sort((a, b) => {
                     if (order === 'asc')
@@ -18,20 +32,17 @@ export const useSort = (data, isFav, orderBy, order, searchQuery) => {
                     else
                         return parseFloat(b.price) - parseFloat(a.price)
                 })
-            case 'change':
+            case 'amountUSD':
                 return data.sort((a, b) => {
                     if (order === 'asc')
-                        return parseFloat(a.change) - parseFloat(b.change)
+                        return parseFloat(a.amountUSD) - parseFloat(b.amountUSD)
                     else
-                        return parseFloat(b.change) - parseFloat(a.change)
+                        return parseFloat(b.amountUSD) - parseFloat(a.amountUSD)
                 })
             default:
                 return data;
         }
-    }, [data ,order, orderBy, isFav]);
-    const searchedAndSorted = useMemo(() => {
-        return sort.filter(data => data.symbol.toUpperCase().includes(searchQuery));
-    }, [searchQuery, sort]);
+    }, [data ,order, orderBy]);
 
-    return searchedAndSorted;
+    return sort;
 }

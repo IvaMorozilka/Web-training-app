@@ -24,7 +24,7 @@ export const Cryptocurrencies = observer(({data, ...props}) => {
     return (
         <>
             {data.map((asset, index) =>
-            <CustomTableRow hover selected={asset.id === trading.selectedAccount.id}  onClick = {(e) => e.target.id || trading.changeSelectedAccountById(asset.id+2)} key = {asset.id} sx = {{cursor: 'pointer'}}>
+            <CustomTableRow hover selected={asset.id + 2 === trading.selectedAccount.id}  onClick = {(e) => e.target.id || trading.changeSelectedAccountById(asset.id+2)} key = {asset.id} sx = {{cursor: 'pointer'}}>
                 <CustomTableCell align='left' key = {asset.id}>
                     <Stack direction='row' alignItems='center' spacing={1}>
                         <Box sx = {{cursor: 'pointer'}} onClick = {handleFavClick} key={asset.id} id = {asset.id}>

@@ -17,7 +17,7 @@ import DescriptionOutlinedIcon from '@mui/icons-material/DescriptionOutlined';
  import {CustomChip, CustomTableCell, CustomTableRow} from "../../ui/StyledComponents";
  import {marketHeaderCells} from "../../utils/consts";
  import {TableHeader} from "./TableHeader";
- import {useSort} from "../../hooks/useSort";
+ import {useSortAndSearch} from "../../hooks/useSortAndSearch";
 
 export const Market = observer(() => {
     const {trading} = useContext(Context);
@@ -28,11 +28,6 @@ export const Market = observer(() => {
     const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        async function updatePrices(){
-            await trading.updateMarketData();
-            trading.createTradingAccounts();
-        }
-        updatePrices();
         // const intervalId = setInterval(() => trading.updateMarketData(), 5000);
         // return () => clearInterval(intervalId);
     }, [])
@@ -51,7 +46,7 @@ export const Market = observer(() => {
         }
     }
 
-    const sortResult = useSort(
+    const sortResult = useSortAndSearch(
         isFav ? [...marketData.filter(asset => asset.fav === true)] : [...marketData],
         isFav,
         orderBy,

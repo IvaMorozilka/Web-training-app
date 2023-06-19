@@ -10,6 +10,14 @@ import {useContext, useEffect} from "react";
 import {Context} from "./index";
 
 function App() {
+    const {trading} = useContext(Context);
+    useEffect(( ) => {
+        async function createTradingAccounts(){
+            await trading.updateMarketData();
+            trading.createTradingAccounts();
+        }
+        createTradingAccounts();
+    }, [])
   return (
     <ThemeProvider theme={customTheme}>
       <BackgroundWrapper>

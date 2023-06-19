@@ -18,14 +18,14 @@ const Trading = () => {
         await trading.updateMarketData()
     }
     return (
-        <Box p={1} height={'calc(100vh - 108px)'}>
+        <Box p={1} height={'auto'}>
             <Grid container spacing={1} height={'100%'}>
                 <Grid item xs={8}>
                     <Stack spacing={1} height={'100%'}>
                         <RoundBox flexBasis='75%' component={Paper} elevation={4}>
                             <Chart/>
                         </RoundBox>
-                        <RoundBox display='flex' overflow='hidden' flexBasis='25%' component={Paper}
+                        <RoundBox display='flex' flexBasis='25%' component={Paper}
                                   elevation={4}>
                             <Info/>
                         </RoundBox>
@@ -35,7 +35,6 @@ const Trading = () => {
                     <Stack spacing={1} flex={1}>
                         <RoundBox flexBasis='content' component={Paper} elevation={4} >
                             <Trade/>
-                            {/*<Button variant={'contained'} onClick={handleClick}>Проверка</Button>*/}
                         </RoundBox>
                         <RoundBox p={1} flex={1} component={Paper} elevation={4}>
                             <Market/>
